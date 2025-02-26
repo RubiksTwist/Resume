@@ -42,3 +42,11 @@ h2 {
 ul {
     padding-left: 20px;
 }
+#visitor-counter {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #f0f0f0;
+    padding: 5px;
+    border-radius: 5px;
+}
