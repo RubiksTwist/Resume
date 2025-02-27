@@ -8,15 +8,6 @@
 </head>
 <body>
     <div id="visitor-counter">Visitors: <span id="visitor-count">0</span></div>
-    <script>
-        async function updateVisitorCount() {
-            const response = await fetch('api-for-resume-a4dfavdnhhdna0d8.eastus2-01.azurewebsites.net');
-            const data = await response.json();
-            document.getElementById('visitor-count').innerText = data.count;
-        }
-
-        updateVisitorCount();
-    </script>
     <div class="left">
         <h1>Alex Cheung</h1>
         <p>50 North 5th St., Brooklyn, NY • 929-303-0027 • alexchg0106@gmail.com</p>
@@ -80,5 +71,7 @@
             <li><strong>ITIL 4 Foundation</strong> (Jan 2025 - Jan 2028)</li>
         </ul>
     </div>
+    <!-- Link to External JavaScript File -->
+    <script src="visitor-counter.js"></script>
 </body>
 </html>
