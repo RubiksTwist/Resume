@@ -110,47 +110,83 @@
         </div>
     </section>
 
-    <!-- Placeholder for Detailed Explanations -->
-    <section class="detailed-explanations">
-        <div class="container">
-            <h2>Detailed Explanations</h2>
-            <div class="explanation-item">
-                <h3>VLAN Configuration</h3>
-                <p>
-                    <!-- Placeholder for VLAN configuration details -->
-                    Explain how VLANs were configured, including the purpose of each VLAN (e.g., Management, Receptionists, Dentists, Hygienists).
-                </p>
-            </div>
-            <div class="explanation-item">
-                <h3>Access Control Lists (ACLs)</h3>
-                <p>
-                    <!-- Placeholder for ACL details -->
-                    Describe how ACLs were used to restrict traffic between VLANs and enforce security policies.
-                </p>
-            </div>
-            <div class="explanation-item">
-                <h3>Inter-VLAN Routing</h3>
-                <p>
-                    <!-- Placeholder for Inter-VLAN routing details -->
-                    Explain how Inter-VLAN routing was implemented to allow communication between VLANs while maintaining security.
-                </p>
-            </div>
-            <div class="explanation-item">
-                <h3>IPSec VPN Setup</h3>
-                <p>
-                    <!-- Placeholder for IPSec VPN details -->
-                    Provide details on how the IPSec VPN was configured to secure communication between sites.
-                </p>
-            </div>
-            <div class="explanation-item">
-                <h3>Network Monitoring</h3>
-                <p>
-                    <!-- Placeholder for network monitoring details -->
-                    Discuss the tools and techniques used for network monitoring, such as syslog and NTP.
-                </p>
-            </div>
+    <!-- Detailed Explanations Section -->
+<section class="detailed-explanations">
+    <div class="container">
+        <h2>Detailed Explanations</h2>
+        
+        <!-- VLAN Configuration -->
+        <div class="explanation-item">
+            <h3>VLAN Configuration</h3>
+            <p>
+                The network was segmented into multiple VLANs to enhance security and reduce congestion. Each VLAN served a specific purpose:
+                <ul>
+                    <li><strong>VLAN 10 (Management)</strong>: Used for network management and monitoring.</li>
+                    <li><strong>VLAN 15 (Receptionists)</strong>: Dedicated to receptionist workstations.</li>
+                    <li><strong>VLAN 20 (Dentists)</strong>: Reserved for dentist workstations and related devices.</li>
+                    <li><strong>VLAN 30 (Hygienists)</strong>: Used for hygienist workstations and devices.</li>
+                </ul>
+                VLANs were configured on Layer 3 switches using the <code>vlan</code> command, and access ports were assigned to the appropriate VLANs using the <code>switchport access vlan</code> command.
+            </p>
         </div>
-    </section>
+
+        <!-- Access Control Lists (ACLs) -->
+        <div class="explanation-item">
+            <h3>Access Control Lists (ACLs)</h3>
+            <p>
+                ACLs were implemented to enforce security policies and restrict traffic between VLANs. For example:
+                <ul>
+                    <li>ACLs on VLANs 15, 20, and 30 allowed only <strong>echo-reply</strong> traffic to VLAN 10 (Management).</li>
+                    <li>ACLs were applied to the <strong>outside interface</strong> of the ASA firewall to restrict guest access to only HTTPS traffic (port 443).</li>
+                </ul>
+                ACLs were configured using the <code>ip access-list</code> command and applied to interfaces with the <code>ip access-group</code> command.
+            </p>
+        </div>
+
+        <!-- Inter-VLAN Routing -->
+        <div class="explanation-item">
+            <h3>Inter-VLAN Routing</h3>
+            <p>
+                Inter-VLAN routing was enabled using <strong>Switch Virtual Interfaces (SVIs)</strong> on Layer 3 switches. Each VLAN had an SVI with a unique IP address, allowing devices in different VLANs to communicate securely. For example:
+                <ul>
+                    <li>VLAN 10 SVI: <code>10.0.10.1</code></li>
+                    <li>VLAN 15 SVI: <code>10.0.15.1</code></li>
+                    <li>VLAN 20 SVI: <code>10.0.20.1</code></li>
+                    <li>VLAN 30 SVI: <code>10.0.30.1</code></li>
+                </ul>
+                Routing between VLANs was verified using the <code>ping</code> command, ensuring that only authorized traffic could pass between VLANs.
+            </p>
+        </div>
+
+        <!-- IPSec VPN Setup -->
+        <div class="explanation-item">
+            <h3>IPSec VPN Setup</h3>
+            <p>
+                An IPSec VPN was configured between two Cisco ASA firewalls to secure communication between Site A and Site B. The VPN tunnel used the following settings:
+                <ul>
+                    <li><strong>Transform Set</strong>: <code>esp-des esp-md5-hmac</code></li>
+                    <li><strong>ISAKMP Policy</strong>: Pre-shared key authentication and AES encryption.</li>
+                    <li><strong>Access Control</strong>: Only HTTPS traffic was allowed through the VPN.</li>
+                </ul>
+                The VPN tunnel was verified using the <code>show crypto ipsec sa</code> command, and connectivity was tested using <code>ping</code> between devices in Site A and Site B.
+            </p>
+        </div>
+
+        <!-- Network Monitoring -->
+        <div class="explanation-item">
+            <h3>Network Monitoring</h3>
+            <p>
+                Network monitoring was implemented using the following tools and techniques:
+                <ul>
+                    <li><strong>Syslog</strong>: Configured on the ASA firewall to log ACL violations and other security events.</li>
+                    <li><strong>NTP (Network Time Protocol)</strong>: Used to synchronize the clocks of all network devices for accurate logging and troubleshooting.</li>
+                    <li><strong>Packet Tracer Simulation Mode</strong>: Used to analyze PDUs and verify traffic flow between VLANs and through the VPN tunnel.</li>
+                </ul>
+                These tools ensured that the network was monitored effectively, and any issues were identified and resolved promptly.
+            </p>
+        </div>
+    </div>
+</section>
 
     <!-- Footer -->
     <footer>

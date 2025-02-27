@@ -367,3 +367,91 @@ footer ul li a:hover {
     border-radius: 8px; /* Optional: Add rounded corners */
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
 }
+/* Resume Container */
+.resume-container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+}
+
+.resume-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.resume-header h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+.resume-header p {
+    font-size: 18px;
+    color: #666;
+}
+
+.resume-header a {
+    color: #1abc9c;
+    text-decoration: none;
+}
+
+.resume-header a:hover {
+    text-decoration: underline;
+}
+
+/* Resume Sections */
+.resume-section {
+    margin-bottom: 30px;
+}
+
+.resume-section h2 {
+    font-size: 24px;
+    color: #2c3e50;
+    border-bottom: 2px solid #1abc9c;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+}
+
+.experience-item {
+    margin-bottom: 20px;
+}
+
+.experience-item h3 {
+    font-size: 20px;
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+.experience-item .date {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.experience-item ul {
+    list-style: disc;
+    padding-left: 20px;
+}
+
+.experience-item ul li {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.skills-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skills-list li {
+    background-color: #1abc9c;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 14px;
+}

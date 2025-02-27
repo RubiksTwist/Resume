@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Azure Cloud Resume Challenge Journey</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <style>
+        /* Scoped styles */
+        .cloud-resume-challenge {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        .cloud-resume-challenge h1, 
+        .cloud-resume-challenge h2 {
+            color: #005a9c;
+        }
+        .cloud-resume-challenge a {
+            color: #0078d4;
+            text-decoration: none;
+        }
+        .cloud-resume-challenge a:hover {
+            text-decoration: underline;
+        }
+        .cloud-resume-challenge .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .cloud-resume-challenge .section {
+            margin-bottom: 30px;
+        }
+        .cloud-resume-challenge .section h2 {
+            margin-top: 0;
+        }
+        .cloud-resume-challenge .section p {
+            margin: 10px 0;
+        }
+        .cloud-resume-challenge .section ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        .cloud-resume-challenge .section ul li {
+            margin-bottom: 10px;
+        }
+    </style>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">Alex Cheung</a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="azure-challenge.html">Azure Cloud Resume Challenge</a></li>
+                <li><a href="capstone.html">Network Engineering and Security Capstone</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <h1>My Azure Cloud Resume Challenge Journey</h1>
+        <p>Welcome to my Azure Cloud Resume Challenge page! This project has been an incredible learning experience, allowing me to dive deep into Azure cloud services while building a fully functional, cloud-hosted resume website. Below, I’ll walk you through the steps I took, the technologies I used, and the lessons I learned along the way.</p>
+
+        <div class="section">
+            <h2>1. Certification: AZ-900 Azure Fundamentals</h2>
+            <p>To kick off the challenge, I earned the <strong>AZ-900 Azure Fundamentals</strong> certification. This introductory certification provided me with a solid understanding of Azure’s core services, pricing models, and cloud concepts. It was a great starting point for the challenge and helped me familiarize myself with the Azure ecosystem.</p>
+            <p><strong>Lesson Learned:</strong> The AZ-900 certification taught me the importance of understanding cloud fundamentals before diving into hands-on projects. It also gave me confidence in navigating the Azure portal and selecting the right services for my needs.</p>
+        </div>
+
+        <div class="section">
+            <h2>2. HTML & CSS: Building the Resume</h2>
+            <p>I wrote my resume in <strong>HTML</strong> and styled it using <strong>CSS</strong>. While I’m not a designer, I focused on creating a clean, professional layout that is both functional and visually appealing. Using <strong>VS Code</strong> as my code editor, I was able to efficiently write and debug my code.</p>
+            <p><strong>Lesson Learned:</strong> This step reinforced the importance of writing clean, semantic HTML and using CSS to create a responsive design. It also reminded me that simplicity often leads to the best user experience.</p>
+        </div>
+
+        <div class="section">
+            <h2>3. Static Website: Azure Static Web App</h2>
+            <p>Instead of using services like Netlify or GitHub Pages, I deployed my resume as a <strong>static website</strong> using <strong>Azure Static Web Apps</strong>. This service was perfect for hosting my HTML and CSS files, and it integrated seamlessly with my GitHub repository for continuous deployment.</p>
+            <p><strong>Cost Optimization:</strong> I used the <strong>free tier</strong> of Azure Static Web Apps, which provided more than enough resources for my project. This allowed me to host my website without incurring any costs.</p>
+            <p><strong>Lesson Learned:</strong> Azure Static Web Apps is a powerful and cost-effective solution for hosting static websites. Its integration with GitHub made deployment effortless, and the free tier is perfect for small projects like this one.</p>
+        </div>
+
+        <div class="section">
+            <h2>4. HTTPS & DNS: Securing and Customizing the Website</h2>
+            <p>To secure my website, I enabled <strong>HTTPS</strong> using <strong>Azure CDN</strong>. This ensured that all traffic to my site was encrypted. I also purchased a custom domain from <strong>Porkbun.com</strong> for just <strong>$3 for the first year</strong> and configured it to point to my Azure CDN endpoint.</p>
+            <p><strong>Lesson Learned:</strong> Configuring HTTPS and DNS taught me the importance of securing web applications and making them accessible via user-friendly URLs. It also gave me hands-on experience with Azure CDN and DNS management.</p>
+        </div>
+
+        <div class="section">
+            <h2>5. JavaScript: Visitor Counter</h2>
+            <p>To make my resume more interactive, I added a <strong>visitor counter</strong> using <strong>JavaScript</strong>. This counter displays the number of people who have accessed my site. The counter updates dynamically by communicating with a backend API.</p>
+            <p><strong>Lesson Learned:</strong> This step introduced me to the power of JavaScript for adding dynamic functionality to static websites. It also highlighted the importance of separating frontend and backend logic.</p>
+        </div>
+
+        <div class="section">
+            <h2>6. Database: Azure Cosmos DB</h2>
+            <p>The visitor counter stores and retrieves its count from a <strong>Cosmos DB</strong> database. I used the <strong>Table API</strong> in <strong>serverless capacity mode</strong>, which is highly cost-effective for small-scale applications like this one.</p>
+            <p><strong>Cost Optimization:</strong> By using the serverless tier, I minimized costs while still benefiting from Cosmos DB’s scalability and performance.</p>
+            <p><strong>Lesson Learned:</strong> Cosmos DB is a versatile and powerful database solution. The serverless tier is perfect for projects with low traffic, as it ensures you only pay for what you use.</p>
+        </div>
+
+        <div class="section">
+            <h2>7. API: Azure Functions</h2>
+            <p>To securely interact with Cosmos DB, I created an <strong>API</strong> using <strong>Azure Functions</strong>. The function, triggered by HTTP requests, handles the logic for retrieving and updating the visitor count.</p>
+            <p><strong>Cost Optimization:</strong> I used the <strong>consumption plan</strong> for Azure Functions, which is a low-cost, pay-as-you-go option. This plan is ideal for lightweight applications and ensured that my costs remained minimal.</p>
+            <p><strong>Lesson Learned:</strong> Azure Functions is a fantastic serverless compute option for building APIs. It taught me how to decouple frontend and backend logic while keeping costs low.</p>
+        </div>
+
+        <div class="section">
+            <h2>8. Version Control: GitHub</h2>
+            <p>Throughout the project, I used <strong>GitHub</strong> for version control. This allowed me to track changes, collaborate with others (if needed), and deploy my code seamlessly to Azure Static Web Apps.</p>
+            <p><strong>Lesson Learned:</strong> Version control is essential for any development project. GitHub’s integration with Azure made deployment straightforward and efficient.</p>
+        </div>
+
+        <div class="section">
+            <h2>9. Cost Optimization: A Key Focus</h2>
+            <p>One of my primary goals for this project was to keep costs as low as possible. Here’s how I achieved that:</p>
+            <ul>
+                <li><strong>Azure Static Web Apps:</strong> Free tier for hosting.</li>
+                <li><strong>Azure Functions:</strong> Consumption plan for serverless compute.</li>
+                <li><strong>Azure Cosmos DB:</strong> Serverless capacity mode for database operations.</li>
+                <li><strong>Custom Domain:</strong> Purchased from Porkbun.com for just $3 for the first year.</li>
+            </ul>
+            <p>By carefully selecting the right Azure services and tiers, I was able to build and host my resume website for <strong>less than $5 per year</strong>.</p>
+            <p><strong>Lesson Learned:</strong> Cloud cost optimization is a critical skill. By understanding pricing models and selecting the right tiers, you can build powerful applications without breaking the bank.</p>
+        </div>
+
+        <div class="section">
+            <h2>Conclusion</h2>
+            <p>The Azure Cloud Resume Challenge has been an incredible learning experience. It allowed me to gain hands-on experience with Azure services like Static Web Apps, Functions, Cosmos DB, and CDN, while also reinforcing my understanding of HTML, CSS, and JavaScript. Most importantly, it taught me how to build and deploy a cost-effective, cloud-hosted application from scratch.</p>
+            <p>I’m excited to continue building on this foundation and exploring more advanced cloud concepts in the future. Thanks for visiting my site, and feel free to reach out if you have any questions!</p>
+        </div>
+    </div>
+</body>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Alex Cheung. All rights reserved.</p>
+            <p>Powered by <a href="https://azure.microsoft.com" target="_blank" class="azure-link">
+                <i class="fab fa-microsoft"></i> Microsoft Azure
+            </a></p>
+            <ul>
+                <li><a href="https://www.linkedin.com/in/alex-cheung-878632290" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+                <li><a href="mailto:alexchg0106@gmail.com"><i class="fas fa-envelope"></i></a></li>
+            </ul>
+        </div>
+    </footer>
+</html>
