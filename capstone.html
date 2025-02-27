@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Engineering & Security Capstone - Alex Cheung</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">Alex Cheung</a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="azure-challenge.html">Azure Cloud Resume Challenge</a></li>
+                <li><a href="capstone.html">Network Engineering and Security Capstone</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Capstone Hero Section -->
+    <header class="capstone-hero">
+        <div class="container">
+            <h1>Network Engineering & Security Capstone</h1>
+            <p>Designing Secure and Scalable Networks</p>
+        </div>
+    </header>
+    <!-- Network Topology Section -->
+    <section class="network-topology">
+        <div class="container">
+            <h2>Network Topology</h2>
+            <p>
+            Below is the network topology diagram for my capstone project. It illustrates the segmentation of the network into multiple VLANs, the placement of SVIs, and the overall structure of the network.
+            </p>
+            <div class="topology-image">
+                <img src="images/network topology.png" alt="Network Topology Diagram">
+            </div>
+        </div>
+    </section>
+    <!-- Capstone Overview Section -->
+    <section class="capstone-overview">
+        <div class="container">
+            <h2>Project Overview</h2>
+            <p>
+                My capstone project focused on designing and implementing a secure, scalable network infrastructure for a multi-department organization. 
+                The goal was to ensure robust security, efficient traffic management, and seamless communication across different network segments.
+            </p>
+        </div>
+    </section>
+
+    <!-- Security Focus Section -->
+    <section class="security-focus">
+        <div class="container">
+            <h2>Emphasizing Security</h2>
+            <p>
+                One of the key aspects of my project was the emphasis on <strong>network security</strong>. I achieved this by:
+            </p>
+            <ul>
+                <li>
+                    <strong>Setting up Switch Virtual Interfaces (SVIs)</strong> at the edge switches connected to endpoints. 
+                    This allowed me to apply higher Layer 3 security policies, such as Access Control Lists (ACLs), to control traffic between VLANs.
+                </li>
+                <li>
+                    Implementing <strong>Inter-VLAN routing</strong> to ensure secure communication between departments while maintaining isolation where necessary.
+                </li>
+                <li>
+                    Using <strong>firewall rules</strong> and <strong>IPSec VPNs</strong> to protect sensitive data and restrict unauthorized access.
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Key Features Section -->
+    <section class="key-features">
+        <div class="container">
+            <h2>Key Features of the Network</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Layer 3 Security</h3>
+                    <p>
+                        SVIs and ACLs were used to enforce security policies at the network edge, ensuring that only authorized traffic could pass between VLANs.
+                    </p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-network-wired"></i>
+                    <h3>VLAN Segmentation</h3>
+                    <p>
+                        The network was segmented into multiple VLANs to isolate traffic and improve performance. Inter-VLAN routing was configured for necessary communication.
+                    </p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-lock"></i>
+                    <h3>IPSec VPN</h3>
+                    <p>
+                        An IPSec VPN was set up between sites to ensure secure communication over the internet, protecting sensitive data from interception.
+                    </p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-tools"></i>
+                    <h3>Network Monitoring</h3>
+                    <p>
+                        Tools like syslog and NTP were configured to monitor network activity and ensure accurate time synchronization across devices.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Placeholder for Detailed Explanations -->
+    <section class="detailed-explanations">
+        <div class="container">
+            <h2>Detailed Explanations</h2>
+            <div class="explanation-item">
+                <h3>VLAN Configuration</h3>
+                <p>
+                    <!-- Placeholder for VLAN configuration details -->
+                    Explain how VLANs were configured, including the purpose of each VLAN (e.g., Management, Receptionists, Dentists, Hygienists).
+                </p>
+            </div>
+            <div class="explanation-item">
+                <h3>Access Control Lists (ACLs)</h3>
+                <p>
+                    <!-- Placeholder for ACL details -->
+                    Describe how ACLs were used to restrict traffic between VLANs and enforce security policies.
+                </p>
+            </div>
+            <div class="explanation-item">
+                <h3>Inter-VLAN Routing</h3>
+                <p>
+                    <!-- Placeholder for Inter-VLAN routing details -->
+                    Explain how Inter-VLAN routing was implemented to allow communication between VLANs while maintaining security.
+                </p>
+            </div>
+            <div class="explanation-item">
+                <h3>IPSec VPN Setup</h3>
+                <p>
+                    <!-- Placeholder for IPSec VPN details -->
+                    Provide details on how the IPSec VPN was configured to secure communication between sites.
+                </p>
+            </div>
+            <div class="explanation-item">
+                <h3>Network Monitoring</h3>
+                <p>
+                    <!-- Placeholder for network monitoring details -->
+                    Discuss the tools and techniques used for network monitoring, such as syslog and NTP.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Alex Cheung. All rights reserved.</p>
+            <p>Powered by <a href="https://azure.microsoft.com" target="_blank" class="azure-link">
+            <img src="https://img.shields.io/badge/Powered%20by-Microsoft%20Azure-0078d4?style=flat&logo=microsoft-azure" alt="Powered by Microsoft Azure"></a></p>
+            <ul>
+                <li><a href="https://www.linkedin.com/in/alex-cheung-878632290" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+                <li><a href="mailto:alexchg0106@gmail.com"><i class="fas fa-envelope"></i></a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>

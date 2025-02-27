@@ -1,56 +1,369 @@
+/* General Styles */
 body {
-    font-family: Arial, sans-serif;
-    margin: 40px;
-    display: flex;
-    justify-content: space-between;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
     background-color: #f4f4f4;
     color: #333;
+    line-height: 1.6;
 }
+
 .container {
-    width: 80%;
-    background: white;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Navigation Bar */
+nav {
+    background-color: #2c3e50;
+    color: #fff;
+    padding: 10px 0;
+}
+
+nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+nav ul li a:hover {
+    color: #EF7C24;
+}
+
+/* Hero Section */
+.hero {
+    background-color: #EF7C24;
+    color: #fff;
+    padding: 100px 0;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 24px;
+}
+
+/* About Me Section */
+.about {
+    padding: 60px 0;
+    background-color: #fff;
+}
+
+.about h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+.about p {
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+/* Certifications Section */
+.certifications {
+    padding: 60px 0;
+    background-color: #f4f4f4;
+}
+
+.certifications h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+.cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.cert-item {
+    background-color: #fff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    display: flex;
-    justify-content: space-between;
+    text-align: center;
 }
-.left {
-    width: 65%;
-    padding-right: 20px;
-}
-.right {
-    width: 30%;
-    background-color: #e0e0e0;
-    padding: 15px;
-    border-radius: 8px;
-}
-h1 {
-    font-size: 24px;
-    color: #2c3e50;
-    margin-bottom: 5px;
-}
-h2 {
-    font-size: 20px;
-    border-bottom: 2px solid #2c3e50;
-    padding-bottom: 5px;
+
+.cert-item i {
+    font-size: 48px;
+    color: #EF7C24;
     margin-bottom: 10px;
 }
-.contact p, .section p {
-    margin: 5px 0;
+
+.cert-item h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #2c3e50;
 }
-ul {
-    padding-left: 20px;
-}
-/* Visitor Counter Styles */
-#visitor-counter {
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    background-color: #f0f0f0;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+
+.cert-item p {
     font-size: 16px;
-    z-index: 1000;
+    color: #666;
+}
+.cert-logo {
+    width: 80px; /* Adjust width */
+    height: auto;
+    margin-bottom: 10px; /* Space between logo and text */
+}
+
+/* Footer */
+footer {
+    background-color: #2c3e50;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+}
+
+footer ul li {
+    margin: 0 10px;
+}
+
+footer ul li a {
+    color: #fff;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+footer ul li a:hover {
+    color: #EF7C24;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .hero p {
+        font-size: 18px;
+    }
+
+    .about h2, .certifications h2 {
+        font-size: 28px;
+    }
+}
+.azure-link {
+    color: #0078d4; /* Azure's brand color */
+    text-decoration: none;
+    font-weight: bold;
+}
+.azure-link:hover {
+    text-decoration: underline;
+}
+
+/* If using the Azure logo */
+.azure-link i {
+    margin-right: 5px;
+}
+
+/* Capstone Hero Section */
+.capstone-hero {
+    background-color: #1abc9c;
+    color: #fff;
+    padding: 100px 0;
+    text-align: center;
+}
+
+.capstone-hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.capstone-hero p {
+    font-size: 24px;
+}
+
+/* Capstone Overview Section */
+.capstone-overview {
+    padding: 60px 0;
+    background-color: #fff;
+}
+
+.capstone-overview h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+.capstone-overview p {
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+/* Security Focus Section */
+.security-focus {
+    padding: 60px 0;
+    background-color: #f4f4f4;
+}
+
+.security-focus h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+.security-focus ul {
+    list-style: none;
+    padding: 0;
+}
+
+.security-focus ul li {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.security-focus ul li strong {
+    color: #1abc9c;
+}
+
+/* Key Features Section */
+.key-features {
+    padding: 60px 0;
+    background-color: #fff;
+}
+
+.key-features h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.feature-item {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.feature-item i {
+    font-size: 48px;
+    color: #1abc9c;
+    margin-bottom: 10px;
+}
+
+.feature-item h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+.feature-item p {
+    font-size: 16px;
+    color: #666;
+}
+
+/* Detailed Explanations Section */
+.detailed-explanations {
+    padding: 60px 0;
+    background-color: #f4f4f4;
+}
+
+.detailed-explanations h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+.explanation-item {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.explanation-item h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+.explanation-item p {
+    font-size: 16px;
+    color: #666;
+}
+
+/* Network Topology Section */
+.network-topology {
+    padding: 60px 0;
+    background-color: #fff; /* White background to match the image */
+}
+
+.network-topology h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+.network-topology p {
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.topology-image {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.topology-image img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ddd; /* Optional: Add a border around the image */
+    border-radius: 8px; /* Optional: Add rounded corners */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
 }
