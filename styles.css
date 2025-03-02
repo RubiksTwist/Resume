@@ -60,8 +60,17 @@ nav ul li a:hover {
 .hero {
     background-color: #EF7C24;
     color: #fff;
-    padding: 100px 0;
+    padding: 80px 0;
     text-align: center;
+}
+
+.profile-pic {
+    width: 150px; /* Adjust the size as needed */
+    height: 150px; /* Adjust the size as needed */
+    border-radius: 50%; /* This makes the image circular */
+    border: 3px solid #fff; /* Optional: Adds a border around the image */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow */
+    margin-bottom: 20px; /* Space between the image and the text below */
 }
 
 .hero h1 {
