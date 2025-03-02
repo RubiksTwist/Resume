@@ -3,9 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alex Cheung - Resume</title>
+    <title>Alex Cheung - Cybersecurity Lab</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Collapsible Container Styles */
+.collapsible {
+    margin-bottom: 10px;
+    width: 100%;
+    max-width: 800px; /* Adjust as needed */
+}
+
+.collapsible-btn {
+    background-color: #0078d4; /* Blue color */
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 1.1em;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.collapsible-btn:hover {
+    background-color: #005bb5; /* Darker blue on hover */
+}
+
+.collapsible-btn:after {
+    content: '\002B'; /* Plus sign */
+    font-size: 1.2em;
+    float: right;
+    margin-left: 5px;
+}
+
+.collapsible-btn.active:after {
+    content: '\2212'; /* Minus sign */
+}
+
+.content {
+    padding: 0 15px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    background-color: #f9f9f9;
+    border-radius: 0 0 5px 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation Bar -->
@@ -20,121 +82,378 @@
             </ul>
         </div>
     </nav>
+    <section class="hero">
+        <div class="container">
+            <h1>Cybersecurity Homelab</h1>
+            <p>Welcome to my cybersecurity homelab! Here, I practice penetration testing with Kali Linux, simulate attacks on pfSense and Windows Server, and monitor threats using Security Onion and Splunk.</p>
 
-    <!-- Resume Content -->
-    <div class="resume-container">
-        <div class="resume-header">
-            <h1>Alex Cheung</h1>
-            <p>50 North 5th St., Brooklyn, NY • 929-303-0027 • alexchg0106@gmail.com</p>
-            <p><a href="https://www.linkedin.com/in/alex-cheung-878632290" target="_blank">LinkedIn Profile</a></p>
         </div>
+    </section>
 
-        <!-- Summary Section -->
-        <section class="resume-section">
-            <h2>Summary</h2>
-            <p>
-                IT Associate specializing in Networking, Cybersecurity, and Automation. Certified in various technologies from Cisco, VMware, Microsoft, and Linux. Skilled in technical support, technology pedagogy, and cloud solutions like Azure and VMware. Committed to problem-solving and optimizing IT solutions.
-            </p>
-        </section>
-
-        <!-- Work Experience Section -->
-        <section class="resume-section">
-            <h2>Work Experience</h2>
-            <div class="experience-item">
-                <h3>E-commerce Team Member • Whole Foods Market</h3>
-                <p class="date">Oct 2023 - Dec 2024</p>
-                <ul>
-                    <li>Managed online orders, ensuring timely and accurate fulfillment.</li>
-                    <li>Collaborated with team members to improve workflow efficiency.</li>
-                    <li>Provided customer service support for online orders.</li>
-                </ul>
-            </div>
-            <div class="experience-item">
-                <h3>STEM Teacher • Harlem Educational Fund</h3>
-                <p class="date">Jul 2020 - Jul 2021</p>
-                <ul>
-                    <li>Taught STEM subjects to middle school students.</li>
-                    <li>Created an engaging and safe learning environment.</li>
-                    <li>Assessed student progress and provided feedback.</li>
-                </ul>
-            </div>
-            <div class="experience-item">
-                <h3>Programming Teacher • Scholar STEM</h3>
-                <p class="date">Sep 2019 - Jul 2021</p>
-                <ul>
-                    <li>Taught Python, Scratch, and JavaScript to middle school students.</li>
-                    <li>Managed student devices (Windows, Mac, Chromebooks) and cloud platforms.</li>
-                    <li>Provided IT training and support for students.</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Education Section -->
-        <section class="resume-section">
-            <h2>Education</h2>
-            <div class="education-item">
-                <h3>Bachelor of Science in Network Engineering and Security - Cisco Track</h3>
-                <p class="date">Western Governors University, Expected March 2025</p>
-            </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section class="resume-section">
-            <h2>Skills</h2>
-            <ul class="skills-list">
-                <li>Automation</li>
-                <li>Cybersecurity</li>
-                <li>Networks</li>
-                <li>Virtualization</li>
-            </ul>
-        </section>
-
-        <!-- Certifications Section -->
-        <section class="resume-section">
-            <h2>Certifications</h2>
-            <div class="cert-grid">
-                <div class="cert-item">
-                    <img src="https://images.credly.com/size/340x340/images/e21e94f7-feec-4717-9687-ac150b213f64/Cisco_DevNetAsst_600.png" alt="Cisco DevNet Associate" class="cert-logo">
-                    <h3>Cisco Certified DevNet Associate</h3>
-                </div>
-                <div class="cert-item">
-                    <img src="https://images.credly.com/size/340x340/images/43ee30bc-78c5-4704-942c-337c6ee7abf9/blob" alt="Cisco Certified Cybersecurity Associate" class="cert-logo">
-                    <h3>Cisco Certified Cybersecurity Associate</h3>
-                </div>
-                <div class="cert-item">
-                    <img src="https://images.credly.com/size/340x340/images/683783d8-eaac-4c37-a14d-11bd8a36321d/ccna_600.png" alt="Cisco Certified Network Associate" class="cert-logo">
-                    <h3>Cisco Certified Network Associate</h3>
-                </div>
-                <div class="cert-item">
-                    <img src="https://images.credly.com/size/340x340/images/706eaa4a-9d0f-450a-ab1b-6f578a65991f/image.png" alt="VMware Certified Technical Associate" class="cert-logo">
-                    <h3>VMware Certified Technical Associate</h3>
-                </div>
-                <div class="cert-item">
-                    <img src="https://images.credly.com/size/340x340/images/4a1a7339-ce0f-458a-9ee7-620416e68c19/CompTIA_Cloud_2Bce.png" alt="CompTIA Cloud+" class="cert-logo">
-                    <h3>CompTIA Cloud+</h3>
-                </div>
-                <div class="cert-item">
-                    <img src="https://certwizard.com/sites/default/files/2020-05/ITIL-4-Foundation-certwizard.png" alt="ITIL 4 Foundation" class="cert-logo">
-                    <h3>ITIL 4 Foundation</h3>
-                </div>
-                <div class="cert-item">
-                    <img src="https://images.credly.com/images/f414bc95-cdcb-4ac9-bdcc-38d3bc6fa386/linkedin_thumb_LPI_Essentials.png" alt="LPI Linux Essentials" class="cert-logo">
-                    <h3>LPI Linux Essentials</h3>
-                </div>
-                <div class="cert-item">
-                    <img src="https://images.credly.com/images/be8fcaeb-c769-4858-b567-ffaaa73ce8cf/image.png" alt="Microsoft Certified AZ-900" class="cert-logo">
-                    <h3>Microsoft Certified AZ-900</h3>
-                </div>
-                <div class="cert-item">
-                    <img src="https://images.credly.com/size/340x340/images/63482325-a0d6-4f64-ae75-f5f33922c7d0/CompTIA_A_2Bce.png" alt="CompTIA A+" class="cert-logo">
-                    <h3>CompTIA A+</h3>
-                </div>
-            </div>
-        </section>
+    <!-- Network Diagram Section -->
+<section id="network-diagram">
+    <div class="container">
+        <h2>Lab Topology</h2>
+        <img src="images\Untitled Diagram.drawio.png" alt="Cybersecurity Lab Network Diagram" class="diagram">
+        <p>This diagram illustrates the device components and virtual connections in my lab topology.</p>
     </div>
+</section>
+<!-- Lab Overview Section -->
+<section id="lab-overview">
+    <div class="container">
+        <h2>Lab Overview</h2>
+        <p>This homelab is designed to provide a safe and scalable environment for practicing cybersecurity skills. It includes tools and configurations similar to enterprise infrastructures, allowing you to:</p>
+        <ul>
+            <li>Configure and secure network segments using pfSense.</li>
+            <li>Monitor and detect threats with Security Onion.</li>
+            <li>Simulate attacks using Kali Linux.</li>
+            <li>Manage logs and analyze data with Splunk.</li>
+            <li>Set up and secure a Windows Active Directory environment.</li>
+        </ul>
+    </div>
+</section>    
+<!-- Lab Components Section -->
+<section id="lab-components"></section>
+    <button class="collapsible-btn">Lab Components</button>
+    <div class="content">
+        <div class="container"></div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Component</th>
+                        <th>Purpose</th>
+                        <th>Configuration</th>
+                        <th>Key Features</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Host PC -->
+                    <tr>
+                        <td><strong>Host PC</strong></td>
+                        <td>Base machine running VMware Workstation and hosting all VMs.</td>
+                        <td>
+                            <ul>
+                                <li><strong>Hypervisor</strong>: VMware Workstation Pro 16 (or VirtualBox).</li>
+                                <li><strong>CPU</strong>: 8 cores.</li>
+                                <li><strong>RAM</strong>: 32 GB.</li>
+                                <li><strong>Storage</strong>: 1 TB SSD.</li>
+                            </ul>
+                        </td>
+                        <td>Supports multiple VMs and network segmentation.</td>
+                    </tr>
+
+                    <!-- pfSense Firewall -->
+                    <tr>
+                        <td><strong>pfSense Firewall</strong></td>
+                        <td>Provides network segmentation and security.</td>
+                        <td>
+                            <ul>
+                                <li><strong>ISO</strong>: pfSense Community Edition.</li>
+                                <li><strong>CPU</strong>: 1 core.</li>
+                                <li><strong>RAM</strong>: 2 GB.</li>
+                                <li><strong>Storage</strong>: 20 GB.</li>
+                                <li><strong>Network Adapters</strong>: 5 (LAN, WAN, VLANs).</li>
+                            </ul>
+                        </td>
+                        <td>Segments network, provides span port for monitoring.</td>
+                    </tr>
+
+                    <!-- Security Onion -->
+                    <tr>
+                        <td><strong>Security Onion</strong></td>
+                        <td>All-in-one IDS, security monitoring, and log management.</td>
+                        <td>
+                            <ul>
+                                <li><strong>ISO</strong>: Security Onion.</li>
+                                <li><strong>CPU</strong>: 2-4 cores.</li>
+                                <li><strong>RAM</strong>: 4-32 GB.</li>
+                                <li><strong>Storage</strong>: 200 GB.</li>
+                                <li><strong>Network Adapters</strong>: 2 (management, monitoring).</li>
+                            </ul>
+                        </td>
+                        <td>Monitors traffic, aggregates logs, accessible via Ubuntu Desktop.</td>
+                    </tr>
+
+                    <!-- Kali Linux -->
+                    <tr>
+                        <td><strong>Kali Linux</strong></td>
+                        <td>Attack machine for penetration testing.</td>
+                        <td>
+                            <ul>
+                                <li><strong>ISO</strong>: Kali Linux.</li>
+                                <li><strong>CPU</strong>: 2 cores.</li>
+                                <li><strong>RAM</strong>: 4 GB.</li>
+                                <li><strong>Storage</strong>: 20 GB.</li>
+                                <li><strong>Network Adapter</strong>: 1 (Vmnet2).</li>
+                            </ul>
+                        </td>
+                        <td>Pre-installed tools for exploitation and reconnaissance.</td>
+                    </tr>
+
+                    <!-- Windows Server (Domain Controller) -->
+                    <tr>
+                        <td><strong>Windows Server</strong></td>
+                        <td>Acts as the Active Directory (AD) domain controller.</td>
+                        <td>
+                            <ul>
+                                <li><strong>ISO</strong>: Windows Server 2019 Evaluation.</li>
+                                <li><strong>CPU</strong>: 2 cores.</li>
+                                <li><strong>RAM</strong>: 4 GB.</li>
+                                <li><strong>Storage</strong>: 40 GB.</li>
+                                <li><strong>Network Adapter</strong>: 1 (Vmnet3).</li>
+                            </ul>
+                        </td>
+                        <td>Manages AD, user accounts, and group policies.</td>
+                    </tr>
+
+                    <!-- Windows 10 Desktops -->
+                    <tr>
+                        <td><strong>Windows 10 Desktops</strong></td>
+                        <td>Client machines joined to the AD domain.</td>
+                        <td>
+                            <ul>
+                                <li><strong>ISO</strong>: Windows 10 Evaluation.</li>
+                                <li><strong>CPU</strong>: 2 cores (each).</li>
+                                <li><strong>RAM</strong>: 4 GB (each).</li>
+                                <li><strong>Storage</strong>: 40 GB (each).</li>
+                                <li><strong>Network Adapter</strong>: 1 (Vmnet3).</li>
+                            </ul>
+                        </td>
+                        <td>Simulates user behavior and tests AD security.</td>
+                    </tr>
+
+                    <!-- Ubuntu Server (Splunk) -->
+                    <tr>
+                        <td><strong>Ubuntu Server (Splunk)</strong></td>
+                        <td>Hosts Splunk for log aggregation and analysis.</td>
+                        <td>
+                            <ul>
+                                <li><strong>ISO</strong>: Ubuntu Server.</li>
+                                <li><strong>CPU</strong>: 2-4 cores.</li>
+                                <li><strong>RAM</strong>: 4-8 GB.</li>
+                                <li><strong>Storage</strong>: 100 GB.</li>
+                                <li><strong>Network Adapter</strong>: 1 (Vmnet6).</li>
+                            </ul>
+                        </td>
+                        <td>Aggregates logs, provides centralized log analysis.</td>
+                    </tr>
+
+                    <!-- Additional Linux Machines -->
+                    <tr>
+                        <td><strong>Additional Linux Machines</strong></td>
+                        <td>Used for exploitation, detection, or monitoring.</td>
+                        <td>
+                            <ul>
+                                <li><strong>Examples</strong>: Ubuntu, CentOS, Metasploitable, DVWA, Vulnhub.</li>
+                                <li><strong>CPU</strong>: 1-2 cores (each).</li>
+                                <li><strong>RAM</strong>: 2-4 GB (each).</li>
+                                <li><strong>Storage</strong>: 20-40 GB (each).</li>
+                                <li><strong>Network Adapter</strong>: 1 (internal).</li>
+                            </ul>
+                        </td>
+                        <td>Vulnerable machines for practicing exploitation.</td>
+                    </tr>
+
+                    <!-- Ubuntu Desktop (Analyst Machine) -->
+                    <tr>
+                        <td><strong>Ubuntu Desktop</strong></td>
+                        <td>Simulates a SOC analyst’s machine.</td>
+                        <td>
+                            <ul>
+                                <li><strong>ISO</strong>: Ubuntu Desktop.</li>
+                                <li><strong>CPU</strong>: 2 cores.</li>
+                                <li><strong>RAM</strong>: 4 GB.</li>
+                                <li><strong>Storage</strong>: 20 GB.</li>
+                                <li><strong>Network Adapter</strong>: 1 (management).</li>
+                            </ul>
+                        </td>
+                        <td>Accesses Security Onion and Splunk.</td>
+                    </tr>
+
+                    <!-- Splunk Universal Forwarder -->
+                    <tr>
+                        <td><strong>Splunk Universal Forwarder</strong></td>
+                        <td>Forwards logs from Windows Server to Splunk.</td>
+                        <td>
+                            <ul>
+                                <li><strong>Installed on</strong>: Windows Server.</li>
+                            </ul>
+                        </td>
+                        <td>Collects and forwards logs for analysis.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<section id="brief setup guide">
+    <button class="collapsible-btn">Brief Setup Guide</button>
+    <div class="content">
+        <div class="container">
+            <h2>Step-by-Step Setup</h2>
+            <ol>
+                <li><strong>Prepare the Host Machine</strong>:
+                    <ul>
+                        <li>Ensure hardware meets requirements: 8 CPU cores, 32 GB RAM, 1 TB SSD.</li>
+                        <li>Install VMware Workstation Pro 16 or VirtualBox.</li>
+                        <li>Download ISOs for pfSense, Security Onion, Kali Linux, Windows Server, Windows 10, Ubuntu Server, and additional Linux machines.</li>
+                    </ul>
+                </li>
+                <li><strong>Configure pfSense Firewall</strong>:
+                    <ul>
+                        <li>Create a VM with 1 CPU core, 2 GB RAM, and 20 GB storage.</li>
+                        <li>Add 5 network adapters for segmentation.</li>
+                        <li>Install pfSense Community Edition and configure interfaces (LAN, OPT1, OPT2, OPT3).</li>
+                        <li>Complete the setup wizard and configure firewall rules.</li>
+                    </ul>
+                </li>
+                <li><strong>Set Up Security Onion</strong>:
+                    <ul>
+                        <li>Create a VM with 2-4 CPU cores, 4-32 GB RAM, and 200 GB storage.</li>
+                        <li>Add 2 network adapters (management and monitoring).</li>
+                        <li>Install Security Onion and configure interfaces (management: DHCP, monitor: span port).</li>
+                        <li>Access the web interface from an Ubuntu Desktop machine.</li>
+                    </ul>
+                </li>
+                <li><strong>Configure Kali Linux</strong>:
+                    <ul>
+                        <li>Create a VM with 2 CPU cores, 4 GB RAM, and 20 GB storage.</li>
+                        <li>Set the network adapter to Vmnet2.</li>
+                        <li>Install Kali Linux and change the default password using <code>passwd</code>.</li>
+                        <li>Use Kali for penetration testing and accessing the pfSense WebGUI.</li>
+                    </ul>
+                </li>
+                <li><strong>Set Up Windows Server (Domain Controller)</strong>:
+                    <ul>
+                        <li>Create a VM with 2 CPU cores, 4 GB RAM, and 40 GB storage.</li>
+                        <li>Set the network adapter to Vmnet3.</li>
+                        <li>Install Windows Server 2019 and promote it to a Domain Controller.</li>
+                        <li>Configure Active Directory and create user accounts.</li>
+                        <li>Disable the firewall for lab purposes.</li>
+                    </ul>
+                </li>
+                <li><strong>Configure Windows 10 Desktops</strong>:
+                    <ul>
+                        <li>Create 2 VMs with 2 CPU cores, 4 GB RAM, and 40 GB storage each.</li>
+                        <li>Set the network adapter to Vmnet3.</li>
+                        <li>Install Windows 10 and join the machines to the AD domain.</li>
+                        <li>Configure IP settings and test domain connectivity.</li>
+                    </ul>
+                </li>
+                <li><strong>Install Splunk on Ubuntu Server</strong>:
+                    <ul>
+                        <li>Create a VM with 2-4 CPU cores, 4-8 GB RAM, and 100 GB storage.</li>
+                        <li>Set the network adapter to Vmnet6.</li>
+                        <li>Install Ubuntu Server and optionally add a GUI for easier management.</li>
+                        <li>Download and install Splunk Enterprise.</li>
+                        <li>Start Splunk and configure it to receive logs from the Windows Server using the Universal Forwarder.</li>
+                    </ul>
+                </li>
+                <li><strong>Add Additional Linux Machines</strong>:
+                    <ul>
+                        <li>Examples: Ubuntu, CentOS, Metasploitable, DVWA, Vulnhub.</li>
+                        <li>Create VMs with 1-2 CPU cores, 2-4 GB RAM, and 20-40 GB storage.</li>
+                        <li>Use these machines for exploitation, detection, or monitoring.</li>
+                    </ul>
+                </li>
+                <li><strong>Configure Ubuntu Desktop (Analyst Machine)</strong>:
+                    <ul>
+                        <li>Create a VM with 2 CPU cores, 4 GB RAM, and 20 GB storage.</li>
+                        <li>Install Ubuntu Desktop.</li>
+                        <li>Use this machine to access the Security Onion and Splunk web interfaces.</li>
+                    </ul>
+                </li>
+                <li><strong>Finalize Network Configuration</strong>:
+                    <ul>
+                        <li>Segment the network:
+                            <ul>
+                                <li><strong>LAN</strong>: Kali Linux and pfSense management.</li>
+                                <li><strong>OPT1/OPT2</strong>: Internal networks for Windows and other services.</li>
+                                <li><strong>OPT3</strong>: Span port for Security Onion.</li>
+                                <li><strong>OPT4</strong>: Splunk communication.</li>
+                            </ul>
+                        </li>
+                        <li>Set IP addressing:
+                            <ul>
+                                <li>pfSense LAN: <code>192.168.1.1</code>.</li>
+                                <li>Windows Server: <code>192.168.2.10</code>.</li>
+                                <li>Windows Desktops: <code>192.168.2.21</code> and <code>192.168.2.22</code>.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+    </div>
+</section>
+
+<section id="network-enumeration">
+    <button class="collapsible-btn">Network Enumeration and Scanning</button>
+    <div class="content">
+        <div class="container">
+            <h2>Network Enumeration and Scanning</h2>
+            <p>In this section, I performed network enumeration and scanning to identify live hosts, open ports, and services running on the lab network. This is a critical first step in understanding the network topology and identifying potential targets for further analysis.</p>
+
+            <h3>Objective</h3>
+            <p>The goal was to map out the network, identify active devices, and gather information about the services running on those devices. This helps in understanding the attack surface and planning subsequent penetration testing activities.</p>
+
+            <h3>Tools Used</h3>
+            <ul>
+                <li><strong>nmap</strong>: A powerful network scanning tool for discovering hosts and services.</li>
+                <li><strong>netdiscover</strong>: A tool for ARP-based host discovery, useful for identifying devices on the local network.</li>
+            </ul>
+
+            <h3>Steps Performed</h3>
+            <ol>
+                <li>
+                    <strong>Scanning for Live Hosts</strong>
+                    <p>I started by using <code>nmap</code> to scan the entire subnet for live hosts. This helps in identifying all active devices on the network.</p>
+                    <pre><code>nmap -sn 192.168.1-4.0/24</code></pre>
+                    <p>This command performed a ping scan, which quickly identified all devices responding to ICMP requests. Below is a screenshot of the results:</p>
+                    <div class="image-placeholder">
+                        <img src="images/nmap_scan.png" alt="nmap scan results">
+                    </div>
+                </li>
+                <li>
+                    <strong>Detailed Scan on Specific Hosts</strong>
+                    <p>Next, I performed a detailed scan on specific hosts to identify open ports and services. This step provides deeper insights into the services running on each device.</p>
+                    <pre><code>nmap -sV -O 192.168.1.1</code></pre>
+                    <pre><code>nmap -sV -O 192.168.2.10</code></pre>
+                    <p>The <code>-sV</code> flag enabled version detection, while <code>-O</code> enabled OS detection. This revealed the operating system and service versions running on the target host. Here’s a screenshot of the output:</p>
+                    <div class="image-placeholder">
+                        <img src="images/nmap_pfsense.png" alt="nmap detailed scan results">
+                    </div>
+                    <div class="image-placeholder">
+                        <img src="images/nmap_domaincontroller.png" alt="nmap detailed scan results for domain controller">
+                    </div>
+                </li>
+                <li>
+                    <strong>ARP-Based Host Discovery</strong>
+                    <p>Finally, I used <code>netdiscover</code> to perform ARP-based host discovery. This tool is particularly useful for identifying devices that might not respond to ICMP requests.</p>
+                    <pre><code>netdiscover -i eth0 -r 192.168.1.0/24</code></pre>
+                    <p>This command scanned the network using ARP requests. Below is a screenshot of the results:</p>
+                    <div class="image-placeholder">
+                        <img src="images/netdiscover.png" alt="netdiscover scan results">
+                    </div>
+                </li>
+            </ol>
+
+            <h3>Key Findings</h3>
+            <ul>
+                <li>Discovered <strong>6 live hosts</strong> on the network, including the pfSense firewall, Security Onion, and Windows Server.</li>
+                <li>Identified open ports such as <strong>HTTP (80)</strong>, <strong>HTTPS (443)</strong>, and <strong>DNS (53)</strong> on various devices.</li>
+                <li>Detected the operating systems and service versions running on each host, which will be useful for vulnerability assessment.</li>
+            </ul>
+
+            <h3>Next Steps</h3>
+            <p>With the network mapped and services identified, the next steps will involve vulnerability scanning and exploitation of the discovered services. I’ll also use this information to refine firewall rules and monitor traffic using Security Onion.</p>
+        </div>
+    </div>
+</section>
 
     <!-- Footer -->
-    <footer>
+    <footer>device components and virtual connections in my lab topology.
         <div class="container">
             <p>&copy; 2024 Alex Cheung. All rights reserved.</p>
             <p>Powered by <a href="https://azure.microsoft.com" target="_blank" class="azure-link">
@@ -147,5 +466,27 @@
             </ul>
         </div>
     </footer>
+    <script>
+    // Get all collapsible buttons
+    const collapsibleButtons = document.querySelectorAll(".collapsible-btn");
+
+    // Add click event listeners
+    collapsibleButtons.forEach(button => {
+        button.addEventListener("click", function() {
+            // Toggle active class
+            this.classList.toggle("active");
+
+            // Get the content element
+            const content = this.nextElementSibling;
+
+            // Toggle content visibility
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null; // Collapse
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px"; // Expand
+            }
+        });
+    });
+</script>
 </body>
 </html>
