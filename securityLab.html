@@ -286,7 +286,7 @@
         </div>
     </div>
 </section>
-
+<!-- Brief setup Section -->
 <section id="brief setup guide">
     <button class="collapsible-btn">Brief Setup Guide</button>
     <div class="content">
@@ -387,21 +387,22 @@
         </div>
     </div>
 </section>
-
+<!-- Network enumeration Section -->
 <section id="network-enumeration">
     <button class="collapsible-btn">Network Enumeration and Scanning</button>
     <div class="content">
         <div class="container">
             <h2>Network Enumeration and Scanning</h2>
-            <p>In this section, I performed network enumeration and scanning to identify live hosts, open ports, and services running on the lab network. This is a critical first step in understanding the network topology and identifying potential targets for further analysis.</p>
+            <p>In this section, I performed network enumeration and scanning to identify live hosts, open ports, and services running on the lab network. This activity is critical for understanding the network's attack surface and ensuring that all devices are properly secured and monitored.</p>
 
             <h3>Objective</h3>
-            <p>The goal was to map out the network, identify active devices, and gather information about the services running on those devices. This helps in understanding the attack surface and planning subsequent penetration testing activities.</p>
+            <p>The goal was to map out the network, identify active devices, and gather information about the services running on those devices. This helps in identifying potential vulnerabilities, misconfigurations, and unauthorized devices that could pose a security risk.</p>
 
             <h3>Tools Used</h3>
             <ul>
                 <li><strong>nmap</strong>: A powerful network scanning tool for discovering hosts and services.</li>
                 <li><strong>netdiscover</strong>: A tool for ARP-based host discovery, useful for identifying devices on the local network.</li>
+                <li><strong>Security Onion</strong>: A network security monitoring (NSM) platform used for intrusion detection and log analysis.</li>
             </ul>
 
             <h3>Steps Performed</h3>
@@ -446,14 +447,185 @@
                 <li>Detected the operating systems and service versions running on each host, which will be useful for vulnerability assessment.</li>
             </ul>
 
-            <h3>Next Steps</h3>
-            <p>With the network mapped and services identified, the next steps will involve vulnerability scanning and exploitation of the discovered services. I’ll also use this information to refine firewall rules and monitor traffic using Security Onion.</p>
+            <h3>Security Onion IDS Alerts</h3>
+            <p>During the ping scan and subsequent network enumeration, my Security Onion IDS detected several suspicious activities. Below are the key alerts generated:</p>
+            <div class="image-placeholder" style="max-width: 100%; height: auto;">
+                <img src="images/SO_nmap_alerts.png" alt="Security Onion Nmap Alerts" style="width: 100%; height: auto;">
+            </div>
+            <p><strong>Analysis:</strong> The alerts from Security Onion show some unusual activity happening between two devices on the network:</p>
+            <ul>
+                <li><strong>Source:</strong> The Kali machine (<code>192.168.1.128</code>) is sending traffic to the Windows Server (<code>192.168.2.10</code>).</li>
+                <li><strong>What’s Happening:</strong> The traffic is going to non-standard ports (ports not normally used for MSSQL or Terminal Server), which could mean someone is trying to steal data or run malware.</li>
+                <li><strong>Why It’s a Problem:</strong> High-severity alerts mean this activity could be dangerous. It might be an attempt to break into the Windows Server or send sensitive information outside the network.</li>
+            </ul>
+            
+            <p>As part of the Blue Team, my job is to figure out what’s going on and stop it. Here’s what I’ll do:</p>
+            <ul>
+                <li><strong>Find the Source:</strong> Check if the Kali machine is doing this on purpose or if it’s been hacked. Maybe someone is using it to test the network, or maybe it’s been compromised.</li>
+                <li><strong>Stop the Threat:</strong> Disconnect the Kali machine from the network so it can’t cause any more problems while I investigate.</li>
+                <li><strong>Check for Damage:</strong> Look at the Windows Server to see if any sensitive data was accessed or stolen.</li>
+            </ul>
+            
+            <h3>What’s Next?</h3>
+            <p>Here’s the plan to fix the issue and make sure it doesn’t happen again:</p>
+            <ol>
+                <li>
+                    <strong>Incident Response:</strong>
+                    <ul>
+                        <li>Disconnect the Kali machine from the network to stop any more suspicious activity.</li>
+                        <li>Investigate the Kali machine to see if it’s been hacked or if someone is misusing it.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Update Firewall Rules:</strong>
+                    <ul>
+                        <li>Change the firewall settings to block traffic to unusual ports, especially for services like MSSQL and Terminal Server.</li>
+                        <li>Only allow the Kali machine to send traffic to necessary services and ports.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Protect Devices:</strong>
+                    <ul>
+                        <li>Make sure all computers on the network, including the Windows Server, have antivirus software installed and up to date.</li>
+                        <li>Run a malware scan on the Windows Server to check for infections.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Improve Monitoring:</strong>
+                    <ul>
+                        <li>Turn on detailed logging for all important devices and services so we can catch suspicious activity in the future.</li>
+                        <li>Adjust Security Onion’s rules to reduce false alarms and make it better at detecting real threats.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Train Users:</strong>
+                    <ul>
+                        <li>If someone on the team is using the Kali machine, make sure they know how to use it safely and follow security rules.</li>
+                        <li>Teach everyone on the network about the risks of connecting to unusual ports or running unauthorized services.</li>
+                    </ul>
+                </li>
+            </ol>
+            
+            <h3>Conclusion</h3>
+            <p>This exercise showed how important it is to keep an eye on the network and take action when something looks wrong. By using tools like Security Onion and pfSense, the Blue Team can spot and stop threats before they cause serious damage.</p>
         </div>
     </div>
 </section>
+<!-- Playing with Metasploit Section -->
+<section id="playing-with-metasploit">
+    <button class="collapsible-btn">Playing Around with Metasploit</button>
+    <div class="content">
+        <div class="container">
+            <h2>Playing Around with Metasploit</h2>
+            <p>In this section, I explored Metasploit, a powerful penetration testing framework, to identify and exploit vulnerabilities in my lab environment. My target was the domain controller at <code>192.168.2.10</code>, and I focused on using Metasploit to test for known vulnerabilities like EternalBlue and DoublePulsar.</p>
 
+            <h3>Objective</h3>
+            <p>The goal was to use Metasploit to:</p>
+            <ul>
+                <li>Scan for vulnerabilities on the domain controller.</li>
+                <li>Search for and test exploits related to open services.</li>
+                <li>Attempt to exploit the target system to gain access.</li>
+            </ul>
+
+            <h3>Tools Used</h3>
+            <ul>
+                <li><strong>Metasploit</strong>: A penetration testing framework for exploiting vulnerabilities.</li>
+                <li><strong>nmap</strong>: Used to scan for open ports and services.</li>
+                <li><strong>searchsploit</strong>: A command-line tool for searching the Exploit Database.</li>
+            </ul>
+
+            <h3>Steps Performed</h3>
+            <ol>
+                <li>
+                    <strong>Starting Metasploit</strong>
+                    <p>I launched Metasploit and was greeted with its iconic ASCII art interface. Below is a screenshot of the Metasploit startup screen:</p>
+                    <div class="image-placeholder">
+                        <img src="images/metasploit.png" alt="Metasploit ASCII Art">
+                    </div>
+                </li>
+                <li>
+                    <strong>Scanning for Vulnerabilities</strong>
+                    <p>I used <code>nmap</code> with the <code>--script vuln</code> flag to scan the domain controller for vulnerabilities:</p>
+                    <pre><code>nmap --script vuln 192.168.2.10</code></pre>
+                    <p>This scan revealed several open ports and services. Below is a screenshot of the results:</p>
+                    <div class="image-placeholder">
+                        <img src="images/metasploitnmap.png" alt="Nmap Vulnerability Scan Results">
+                    </div>
+                </li>
+                <li>
+                    <strong>Searching for Exploits</strong>
+                    <p>Using <code>searchsploit</code>, I searched for exploits related to the open services. I found many results, but I narrowed my focus to <strong>EternalBlue</strong>, a well-known exploit for SMB vulnerabilities:</p>
+                    <pre><code>searchsploit eternalblue</code></pre>
+                    <p>Below is a screenshot of the search results:</p>
+                    <div class="image-placeholder">
+                        <img src="images/searchsploiteternalblue.png" alt="Searchsploit EternalBlue Results">
+                    </div>
+                </li>
+                <li>
+                    <strong>Exploring the DoublePulsar Exploit</strong>
+                    <p>In Metasploit, I searched for the <strong>DoublePulsar</strong> exploit, which is related to EternalBlue:</p>
+                    <pre><code>msf6 > search eternalblue</code></pre>
+                    <p>I found the <strong>SMB DOUBLEPULSAR Remote Code Execution</strong> exploit (ID 27). Below is a screenshot of the exploit details:</p>
+                    <div class="image-placeholder">
+                        <img src="images/searcheternalblue.png" alt="Metasploit DoublePulsar Exploit Info">
+                    </div>
+                </li>
+                <li>
+                    <strong>Attempting the Exploit</strong>
+                    <p>I set up the exploit and targeted the domain controller:</p>
+                    <pre><code>msf6 > use exploit/windows/smb/smb_doublepulsar_rce
+msf6 exploit(windows/smb/smb_doublepulsar_rce) > set RHOSTS 192.168.2.10
+msf6 exploit(windows/smb/smb_doublepulsar_rce) > exploit</code></pre>
+                    <p>Unfortunately, the exploit failed because the target system is likely patched against the vulnerability. Below is a screenshot of the attempt:</p>
+                    <div class="image-placeholder">
+                        <img src="images/exploitcompleted.png" alt="Metasploit Exploit Attempt">
+                    </div>
+                </li>
+            </ol>
+
+            <h3>Key Findings</h3>
+            <ul>
+                <li>Discovered open ports and services on the domain controller, including SMB, LDAP, and Kerberos.</li>
+                <li>Identified the <strong>EternalBlue</strong> and <strong>DoublePulsar</strong> exploits as potential attack vectors.</li>
+                <li>Confirmed that the target system is likely patched against these vulnerabilities, as the exploit attempt failed.</li>
+            </ul>
+
+            <h3>What’s Next?</h3>
+            <p>Since the DoublePulsar exploit didn’t work, here’s what I’ll do next:</p>
+            <ol>
+                <li>
+                    <strong>Verify Vulnerability:</strong>
+                    <ul>
+                        <li>Use the <code>smb_ms17_010</code> scanner in Metasploit to confirm if the target is vulnerable to EternalBlue.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Explore Other Exploits:</strong>
+                    <ul>
+                        <li>Search for other exploits related to SMB, LDAP, or Kerberos.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Enumerate the Target:</strong>
+                    <ul>
+                        <li>Use tools like <code>enum4linux</code> or <code>ldapsearch</code> to gather more information about the domain controller.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Brute Force Credentials:</strong>
+                    <ul>
+                        <li>If no exploits are available, attempt to brute-force credentials for SMB or LDAP.</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <h3>Conclusion</h3>
+            <p>This exercise was a great introduction to using Metasploit for vulnerability scanning and exploitation. While the DoublePulsar exploit didn’t work, it highlighted the importance of keeping systems patched and up to date. Moving forward, I’ll focus on enumerating the target further and exploring other attack vectors.</p>
+        </div>
+    </div>
+</section>
     <!-- Footer -->
-    <footer>device components and virtual connections in my lab topology.
+    <footer>
         <div class="container">
             <p>&copy; 2024 Alex Cheung. All rights reserved.</p>
             <p>Powered by <a href="https://azure.microsoft.com" target="_blank" class="azure-link">
