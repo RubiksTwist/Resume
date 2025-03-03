@@ -413,7 +413,7 @@
                     <pre><code>nmap -sn 192.168.1-4.0/24</code></pre>
                     <p>This command performed a ping scan, which quickly identified all devices responding to ICMP requests. Below is a screenshot of the results:</p>
                     <div class="image-placeholder">
-                        <img src="images/nmap_scan.png" alt="nmap scan results">
+                        <img src="images/nmap_scan.png" alt="nmap scan results" style="max-width: 100%; height: auto;">
                     </div>
                 </li>
                 <li>
@@ -423,10 +423,10 @@
                     <pre><code>nmap -sV -O 192.168.2.10</code></pre>
                     <p>The <code>-sV</code> flag enabled version detection, while <code>-O</code> enabled OS detection. This revealed the operating system and service versions running on the target host. Here’s a screenshot of the output:</p>
                     <div class="image-placeholder">
-                        <img src="images/nmap_pfsense.png" alt="nmap detailed scan results">
+                        <img src="images/nmap_pfsense.png" alt="nmap detailed scan results" style="max-width: 100%; height: auto;">
                     </div>
                     <div class="image-placeholder">
-                        <img src="images/nmap_domaincontroller.png" alt="nmap detailed scan results for domain controller">
+                        <img src="images/nmap_domaincontroller.png" alt="nmap detailed scan results for domain controller" style="max-width: 100%; height: auto;">
                     </div>
                 </li>
                 <li>
@@ -435,7 +435,7 @@
                     <pre><code>netdiscover -i eth0 -r 192.168.1.0/24</code></pre>
                     <p>This command scanned the network using ARP requests. Below is a screenshot of the results:</p>
                     <div class="image-placeholder">
-                        <img src="images/netdiscover.png" alt="netdiscover scan results">
+                        <img src="images/netdiscover.png" alt="netdiscover scan results" style="max-width: 100%; height: auto;">
                     </div>
                 </li>
             </ol>
@@ -450,7 +450,7 @@
             <h3>Security Onion IDS Alerts</h3>
             <p>During the ping scan and subsequent network enumeration, my Security Onion IDS detected several suspicious activities. Below are the key alerts generated:</p>
             <div class="image-placeholder" style="max-width: 100%; height: auto;">
-                <img src="images/SO_nmap_alerts.png" alt="Security Onion Nmap Alerts" style="width: 100%; height: auto;">
+                <img src="images/SO_nmap_alerts.png" alt="Security Onion Nmap Alerts" style="max-width: 100%; height: auto;">
             </div>
             <p><strong>Analysis:</strong> The alerts from Security Onion show some unusual activity happening between two devices on the network:</p>
             <ul>
