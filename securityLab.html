@@ -566,8 +566,8 @@
                     <p>In Metasploit, I searched for the <strong>DoublePulsar</strong> exploit, which is related to EternalBlue:</p>
                     <pre><code>msf6 > search eternalblue</code></pre>
                     <p>I found the <strong>SMB DOUBLEPULSAR Remote Code Execution</strong> exploit (ID 27). Below is a screenshot of the exploit details:</p>
-                    <div class="image-placeholder">
-                        <img src="images/searcheternalblue.png" alt="Metasploit DoublePulsar Exploit Info">
+                    <div class="image-placeholder" style="max-width: 100%; height: auto;">
+                        <img src="images/searcheternalblue.png" alt="Metasploit DoublePulsar Exploit Info" style="width: 100%; height: auto;">
                     </div>
                 </li>
                 <li>
@@ -582,6 +582,18 @@ msf6 exploit(windows/smb/smb_doublepulsar_rce) > exploit</code></pre>
                     </div>
                 </li>
             </ol>
+
+            <h3>Security Onion IDS Alerts</h3>
+            <p>While performing these activities, my Security Onion IDS detected several alerts. Below is a summary of the alerts:</p>
+            <div class="image-placeholder" style="max-width: 100%; height: auto;">
+                <img src="images/SO_metasploit.png" alt="Security Onion Alerts" style="width: 100%; height: auto;">
+            </div>
+            <p><strong>Key Alerts:</strong></p>
+            <ul>
+                <li><strong>28 Alerts - ET POLICY LDAPSv3 LDAPS_START_TLS Request Outbound:</strong> These alerts indicate that the Kali machine (<code>192.168.1.128</code>) was sending LDAP START_TLS requests to the domain controller (<code>192.168.2.10</code>). This is normal behavior for LDAP traffic and is not directly related to the DoublePulsar exploit.</li>
+                <li><strong>Other Alerts:</strong> Additional alerts were triggered for suspicious inbound traffic to database ports (e.g., Oracle SQL, MySQL, PostgreSQL, MSSQL) and a potential VNC scan. These are likely false positives or unrelated to the DoublePulsar exploit.</li>
+            </ul>
+            <p><strong>Analysis:</strong> The LDAP alerts suggest that the Kali machine was interacting with the domain controller’s LDAP service, which is expected during enumeration or exploitation attempts. However, these alerts do not indicate a successful exploit or compromise.</p>
 
             <h3>Key Findings</h3>
             <ul>
