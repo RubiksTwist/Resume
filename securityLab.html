@@ -90,12 +90,136 @@
         </div>
     </section>
 
-    <!-- Network Diagram Section -->
+<!-- Network Diagram Section -->
 <section id="network-diagram">
     <div class="container">
         <h2>Lab Topology</h2>
         <img src="images/Untitled Diagram.drawio.png" alt="Cybersecurity Lab Network Diagram" class="diagram" style="max-width: 100%; height: auto;">
         <p>This diagram illustrates the device components and virtual connections in my lab topology.</p>
+    </div>
+</section>
+
+<!-- PowerBI Section -->
+<section id="powerbi-transformation">
+    <button class="collapsible-btn">Transforming OpenVAS Data in Power BI</button>
+    <div class="content">
+        <div class="container">
+            <h2>Transforming OpenVAS Vulnerability Data in Power BI</h2>
+            <p>In this section, I took the vulnerability results from OpenVAS and transformed the data in Power BI to create meaningful visualizations. This involved exporting the data from OpenVAS, cleaning and transforming it in Power BI, and creating interactive charts and tables to analyze the vulnerabilities.</p>
+
+            <h3>Objective</h3>
+            <p>The goal was to:</p>
+            <ul>
+                <li>Export the OpenVAS scan results in XML format.</li>
+                <li>Import and transform the data in Power BI to make it usable for analysis.</li>
+                <li>Create visualizations, including a pie chart and tables, to highlight key vulnerability metrics.</li>
+            </ul>
+
+            <h3>Tools Used</h3>
+            <ul>
+                <li><strong>OpenVAS</strong>: For exporting the vulnerability scan results in XML format.</li>
+                <li><strong>Power BI</strong>: For data transformation, analysis, and visualization.</li>
+            </ul>
+
+            <h3>Steps Performed</h3>
+            <ol>
+                <li>
+                    <strong>Exporting Data from OpenVAS</strong>
+                    <p>I exported the vulnerability scan results from OpenVAS in XML format using the web interface. Below is a screenshot of the export process:</p>
+                    <div class="image-placeholder">
+                        <img src="images/powerBI/exportResults.png" alt="OpenVAS Export Process" style="max-width: 100%; height: auto;">
+                    </div>
+                </li>
+                <li>
+                    <strong>Importing Data into Power BI</strong>
+                    <p>I imported the XML file into Power BI. Initially, the data appeared as a single row, so I used the <strong>Drill Down</strong> feature to expand the nested tables. Below is a screenshot of the initial data import:</p>
+                    <div class="image-placeholder">
+                        <img src="images/powerBI/transformdata.png" alt="Power BI Initial Data Import" style="max-width: 100%; height: auto;">
+                    </div>
+                </li>
+                <li>
+                    <strong>Transforming the Data</strong>
+                    <p>I navigated through each table, expanded the necessary columns, and removed irrelevant ones to clean the data. This included:</p>
+                    <ul>
+                        <li>Expanding the <code>results</code> table to access individual vulnerability details.</li>
+                        <li>Removing unnecessary columns like <code>timestamp</code> and <code>host</code> that were not relevant to the analysis.</li>
+                        <li>Renaming columns for clarity, such as <code>threat_level</code>, <code>cvss_base</code>, and <code>nvt.family</code>.</li>
+                    </ul>
+                    <p>Below is a screenshot of the Power Query Editor showing the transformed data:</p>
+                    <div class="image-placeholder">
+                        <img src="images/powerBI/appliedsteps.png" alt="Power BI Data Transformation" style="max-width: 100%; height: auto;">
+                    </div>
+                </li>
+                <li>
+                    <strong>Creating Visualizations</strong>
+                    <p>After transforming the data, I created the following visualizations:</p>
+                    <ul>
+                        <li>
+                            <strong>Pie Chart</strong>: A pie chart showing the distribution of vulnerabilities by threat level (e.g., High, Medium, Low). This helps quickly identify the most critical issues.
+                        </li>
+                        <li>
+                            <strong>Vulnerability Table</strong>: A table displaying key details about each vulnerability, including:
+                            <ul>
+                                <li><strong>Name of Threat</strong>: The name of the vulnerability.</li>
+                                <li><strong>Threat Level</strong>: The severity level (e.g., High, Medium, Low).</li>
+                                <li><strong>CVSS Base Score</strong>: The Common Vulnerability Scoring System (CVSS) score.</li>
+                                <li><strong>NVT Family</strong>: The category or family of the vulnerability.</li>
+                                <li><strong>Description</strong>: A brief description of the vulnerability.</li>
+                                <li><strong>Attribute ID</strong>: A unique identifier for the vulnerability.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Port and Solution Table</strong>: A table to the right of the pie chart showing additional details, including:
+                            <ul>
+                                <li><strong>Name of Threat</strong>: The name of the vulnerability.</li>
+                                <li><strong>Port</strong>: The port associated with the vulnerability.</li>
+                                <li><strong>Solution Text</strong>: Recommended steps to remediate the vulnerability.</li>
+                                <li><strong>Reference ID</strong>: A reference to a CVE or CB (Common Vulnerabilities and Exposures or Common Bug) identifier.</li>
+                            </ul>
+                            <div class="image-placeholder">
+                                <img src="images/powerBI/visualized data.png" alt="Power BI Port and Solution Table" style="max-width: 100%; height: auto;">
+                            </div>
+                            <p>View the full Power BI project <a href="https://app.powerbi.com/reportEmbed?reportId=3db66eb2-2e8d-47ef-808b-740c559a1f5e&autoAuth=true&ctid=cfa792cf-7768-4341-8857-81754c2afa1f" target="_blank">here</a>.</p>
+                        </li>
+                    </ul>
+                </li>
+            </ol>
+
+            <h3>Key Findings</h3>
+            <ul>
+                <li>Successfully transformed raw OpenVAS XML data into a structured format for analysis in Power BI.</li>
+                <li>Created a pie chart to visualize the distribution of vulnerabilities by threat level, highlighting the most critical issues.</li>
+                <li>Developed detailed tables to provide actionable insights, including vulnerability descriptions, CVSS scores, and remediation steps.</li>
+            </ul>
+
+            <h3>What’s Next?</h3>
+            <p>Based on the analysis, here’s what I plan to do next:</p>
+            <ol>
+                <li>
+                    <strong>Remediate Vulnerabilities:</strong>
+                    <ul>
+                        <li>Prioritize and address high-severity vulnerabilities identified in the pie chart.</li>
+                        <li>Use the solution text and reference IDs to implement fixes.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Enhance Visualizations:</strong>
+                    <ul>
+                        <li>Add filters and slicers to make the Power BI dashboard more interactive.</li>
+                        <li>Include additional metrics, such as trends over time or vulnerability distribution by host.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Automate the Process:</strong>
+                    <ul>
+                        <li>Set up automated data refreshes in Power BI to keep the dashboard up to date with new scan results.</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <h3>Conclusion</h3>
+            <p>This exercise demonstrated the power of combining OpenVAS and Power BI for vulnerability analysis. By transforming raw scan data into actionable visualizations, I was able to quickly identify and prioritize critical vulnerabilities. Moving forward, I will focus on remediation and enhancing the dashboard to support ongoing security monitoring.</p>
+        </div>
     </div>
 </section>
 
