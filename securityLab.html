@@ -98,22 +98,459 @@
         <p>This diagram illustrates the device components and virtual connections in my lab topology.</p>
     </div>
 </section>
-<!-- Lab Overview Section -->
-<section id="lab-overview">
-    <div class="container">
-        <h2>Lab Overview</h2>
-        <p>This homelab is designed to provide a safe and scalable environment for practicing cybersecurity skills. It includes tools and configurations similar to enterprise infrastructures, allowing you to:</p>
-        <ul>
-            <li>Configure and secure network segments using pfSense.</li>
-            <li>Monitor and detect threats with Security Onion.</li>
-            <li>Simulate attacks using Kali Linux.</li>
-            <li>Manage logs and analyze data with Splunk.</li>
-            <li>Set up and secure a Windows Active Directory environment.</li>
-        </ul>
+
+<!-- OpenVAS Lab Section -->
+<section id="openvas-lab">
+    <button class="collapsible-btn">OpenVAS Lab on Kali Linux</button>
+    <div class="content">
+        <div class="container">
+            <h2>OpenVAS Vulnerability Scanning</h2>
+            <p>In this section, I used OpenVAS, a comprehensive vulnerability scanning tool, to identify security issues within my internal network. The process involved discovering live hosts using Nmap, creating a scan task in OpenVAS, and analyzing the results for critical vulnerabilities.</p>
+
+            <h3>Objective</h3>
+            <p>The goal was to:</p>
+            <ul>
+                <li>Discover live hosts on the internal network using Nmap.</li>
+                <li>Perform a Full and Fast vulnerability scan using OpenVAS.</li>
+                <li>Identify and document high-severity vulnerabilities, such as default admin credentials on pfSense devices.</li>
+            </ul>
+
+            <h3>Tools Used</h3>
+            <ul>
+                <li><strong>Nmap</strong>: Used for network discovery and live host identification.</li>
+                <li><strong>OpenVAS</strong>: A vulnerability scanner for identifying security issues.</li>
+            </ul>
+
+            <h3>Steps Performed</h3>
+            <ol>
+                <li>
+                    <strong>Network Discovery with Nmap</strong>
+                    <p>I started by performing a discovery scan on my internal network to identify live hosts. The following command was used:</p>
+                    <pre><code>nmap -oG nmap_output.txt 192.168.2-4.0/24</code></pre>
+                    <p>This scan generated a list of live hosts, which I filtered and saved into a file named <code>targets.txt</code>:</p>
+                    <pre><code>grep "Up" nmap_output.txt | awk '{print $2}' > targets.txt</code></pre>
+                    <p>Below is a screenshot of the Nmap scan results:</p>
+                    <div class="image-placeholder">
+                        <img src="images/openVas/cat_targetsTXT.png" alt="Nmap Scan Results">
+                    </div>
+                </li>
+                <li>
+                    <strong>Creating a Scan Task in OpenVAS</strong>
+                    <p>Using the <code>targets.txt</code> file, I created a scan task in OpenVAS with the <strong>Full and Fast</strong> scan mode. Below is a screenshot of the scan task configuration:</p>
+                    <div class="image-placeholder" style="max-width: 100%; height: auto;">
+                        <img src="images/openVas/inside_network_scan.png" alt="OpenVAS Scan Task Configuration" style="width: 100%; height: auto;">
+                    </div>
+                </li>
+                <li>
+                    <strong>Parsing Targets in OpenVAS</strong>
+                    <p>I imported the <code>targets.txt</code> file into OpenVAS and configured it as a target list. Below is a screenshot of the parsed targets in OpenVAS:</p>
+                    <div class="image-placeholder" style="max-width: 100%; height: auto;">
+                        <img src="images/openVas/scan targets.png" alt="OpenVAS Targets Configuration" style="width: 100%; height: auto;">
+                    </div>
+                </li>
+                <li>
+                    <strong>Analyzing Scan Results</strong>
+                    <p>After the scan completed, I reviewed the results and identified high-severity vulnerabilities. Specifically, I found default admin credentials for pfSense devices on the following IPs:</p>
+                    <ul>
+                        <li><code>192.168.2.1</code></li>
+                        <li><code>192.168.3.1</code></li>
+                        <li><code>192.168.4.1</code></li>
+                    </ul>
+                    <p>Below is a screenshot of the OpenVAS scan results highlighting these vulnerabilities:</p>
+                    <div class="image-placeholder" style="max-width: 100%; height: auto;">
+                        <img src="images/openVas/openvas scan.png" alt="OpenVAS Scan Results" style="width: 100%; height: auto;">
+                    </div>
+                </li>
+            </ol>
+
+            <h3>Key Findings</h3>
+            <ul>
+                <li>Discovered live hosts on the internal network using Nmap.</li>
+                <li>Identified high-severity vulnerabilities, including default admin credentials on pfSense devices.</li>
+            </ul>
+
+            <h3>What’s Next?</h3>
+            <p>Based on the findings, here’s what I plan to do next:</p>
+            <ol>
+                <li>
+                    <strong>Remediate Vulnerabilities:</strong>
+                    <ul>
+                        <li>Change default credentials on pfSense devices.</li>
+                        <li>Apply patches and updates to vulnerable systems.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Expand the Scope:</strong>
+                    <ul>
+                        <li>Include additional vulnerability checks in the OpenVAS scan configuration.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Transform Data for Analysis:</strong>
+                    <ul>
+                        <li>In the next section, I will transform the scan data for further analysis and visualization.</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <h3>Conclusion</h3>
+            <p>This exercise demonstrated the effectiveness of OpenVAS for identifying vulnerabilities in a network. By combining Nmap for discovery and OpenVAS for scanning, I was able to uncover critical security issues. Moving forward, I will focus on remediation and expanding the scope of the scans to ensure comprehensive coverage.</p>
+        </div>
     </div>
-</section>    
+</section>
+<section id="exploring-metasploit">
+    <button class="collapsible-btn">Exploring Metasploit</button>
+    <div class="content">
+        <div class="container">
+            <h2>Getting Started with Metasploit</h2>
+            <p>In this section, I explored Metasploit, a powerful penetration testing framework, to identify and exploit vulnerabilities in my lab environment. My target was the domain controller at <code>192.168.2.10</code>, and I focused on using Metasploit to test for known vulnerabilities like EternalBlue and DoublePulsar.</p>
+
+            <h3>Objective</h3>
+            <p>The goal was to use Metasploit to:</p>
+            <ul>
+                <li>Scan for vulnerabilities on the domain controller.</li>
+                <li>Search for and test exploits related to open services.</li>
+                <li>Attempt to exploit the target system to gain access.</li>
+            </ul>
+
+            <h3>Tools Used</h3>
+            <ul>
+                <li><strong>Metasploit</strong>: A penetration testing framework for exploiting vulnerabilities.</li>
+                <li><strong>nmap</strong>: Used to scan for open ports and services.</li>
+                <li><strong>searchsploit</strong>: A command-line tool for searching the Exploit Database.</li>
+            </ul>
+
+            <h3>Steps Performed</h3>
+            <ol>
+                <li>
+                    <strong>Starting Metasploit</strong>
+                    <p>I launched Metasploit and was greeted with its iconic ASCII art interface. Below is a screenshot of the Metasploit startup screen:</p>
+                    <div class="image-placeholder">
+                        <img src="images/metasploit.png" alt="Metasploit ASCII Art">
+                    </div>
+                </li>
+                <li>
+                    <strong>Scanning for Vulnerabilities</strong>
+                    <p>I used <code>nmap</code> with the <code>--script vuln</code> flag to scan the domain controller for vulnerabilities:</p>
+                    <pre><code>nmap --script vuln 192.168.2.10</code></pre>
+                    <p>This scan revealed several open ports and services. Below is a screenshot of the results:</p>
+                    <div class="image-placeholder">
+                        <img src="images/metasploitnmap.png" alt="Nmap Vulnerability Scan Results">
+                    </div>
+                </li>
+                <li>
+                    <strong>Searching for Exploits</strong>
+                    <p>Using <code>searchsploit</code>, I searched for exploits related to the open services. I found many results, but I narrowed my focus to <strong>EternalBlue</strong>, a well-known exploit for SMB vulnerabilities:</p>
+                    <pre><code>searchsploit eternalblue</code></pre>
+                    <p>Below is a screenshot of the search results:</p>
+                    <div class="image-placeholder">
+                        <img src="images/searchsploiteternalblue.png" alt="Searchsploit EternalBlue Results">
+                    </div>
+                </li>
+                <li>
+                    <strong>Exploring the DoublePulsar Exploit</strong>
+                    <p>In Metasploit, I searched for the <strong>DoublePulsar</strong> exploit, which is related to EternalBlue:</p>
+                    <pre><code>msf6 > search eternalblue</code></pre>
+                    <p>I found the <strong>SMB DOUBLEPULSAR Remote Code Execution</strong> exploit (ID 27). Below is a screenshot of the exploit details:</p>
+                    <div class="image-placeholder" style="max-width: 100%; height: auto;">
+                        <img src="images/searcheternalblue.png" alt="Metasploit DoublePulsar Exploit Info" style="width: 100%; height: auto;">
+                    </div>
+                </li>
+                <li>
+                    <strong>Attempting the Exploit</strong>
+                    <p>I set up the exploit and targeted the domain controller:</p>
+                    <pre><code>msf6 > use exploit/windows/smb/smb_doublepulsar_rce
+msf6 exploit(windows/smb/smb_doublepulsar_rce) > set RHOSTS 192.168.2.10
+msf6 exploit(windows/smb/smb_doublepulsar_rce) > exploit</code></pre>
+                    <p>Unfortunately, the exploit failed because the target system is likely patched against the vulnerability. Below is a screenshot of the attempt:</p>
+                    <div class="image-placeholder">
+                        <img src="images/exploitcompleted.png" alt="Metasploit Exploit Attempt">
+                    </div>
+                </li>
+            </ol>
+
+            <h3>Security Onion IDS Alerts</h3>
+            <p>While performing these activities, my Security Onion IDS detected several alerts. Below is a summary of the alerts:</p>
+            <div class="image-placeholder" style="max-width: 100%; height: auto;">
+                <img src="images/SO_metasploit.png" alt="Security Onion Alerts" style="width: 100%; height: auto;">
+            </div>
+            <p><strong>Key Alerts:</strong></p>
+            <ul>
+                <li><strong>28 Alerts - ET POLICY LDAPSv3 LDAPS_START_TLS Request Outbound:</strong> These alerts indicate that the Kali machine (<code>192.168.1.128</code>) was sending LDAP START_TLS requests to the domain controller (<code>192.168.2.10</code>). This is normal behavior for LDAP traffic and is not directly related to the DoublePulsar exploit.</li>
+                <li><strong>Other Alerts:</strong> Additional alerts were triggered for suspicious inbound traffic to database ports (e.g., Oracle SQL, MySQL, PostgreSQL, MSSQL) and a potential VNC scan. These are likely false positives or unrelated to the DoublePulsar exploit.</li>
+            </ul>
+            <p><strong>Analysis:</strong> The LDAP alerts suggest that the Kali machine was interacting with the domain controller’s LDAP service, which is expected during enumeration or exploitation attempts. However, these alerts do not indicate a successful exploit or compromise.</p>
+
+            <h3>Key Findings</h3>
+            <ul>
+                <li>Discovered open ports and services on the domain controller, including SMB, LDAP, and Kerberos.</li>
+                <li>Identified the <strong>EternalBlue</strong> and <strong>DoublePulsar</strong> exploits as potential attack vectors.</li>
+                <li>Confirmed that the target system is likely patched against these vulnerabilities, as the exploit attempt failed.</li>
+            </ul>
+
+            <h3>What’s Next?</h3>
+            <p>Since the DoublePulsar exploit didn’t work, here’s what I’ll do next:</p>
+            <ol>
+                <li>
+                    <strong>Verify Vulnerability:</strong>
+                    <ul>
+                        <li>Use the <code>smb_ms17_010</code> scanner in Metasploit to confirm if the target is vulnerable to EternalBlue.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Explore Other Exploits:</strong>
+                    <ul>
+                        <li>Search for other exploits related to SMB, LDAP, or Kerberos.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Enumerate the Target:</strong>
+                    <ul>
+                        <li>Use tools like <code>enum4linux</code> or <code>ldapsearch</code> to gather more information about the domain controller.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Brute Force Credentials:</strong>
+                    <ul>
+                        <li>If no exploits are available, attempt to brute-force credentials for SMB or LDAP.</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <h3>Conclusion</h3>
+            <p>This exercise was a great introduction to using Metasploit for vulnerability scanning and exploitation. While the DoublePulsar exploit didn’t work, it highlighted the importance of keeping systems patched and up to date. Moving forward, I’ll focus on enumerating the target further and exploring other attack vectors.</p>
+        </div>
+    </div>
+</section>
+<!-- Network enumeration Section -->
+<section id="network-enumeration">
+    <button class="collapsible-btn">Network Enumeration and Scanning</button>
+    <div class="content">
+        <div class="container">
+            <h2>Network Enumeration and Scanning</h2>
+            <p>In this section, I performed network enumeration and scanning to identify live hosts, open ports, and services running on the lab network. This activity is critical for understanding the network's attack surface and ensuring that all devices are properly secured and monitored.</p>
+
+            <h3>Objective</h3>
+            <p>The goal was to map out the network, identify active devices, and gather information about the services running on those devices. This helps in identifying potential vulnerabilities, misconfigurations, and unauthorized devices that could pose a security risk.</p>
+
+            <h3>Tools Used</h3>
+            <ul>
+                <li><strong>nmap</strong>: A powerful network scanning tool for discovering hosts and services.</li>
+                <li><strong>netdiscover</strong>: A tool for ARP-based host discovery, useful for identifying devices on the local network.</li>
+                <li><strong>Security Onion</strong>: A network security monitoring (NSM) platform used for intrusion detection and log analysis.</li>
+            </ul>
+
+            <h3>Steps Performed</h3>
+            <ol>
+                <li>
+                    <strong>Scanning for Live Hosts</strong>
+                    <p>I started by using <code>nmap</code> to scan the entire subnet for live hosts. This helps in identifying all active devices on the network.</p>
+                    <pre><code>nmap -sn 192.168.1-4.0/24</code></pre>
+                    <p>This command performed a ping scan, which quickly identified all devices responding to ICMP requests. Below is a screenshot of the results:</p>
+                    <div class="image-placeholder">
+                        <img src="images/nmap_scan.png" alt="nmap scan results" style="max-width: 100%; height: auto;">
+                    </div>
+                </li>
+                <li>
+                    <strong>Detailed Scan on Specific Hosts</strong>
+                    <p>Next, I performed a detailed scan on specific hosts to identify open ports and services. This step provides deeper insights into the services running on each device.</p>
+                    <pre><code>nmap -sV -O 192.168.1.1</code></pre>
+                    <pre><code>nmap -sV -O 192.168.2.10</code></pre>
+                    <p>The <code>-sV</code> flag enabled version detection, while <code>-O</code> enabled OS detection. This revealed the operating system and service versions running on the target host. Here’s a screenshot of the output:</p>
+                    <div class="image-placeholder">
+                        <img src="images/nmap_pfsense.png" alt="nmap detailed scan results" style="max-width: 100%; height: auto;">
+                    </div>
+                    <div class="image-placeholder">
+                        <img src="images/nmap_domaincontroller.png" alt="nmap detailed scan results for domain controller" style="max-width: 100%; height: auto;">
+                    </div>
+                </li>
+                <li>
+                    <strong>ARP-Based Host Discovery</strong>
+                    <p>Finally, I used <code>netdiscover</code> to perform ARP-based host discovery. This tool is particularly useful for identifying devices that might not respond to ICMP requests.</p>
+                    <pre><code>netdiscover -i eth0 -r 192.168.1.0/24</code></pre>
+                    <p>This command scanned the network using ARP requests. Below is a screenshot of the results:</p>
+                    <div class="image-placeholder">
+                        <img src="images/netdiscover.png" alt="netdiscover scan results" style="max-width: 100%; height: auto;">
+                    </div>
+                </li>
+            </ol>
+
+            <h3>Key Findings</h3>
+            <ul>
+                <li>Discovered <strong>6 live hosts</strong> on the network, including the pfSense firewall, Security Onion, and Windows Server.</li>
+                <li>Identified open ports such as <strong>HTTP (80)</strong>, <strong>HTTPS (443)</strong>, and <strong>DNS (53)</strong> on various devices.</li>
+                <li>Detected the operating systems and service versions running on each host, which will be useful for vulnerability assessment.</li>
+            </ul>
+
+            <h3>Security Onion IDS Alerts</h3>
+            <p>During the ping scan and subsequent network enumeration, my Security Onion IDS detected several suspicious activities. Below are the key alerts generated:</p>
+            <div class="image-placeholder" style="max-width: 100%; height: auto;">
+                <img src="images/SO_nmap_alerts.png" alt="Security Onion Nmap Alerts" style="max-width: 100%; height: auto;">
+            </div>
+            <p><strong>Analysis:</strong> The alerts from Security Onion show some unusual activity happening between two devices on the network:</p>
+            <ul>
+                <li><strong>Source:</strong> The Kali machine (<code>192.168.1.128</code>) is sending traffic to the Windows Server (<code>192.168.2.10</code>).</li>
+                <li><strong>What’s Happening:</strong> The traffic is going to non-standard ports (ports not normally used for MSSQL or Terminal Server), which could mean someone is trying to steal data or run malware.</li>
+                <li><strong>Why It’s a Problem:</strong> High-severity alerts mean this activity could be dangerous. It might be an attempt to break into the Windows Server or send sensitive information outside the network.</li>
+            </ul>
+            
+            <p>As part of the Blue Team, my job is to figure out what’s going on and stop it. Here’s what I’ll do:</p>
+            <ul>
+                <li><strong>Find the Source:</strong> Check if the Kali machine is doing this on purpose or if it’s been hacked. Maybe someone is using it to test the network, or maybe it’s been compromised.</li>
+                <li><strong>Stop the Threat:</strong> Disconnect the Kali machine from the network so it can’t cause any more problems while I investigate.</li>
+                <li><strong>Check for Damage:</strong> Look at the Windows Server to see if any sensitive data was accessed or stolen.</li>
+            </ul>
+            
+            <h3>What’s Next?</h3>
+            <p>Here’s the plan to fix the issue and make sure it doesn’t happen again:</p>
+            <ol>
+                <li>
+                    <strong>Incident Response:</strong>
+                    <ul>
+                        <li>Disconnect the Kali machine from the network to stop any more suspicious activity.</li>
+                        <li>Investigate the Kali machine to see if it’s been hacked or if someone is misusing it.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Update Firewall Rules:</strong>
+                    <ul>
+                        <li>Change the firewall settings to block traffic to unusual ports, especially for services like MSSQL and Terminal Server.</li>
+                        <li>Only allow the Kali machine to send traffic to necessary services and ports.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Protect Devices:</strong>
+                    <ul>
+                        <li>Make sure all computers on the network, including the Windows Server, have antivirus software installed and up to date.</li>
+                        <li>Run a malware scan on the Windows Server to check for infections.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Improve Monitoring:</strong>
+                    <ul>
+                        <li>Turn on detailed logging for all important devices and services so we can catch suspicious activity in the future.</li>
+                        <li>Adjust Security Onion’s rules to reduce false alarms and make it better at detecting real threats.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Train Users:</strong>
+                    <ul>
+                        <li>If someone on the team is using the Kali machine, make sure they know how to use it safely and follow security rules.</li>
+                        <li>Teach everyone on the network about the risks of connecting to unusual ports or running unauthorized services.</li>
+                    </ul>
+                </li>
+            </ol>
+            
+            <h3>Conclusion</h3>
+            <p>This exercise showed how important it is to keep an eye on the network and take action when something looks wrong. By using tools like Security Onion and pfSense, the Blue Team can spot and stop threats before they cause serious damage.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Brief setup Section -->
+<section id="brief setup guide">
+    <button class="collapsible-btn">Brief Setup Guide</button>
+    <div class="content">
+        <div class="container">
+            <h2>Step-by-Step Setup</h2>
+            <ol>
+                <li><strong>Prepare the Host Machine</strong>:
+                    <ul>
+                        <li>Ensure hardware meets requirements: 8 CPU cores, 32 GB RAM, 1 TB SSD.</li>
+                        <li>Install VMware Workstation Pro 16 or VirtualBox.</li>
+                        <li>Download ISOs for pfSense, Security Onion, Kali Linux, Windows Server, Windows 10, Ubuntu Server, and additional Linux machines.</li>
+                    </ul>
+                </li>
+                <li><strong>Configure pfSense Firewall</strong>:
+                    <ul>
+                        <li>Create a VM with 1 CPU core, 2 GB RAM, and 20 GB storage.</li>
+                        <li>Add 5 network adapters for segmentation.</li>
+                        <li>Install pfSense Community Edition and configure interfaces (LAN, OPT1, OPT2, OPT3).</li>
+                        <li>Complete the setup wizard and configure firewall rules.</li>
+                    </ul>
+                </li>
+                <li><strong>Set Up Security Onion</strong>:
+                    <ul>
+                        <li>Create a VM with 2-4 CPU cores, 4-32 GB RAM, and 200 GB storage.</li>
+                        <li>Add 2 network adapters (management and monitoring).</li>
+                        <li>Install Security Onion and configure interfaces (management: DHCP, monitor: span port).</li>
+                        <li>Access the web interface from an Ubuntu Desktop machine.</li>
+                    </ul>
+                </li>
+                <li><strong>Configure Kali Linux</strong>:
+                    <ul>
+                        <li>Create a VM with 2 CPU cores, 4 GB RAM, and 20 GB storage.</li>
+                        <li>Set the network adapter to Vmnet2.</li>
+                        <li>Install Kali Linux and change the default password using <code>passwd</code>.</li>
+                        <li>Use Kali for penetration testing and accessing the pfSense WebGUI.</li>
+                    </ul>
+                </li>
+                <li><strong>Set Up Windows Server (Domain Controller)</strong>:
+                    <ul>
+                        <li>Create a VM with 2 CPU cores, 4 GB RAM, and 40 GB storage.</li>
+                        <li>Set the network adapter to Vmnet3.</li>
+                        <li>Install Windows Server 2019 and promote it to a Domain Controller.</li>
+                        <li>Configure Active Directory and create user accounts.</li>
+                        <li>Disable the firewall for lab purposes.</li>
+                    </ul>
+                </li>
+                <li><strong>Configure Windows 10 Desktops</strong>:
+                    <ul>
+                        <li>Create 2 VMs with 2 CPU cores, 4 GB RAM, and 40 GB storage each.</li>
+                        <li>Set the network adapter to Vmnet3.</li>
+                        <li>Install Windows 10 and join the machines to the AD domain.</li>
+                        <li>Configure IP settings and test domain connectivity.</li>
+                    </ul>
+                </li>
+                <li><strong>Install Splunk on Ubuntu Server</strong>:
+                    <ul>
+                        <li>Create a VM with 2-4 CPU cores, 4-8 GB RAM, and 100 GB storage.</li>
+                        <li>Set the network adapter to Vmnet6.</li>
+                        <li>Install Ubuntu Server and optionally add a GUI for easier management.</li>
+                        <li>Download and install Splunk Enterprise.</li>
+                        <li>Start Splunk and configure it to receive logs from the Windows Server using the Universal Forwarder.</li>
+                    </ul>
+                </li>
+                <li><strong>Add Additional Linux Machines</strong>:
+                    <ul>
+                        <li>Examples: Ubuntu, CentOS, Metasploitable, DVWA, Vulnhub.</li>
+                        <li>Create VMs with 1-2 CPU cores, 2-4 GB RAM, and 20-40 GB storage.</li>
+                        <li>Use these machines for exploitation, detection, or monitoring.</li>
+                    </ul>
+                </li>
+                <li><strong>Configure Ubuntu Desktop (Analyst Machine)</strong>:
+                    <ul>
+                        <li>Create a VM with 2 CPU cores, 4 GB RAM, and 20 GB storage.</li>
+                        <li>Install Ubuntu Desktop.</li>
+                        <li>Use this machine to access the Security Onion and Splunk web interfaces.</li>
+                    </ul>
+                </li>
+                <li><strong>Finalize Network Configuration</strong>:
+                    <ul>
+                        <li>Segment the network:
+                            <ul>
+                                <li><strong>LAN</strong>: Kali Linux and pfSense management.</li>
+                                <li><strong>OPT1/OPT2</strong>: Internal networks for Windows and other services.</li>
+                                <li><strong>OPT3</strong>: Span port for Security Onion.</li>
+                                <li><strong>OPT4</strong>: Splunk communication.</li>
+                            </ul>
+                        </li>
+                        <li>Set IP addressing:
+                            <ul>
+                                <li>pfSense LAN: <code>192.168.1.1</code>.</li>
+                                <li>Windows Server: <code>192.168.2.10</code>.</li>
+                                <li>Windows Desktops: <code>192.168.2.21</code> and <code>192.168.2.22</code>.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+    </div>
+</section>
+
 <!-- Lab Components Section -->
-<section id="lab-components"></section>
+<section id="lab-components">
     <button class="collapsible-btn">Lab Components</button>
     <div class="content">
         <div class="container"></div>
@@ -286,356 +723,21 @@
         </div>
     </div>
 </section>
-<!-- Brief setup Section -->
-<section id="brief setup guide">
-    <button class="collapsible-btn">Brief Setup Guide</button>
-    <div class="content">
-        <div class="container">
-            <h2>Step-by-Step Setup</h2>
-            <ol>
-                <li><strong>Prepare the Host Machine</strong>:
-                    <ul>
-                        <li>Ensure hardware meets requirements: 8 CPU cores, 32 GB RAM, 1 TB SSD.</li>
-                        <li>Install VMware Workstation Pro 16 or VirtualBox.</li>
-                        <li>Download ISOs for pfSense, Security Onion, Kali Linux, Windows Server, Windows 10, Ubuntu Server, and additional Linux machines.</li>
-                    </ul>
-                </li>
-                <li><strong>Configure pfSense Firewall</strong>:
-                    <ul>
-                        <li>Create a VM with 1 CPU core, 2 GB RAM, and 20 GB storage.</li>
-                        <li>Add 5 network adapters for segmentation.</li>
-                        <li>Install pfSense Community Edition and configure interfaces (LAN, OPT1, OPT2, OPT3).</li>
-                        <li>Complete the setup wizard and configure firewall rules.</li>
-                    </ul>
-                </li>
-                <li><strong>Set Up Security Onion</strong>:
-                    <ul>
-                        <li>Create a VM with 2-4 CPU cores, 4-32 GB RAM, and 200 GB storage.</li>
-                        <li>Add 2 network adapters (management and monitoring).</li>
-                        <li>Install Security Onion and configure interfaces (management: DHCP, monitor: span port).</li>
-                        <li>Access the web interface from an Ubuntu Desktop machine.</li>
-                    </ul>
-                </li>
-                <li><strong>Configure Kali Linux</strong>:
-                    <ul>
-                        <li>Create a VM with 2 CPU cores, 4 GB RAM, and 20 GB storage.</li>
-                        <li>Set the network adapter to Vmnet2.</li>
-                        <li>Install Kali Linux and change the default password using <code>passwd</code>.</li>
-                        <li>Use Kali for penetration testing and accessing the pfSense WebGUI.</li>
-                    </ul>
-                </li>
-                <li><strong>Set Up Windows Server (Domain Controller)</strong>:
-                    <ul>
-                        <li>Create a VM with 2 CPU cores, 4 GB RAM, and 40 GB storage.</li>
-                        <li>Set the network adapter to Vmnet3.</li>
-                        <li>Install Windows Server 2019 and promote it to a Domain Controller.</li>
-                        <li>Configure Active Directory and create user accounts.</li>
-                        <li>Disable the firewall for lab purposes.</li>
-                    </ul>
-                </li>
-                <li><strong>Configure Windows 10 Desktops</strong>:
-                    <ul>
-                        <li>Create 2 VMs with 2 CPU cores, 4 GB RAM, and 40 GB storage each.</li>
-                        <li>Set the network adapter to Vmnet3.</li>
-                        <li>Install Windows 10 and join the machines to the AD domain.</li>
-                        <li>Configure IP settings and test domain connectivity.</li>
-                    </ul>
-                </li>
-                <li><strong>Install Splunk on Ubuntu Server</strong>:
-                    <ul>
-                        <li>Create a VM with 2-4 CPU cores, 4-8 GB RAM, and 100 GB storage.</li>
-                        <li>Set the network adapter to Vmnet6.</li>
-                        <li>Install Ubuntu Server and optionally add a GUI for easier management.</li>
-                        <li>Download and install Splunk Enterprise.</li>
-                        <li>Start Splunk and configure it to receive logs from the Windows Server using the Universal Forwarder.</li>
-                    </ul>
-                </li>
-                <li><strong>Add Additional Linux Machines</strong>:
-                    <ul>
-                        <li>Examples: Ubuntu, CentOS, Metasploitable, DVWA, Vulnhub.</li>
-                        <li>Create VMs with 1-2 CPU cores, 2-4 GB RAM, and 20-40 GB storage.</li>
-                        <li>Use these machines for exploitation, detection, or monitoring.</li>
-                    </ul>
-                </li>
-                <li><strong>Configure Ubuntu Desktop (Analyst Machine)</strong>:
-                    <ul>
-                        <li>Create a VM with 2 CPU cores, 4 GB RAM, and 20 GB storage.</li>
-                        <li>Install Ubuntu Desktop.</li>
-                        <li>Use this machine to access the Security Onion and Splunk web interfaces.</li>
-                    </ul>
-                </li>
-                <li><strong>Finalize Network Configuration</strong>:
-                    <ul>
-                        <li>Segment the network:
-                            <ul>
-                                <li><strong>LAN</strong>: Kali Linux and pfSense management.</li>
-                                <li><strong>OPT1/OPT2</strong>: Internal networks for Windows and other services.</li>
-                                <li><strong>OPT3</strong>: Span port for Security Onion.</li>
-                                <li><strong>OPT4</strong>: Splunk communication.</li>
-                            </ul>
-                        </li>
-                        <li>Set IP addressing:
-                            <ul>
-                                <li>pfSense LAN: <code>192.168.1.1</code>.</li>
-                                <li>Windows Server: <code>192.168.2.10</code>.</li>
-                                <li>Windows Desktops: <code>192.168.2.21</code> and <code>192.168.2.22</code>.</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-            </ol>
-        </div>
+
+<!-- Lab Overview Section -->
+<section id="lab-overview">
+    <div class="container">
+        <h2>Lab Overview</h2>
+        <p>This homelab is designed to provide a safe and scalable environment for practicing cybersecurity skills. It includes tools and configurations similar to enterprise infrastructures, allowing you to:</p>
+        <ul>
+            <li>Configure and secure network segments using pfSense.</li>
+            <li>Monitor and detect threats with Security Onion.</li>
+            <li>Simulate attacks using Kali Linux.</li>
+            <li>Manage logs and analyze data with Splunk.</li>
+            <li>Set up and secure a Windows Active Directory environment.</li>
+        </ul>
     </div>
-</section>
-<!-- Network enumeration Section -->
-<section id="network-enumeration">
-    <button class="collapsible-btn">Network Enumeration and Scanning</button>
-    <div class="content">
-        <div class="container">
-            <h2>Network Enumeration and Scanning</h2>
-            <p>In this section, I performed network enumeration and scanning to identify live hosts, open ports, and services running on the lab network. This activity is critical for understanding the network's attack surface and ensuring that all devices are properly secured and monitored.</p>
-
-            <h3>Objective</h3>
-            <p>The goal was to map out the network, identify active devices, and gather information about the services running on those devices. This helps in identifying potential vulnerabilities, misconfigurations, and unauthorized devices that could pose a security risk.</p>
-
-            <h3>Tools Used</h3>
-            <ul>
-                <li><strong>nmap</strong>: A powerful network scanning tool for discovering hosts and services.</li>
-                <li><strong>netdiscover</strong>: A tool for ARP-based host discovery, useful for identifying devices on the local network.</li>
-                <li><strong>Security Onion</strong>: A network security monitoring (NSM) platform used for intrusion detection and log analysis.</li>
-            </ul>
-
-            <h3>Steps Performed</h3>
-            <ol>
-                <li>
-                    <strong>Scanning for Live Hosts</strong>
-                    <p>I started by using <code>nmap</code> to scan the entire subnet for live hosts. This helps in identifying all active devices on the network.</p>
-                    <pre><code>nmap -sn 192.168.1-4.0/24</code></pre>
-                    <p>This command performed a ping scan, which quickly identified all devices responding to ICMP requests. Below is a screenshot of the results:</p>
-                    <div class="image-placeholder">
-                        <img src="images/nmap_scan.png" alt="nmap scan results" style="max-width: 100%; height: auto;">
-                    </div>
-                </li>
-                <li>
-                    <strong>Detailed Scan on Specific Hosts</strong>
-                    <p>Next, I performed a detailed scan on specific hosts to identify open ports and services. This step provides deeper insights into the services running on each device.</p>
-                    <pre><code>nmap -sV -O 192.168.1.1</code></pre>
-                    <pre><code>nmap -sV -O 192.168.2.10</code></pre>
-                    <p>The <code>-sV</code> flag enabled version detection, while <code>-O</code> enabled OS detection. This revealed the operating system and service versions running on the target host. Here’s a screenshot of the output:</p>
-                    <div class="image-placeholder">
-                        <img src="images/nmap_pfsense.png" alt="nmap detailed scan results" style="max-width: 100%; height: auto;">
-                    </div>
-                    <div class="image-placeholder">
-                        <img src="images/nmap_domaincontroller.png" alt="nmap detailed scan results for domain controller" style="max-width: 100%; height: auto;">
-                    </div>
-                </li>
-                <li>
-                    <strong>ARP-Based Host Discovery</strong>
-                    <p>Finally, I used <code>netdiscover</code> to perform ARP-based host discovery. This tool is particularly useful for identifying devices that might not respond to ICMP requests.</p>
-                    <pre><code>netdiscover -i eth0 -r 192.168.1.0/24</code></pre>
-                    <p>This command scanned the network using ARP requests. Below is a screenshot of the results:</p>
-                    <div class="image-placeholder">
-                        <img src="images/netdiscover.png" alt="netdiscover scan results" style="max-width: 100%; height: auto;">
-                    </div>
-                </li>
-            </ol>
-
-            <h3>Key Findings</h3>
-            <ul>
-                <li>Discovered <strong>6 live hosts</strong> on the network, including the pfSense firewall, Security Onion, and Windows Server.</li>
-                <li>Identified open ports such as <strong>HTTP (80)</strong>, <strong>HTTPS (443)</strong>, and <strong>DNS (53)</strong> on various devices.</li>
-                <li>Detected the operating systems and service versions running on each host, which will be useful for vulnerability assessment.</li>
-            </ul>
-
-            <h3>Security Onion IDS Alerts</h3>
-            <p>During the ping scan and subsequent network enumeration, my Security Onion IDS detected several suspicious activities. Below are the key alerts generated:</p>
-            <div class="image-placeholder" style="max-width: 100%; height: auto;">
-                <img src="images/SO_nmap_alerts.png" alt="Security Onion Nmap Alerts" style="max-width: 100%; height: auto;">
-            </div>
-            <p><strong>Analysis:</strong> The alerts from Security Onion show some unusual activity happening between two devices on the network:</p>
-            <ul>
-                <li><strong>Source:</strong> The Kali machine (<code>192.168.1.128</code>) is sending traffic to the Windows Server (<code>192.168.2.10</code>).</li>
-                <li><strong>What’s Happening:</strong> The traffic is going to non-standard ports (ports not normally used for MSSQL or Terminal Server), which could mean someone is trying to steal data or run malware.</li>
-                <li><strong>Why It’s a Problem:</strong> High-severity alerts mean this activity could be dangerous. It might be an attempt to break into the Windows Server or send sensitive information outside the network.</li>
-            </ul>
-            
-            <p>As part of the Blue Team, my job is to figure out what’s going on and stop it. Here’s what I’ll do:</p>
-            <ul>
-                <li><strong>Find the Source:</strong> Check if the Kali machine is doing this on purpose or if it’s been hacked. Maybe someone is using it to test the network, or maybe it’s been compromised.</li>
-                <li><strong>Stop the Threat:</strong> Disconnect the Kali machine from the network so it can’t cause any more problems while I investigate.</li>
-                <li><strong>Check for Damage:</strong> Look at the Windows Server to see if any sensitive data was accessed or stolen.</li>
-            </ul>
-            
-            <h3>What’s Next?</h3>
-            <p>Here’s the plan to fix the issue and make sure it doesn’t happen again:</p>
-            <ol>
-                <li>
-                    <strong>Incident Response:</strong>
-                    <ul>
-                        <li>Disconnect the Kali machine from the network to stop any more suspicious activity.</li>
-                        <li>Investigate the Kali machine to see if it’s been hacked or if someone is misusing it.</li>
-                    </ul>
-                </li>
-                <li>
-                    <strong>Update Firewall Rules:</strong>
-                    <ul>
-                        <li>Change the firewall settings to block traffic to unusual ports, especially for services like MSSQL and Terminal Server.</li>
-                        <li>Only allow the Kali machine to send traffic to necessary services and ports.</li>
-                    </ul>
-                </li>
-                <li>
-                    <strong>Protect Devices:</strong>
-                    <ul>
-                        <li>Make sure all computers on the network, including the Windows Server, have antivirus software installed and up to date.</li>
-                        <li>Run a malware scan on the Windows Server to check for infections.</li>
-                    </ul>
-                </li>
-                <li>
-                    <strong>Improve Monitoring:</strong>
-                    <ul>
-                        <li>Turn on detailed logging for all important devices and services so we can catch suspicious activity in the future.</li>
-                        <li>Adjust Security Onion’s rules to reduce false alarms and make it better at detecting real threats.</li>
-                    </ul>
-                </li>
-                <li>
-                    <strong>Train Users:</strong>
-                    <ul>
-                        <li>If someone on the team is using the Kali machine, make sure they know how to use it safely and follow security rules.</li>
-                        <li>Teach everyone on the network about the risks of connecting to unusual ports or running unauthorized services.</li>
-                    </ul>
-                </li>
-            </ol>
-            
-            <h3>Conclusion</h3>
-            <p>This exercise showed how important it is to keep an eye on the network and take action when something looks wrong. By using tools like Security Onion and pfSense, the Blue Team can spot and stop threats before they cause serious damage.</p>
-        </div>
-    </div>
-</section>
-<!-- Exploring Metasploit Section -->
-<section id="exploring-metasploit"></section>
-    <button class="collapsible-btn">Exploring Metasploit</button>
-    <div class="content">
-        <div class="container">
-            <h2>Getting Started with Metasploit</h2>
-            <p>In this section, I explored Metasploit, a powerful penetration testing framework, to identify and exploit vulnerabilities in my lab environment. My target was the domain controller at <code>192.168.2.10</code>, and I focused on using Metasploit to test for known vulnerabilities like EternalBlue and DoublePulsar.</p>
-
-            <h3>Objective</h3>
-            <p>The goal was to use Metasploit to:</p>
-            <ul>
-                <li>Scan for vulnerabilities on the domain controller.</li>
-                <li>Search for and test exploits related to open services.</li>
-                <li>Attempt to exploit the target system to gain access.</li>
-            </ul>
-
-            <h3>Tools Used</h3>
-            <ul>
-                <li><strong>Metasploit</strong>: A penetration testing framework for exploiting vulnerabilities.</li>
-                <li><strong>nmap</strong>: Used to scan for open ports and services.</li>
-                <li><strong>searchsploit</strong>: A command-line tool for searching the Exploit Database.</li>
-            </ul>
-
-            <h3>Steps Performed</h3>
-            <ol>
-                <li>
-                    <strong>Starting Metasploit</strong>
-                    <p>I launched Metasploit and was greeted with its iconic ASCII art interface. Below is a screenshot of the Metasploit startup screen:</p>
-                    <div class="image-placeholder">
-                        <img src="images/metasploit.png" alt="Metasploit ASCII Art">
-                    </div>
-                </li>
-                <li>
-                    <strong>Scanning for Vulnerabilities</strong>
-                    <p>I used <code>nmap</code> with the <code>--script vuln</code> flag to scan the domain controller for vulnerabilities:</p>
-                    <pre><code>nmap --script vuln 192.168.2.10</code></pre>
-                    <p>This scan revealed several open ports and services. Below is a screenshot of the results:</p>
-                    <div class="image-placeholder">
-                        <img src="images/metasploitnmap.png" alt="Nmap Vulnerability Scan Results">
-                    </div>
-                </li>
-                <li>
-                    <strong>Searching for Exploits</strong>
-                    <p>Using <code>searchsploit</code>, I searched for exploits related to the open services. I found many results, but I narrowed my focus to <strong>EternalBlue</strong>, a well-known exploit for SMB vulnerabilities:</p>
-                    <pre><code>searchsploit eternalblue</code></pre>
-                    <p>Below is a screenshot of the search results:</p>
-                    <div class="image-placeholder">
-                        <img src="images/searchsploiteternalblue.png" alt="Searchsploit EternalBlue Results">
-                    </div>
-                </li>
-                <li>
-                    <strong>Exploring the DoublePulsar Exploit</strong>
-                    <p>In Metasploit, I searched for the <strong>DoublePulsar</strong> exploit, which is related to EternalBlue:</p>
-                    <pre><code>msf6 > search eternalblue</code></pre>
-                    <p>I found the <strong>SMB DOUBLEPULSAR Remote Code Execution</strong> exploit (ID 27). Below is a screenshot of the exploit details:</p>
-                    <div class="image-placeholder" style="max-width: 100%; height: auto;">
-                        <img src="images/searcheternalblue.png" alt="Metasploit DoublePulsar Exploit Info" style="width: 100%; height: auto;">
-                    </div>
-                </li>
-                <li>
-                    <strong>Attempting the Exploit</strong>
-                    <p>I set up the exploit and targeted the domain controller:</p>
-                    <pre><code>msf6 > use exploit/windows/smb/smb_doublepulsar_rce
-msf6 exploit(windows/smb/smb_doublepulsar_rce) > set RHOSTS 192.168.2.10
-msf6 exploit(windows/smb/smb_doublepulsar_rce) > exploit</code></pre>
-                    <p>Unfortunately, the exploit failed because the target system is likely patched against the vulnerability. Below is a screenshot of the attempt:</p>
-                    <div class="image-placeholder">
-                        <img src="images/exploitcompleted.png" alt="Metasploit Exploit Attempt">
-                    </div>
-                </li>
-            </ol>
-
-            <h3>Security Onion IDS Alerts</h3>
-            <p>While performing these activities, my Security Onion IDS detected several alerts. Below is a summary of the alerts:</p>
-            <div class="image-placeholder" style="max-width: 100%; height: auto;">
-                <img src="images/SO_metasploit.png" alt="Security Onion Alerts" style="width: 100%; height: auto;">
-            </div>
-            <p><strong>Key Alerts:</strong></p>
-            <ul>
-                <li><strong>28 Alerts - ET POLICY LDAPSv3 LDAPS_START_TLS Request Outbound:</strong> These alerts indicate that the Kali machine (<code>192.168.1.128</code>) was sending LDAP START_TLS requests to the domain controller (<code>192.168.2.10</code>). This is normal behavior for LDAP traffic and is not directly related to the DoublePulsar exploit.</li>
-                <li><strong>Other Alerts:</strong> Additional alerts were triggered for suspicious inbound traffic to database ports (e.g., Oracle SQL, MySQL, PostgreSQL, MSSQL) and a potential VNC scan. These are likely false positives or unrelated to the DoublePulsar exploit.</li>
-            </ul>
-            <p><strong>Analysis:</strong> The LDAP alerts suggest that the Kali machine was interacting with the domain controller’s LDAP service, which is expected during enumeration or exploitation attempts. However, these alerts do not indicate a successful exploit or compromise.</p>
-
-            <h3>Key Findings</h3>
-            <ul>
-                <li>Discovered open ports and services on the domain controller, including SMB, LDAP, and Kerberos.</li>
-                <li>Identified the <strong>EternalBlue</strong> and <strong>DoublePulsar</strong> exploits as potential attack vectors.</li>
-                <li>Confirmed that the target system is likely patched against these vulnerabilities, as the exploit attempt failed.</li>
-            </ul>
-
-            <h3>What’s Next?</h3>
-            <p>Since the DoublePulsar exploit didn’t work, here’s what I’ll do next:</p>
-            <ol>
-                <li>
-                    <strong>Verify Vulnerability:</strong>
-                    <ul>
-                        <li>Use the <code>smb_ms17_010</code> scanner in Metasploit to confirm if the target is vulnerable to EternalBlue.</li>
-                    </ul>
-                </li>
-                <li>
-                    <strong>Explore Other Exploits:</strong>
-                    <ul>
-                        <li>Search for other exploits related to SMB, LDAP, or Kerberos.</li>
-                    </ul>
-                </li>
-                <li>
-                    <strong>Enumerate the Target:</strong>
-                    <ul>
-                        <li>Use tools like <code>enum4linux</code> or <code>ldapsearch</code> to gather more information about the domain controller.</li>
-                    </ul>
-                </li>
-                <li>
-                    <strong>Brute Force Credentials:</strong>
-                    <ul>
-                        <li>If no exploits are available, attempt to brute-force credentials for SMB or LDAP.</li>
-                    </ul>
-                </li>
-            </ol>
-
-            <h3>Conclusion</h3>
-            <p>This exercise was a great introduction to using Metasploit for vulnerability scanning and exploitation. While the DoublePulsar exploit didn’t work, it highlighted the importance of keeping systems patched and up to date. Moving forward, I’ll focus on enumerating the target further and exploring other attack vectors.</p>
-        </div>
-    </div>
-</section>
+</section>   
     <!-- Footer -->
     <footer>
         <div class="container">
