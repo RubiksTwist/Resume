@@ -5,22 +5,27 @@ const blogPosts = [
   { title: "Blog Post 3", content: "Content of Blog Post 3", date: "2025-10-05" }
 ];
 
+// Sort blog posts by date (most recent first)
+blogPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
+
 // Function to display a blog post
-function displayBlogPost(index) {
-  const post = blogPosts[index];
-  document.getElementById("blog-title").innerText = post.title;
-  document.getElementById("blog-content").innerText = post.content;
+function displayBlogPost(date) {
+  const post = blogPosts.find(post => post.date === date);
+  if (post) {
+    document.getElementById("blog-title").innerText = post.title;
+    document.getElementById("blog-content").innerText = post.content;
+  }
 }
 
 // Function to generate the blog list
 function generateBlogList() {
   const blogLinks = document.getElementById("blog-links");
-  blogPosts.forEach((post, index) => {
+  blogPosts.forEach(post => {
     const listItem = document.createElement("li");
     const link = document.createElement("a");
     link.href = "#";
-    link.innerText = `${post.date} - ${post.title}`;
-    link.addEventListener("click", () => displayBlogPost(index));
+    link.innerText = post.date;
+    link.addEventListener("click", () => displayBlogPost(post.date));
     listItem.appendChild(link);
     blogLinks.appendChild(listItem);
   });
@@ -28,7 +33,7 @@ function generateBlogList() {
 
 // Generate the blog list and display the latest post on page load
 generateBlogList();
-displayBlogPost(blogPosts.length - 1);
+displayBlogPost(blogPosts[0].date);
 
 // Fetch and display the latest blog post
 async function loadLatestBlogPost() {
