@@ -1,8 +1,26 @@
 // Blog data (embedded or fetched)
 const blogPosts = [
-  { title: "Blog Post 1", content: "Content of Blog Post 1", date: "2025-10-01" },
-  { title: "Blog Post 2", content: "Content of Blog Post 2", date: "2025-10-03" },
-  { title: "Blog Post 3", content: "Content of Blog Post 3", date: "2025-10-05" }
+  { 
+    title: "Exploring the Future of Cybersecurity", 
+    content: `
+      Cybersecurity is at the forefront of technological advancements in 2025. With the rise of AI-driven attacks and defenses, the landscape is evolving rapidly. In this blog post, we explore the latest trends, including zero-trust architectures, AI-powered threat detection, and the importance of cloud security.
+
+      Organizations are increasingly adopting zero-trust models to ensure that every access request is verified, regardless of its origin. Meanwhile, AI is being leveraged to predict and mitigate threats in real-time, making security systems more adaptive and proactive.
+
+      Stay tuned as we delve deeper into these topics and provide actionable insights to help you stay ahead in the ever-changing world of cybersecurity.
+    `,
+    date: "2025-10-05"
+  },
+  { 
+    title: "Blog Post 2", 
+    content: "Content of Blog Post 2", 
+    date: "2025-10-03" 
+  },
+  { 
+    title: "Blog Post 1", 
+    content: "Content of Blog Post 1", 
+    date: "2025-10-01" 
+  }
 ];
 
 // Sort blog posts by date (most recent first)
