@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPY GEX + AI Morning Call Case Study - Alex Cheung</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main class="case-study">
+        <div class="container">
+            <header class="case-hero">
+                <p class="eyebrow">Market-intelligence pipeline</p>
+                <h1>SPY GEX + AI Morning Call</h1>
+                <p>Automated market intelligence that turns options, macro, calendar, and headline data into reviewable analytics and publishable brief text.</p>
+                <div class="case-actions">
+                    <a class="back-link" href="index.html#projects">Back to main page</a>
+                    <a class="back-link" href="https://x.com/GexLevels" target="_blank" rel="noopener">Public output</a>
+                </div>
+            </header>
+
+            <div class="case-layout">
+                <article class="case-main">
+                    <section>
+                        <h2>Product Surface</h2>
+                        <div class="screenshot-grid">
+                            <figure class="screenshot-frame">
+                                <img src="assets/projects/spy-gex-x-post.svg" alt="SPY GEX public X post screenshot">
+                                <figcaption>Representative user-facing output for the SPY GEX framework on the GexLevels X surface.</figcaption>
+                            </figure>
+                            <figure class="diagram-frame">
+                                <img src="assets/diagrams/market-architecture.svg" alt="SPY GEX and AI Morning Call architecture diagram">
+                                <figcaption>Daily orchestration across market data, gamma analytics, model-generated brief text, and X publishing controls.</figcaption>
+                            </figure>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Problem</h2>
+                        <p>Useful market commentary needs more than an LLM prompt. It needs repeatable data capture, computed market structure, calendar context, headline context, and a publishing gate so generated language is downstream of reviewable inputs.</p>
+                    </section>
+
+                    <section>
+                        <h2>Solution</h2>
+                        <p>The CalculateGamma workflow fetches SPY options, SPY and VIX OHLC data, computes full-chain and 0DTE gamma exposure, persists daily state in SQLite, and exports analyst artifacts. AI Morning Call adds macro, futures, ETF, economic-calendar, and FinancialJuice/X headline context before model synthesis and optional posting.</p>
+                    </section>
+
+                    <section>
+                        <h2>Workflow</h2>
+                        <figure class="diagram-frame">
+                            <img src="assets/diagrams/market-flow.svg" alt="SPY GEX workflow diagram">
+                            <figcaption>The pipeline computes analytics first, then uses model generation and post validation as later stages.</figcaption>
+                        </figure>
+                    </section>
+
+                    <section>
+                        <h2>Design Decisions</h2>
+                        <div class="decision-grid">
+                            <div class="decision-card">
+                                <h3>Analytics Before Language</h3>
+                                <p>Gamma levels, VIX context, ATR ranges, and prior-day shifts are computed before model text is generated.</p>
+                            </div>
+                            <div class="decision-card">
+                                <h3>SQLite Replayability</h3>
+                                <p>Daily market state, briefs, generated tweets, predictions, and outcomes are persisted so runs can be reviewed later.</p>
+                            </div>
+                            <div class="decision-card">
+                                <h3>Publishing Separation</h3>
+                                <p>The post step validates credentials, content file, and length separately from data collection and brief generation.</p>
+                            </div>
+                            <div class="decision-card">
+                                <h3>Model Accountability</h3>
+                                <p>A multi-model morning-call path supports scorecards, thresholded consensus, and outcome logging instead of one-off prompt output.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Operations And Reliability</h2>
+                        <p>The repositories include a market-day aware daily runner, ET timezone handling, generated CSV/Pine/text outputs, optional X API posting, dry-run controls, retention behavior, and hooks for failure alerting. The GexLevels link is presented as the public output surface for the generated market brief.</p>
+                    </section>
+                </article>
+
+                <aside class="case-sidebar">
+                    <section class="evidence-panel">
+                        <h2>Stack</h2>
+                        <ul class="case-tag-list">
+                            <li>Python</li>
+                            <li>SQLite</li>
+                            <li>yfinance</li>
+                            <li>Alpaca</li>
+                            <li>Ollama</li>
+                            <li>Qwen</li>
+                            <li>X API</li>
+                            <li>Market calendars</li>
+                        </ul>
+                    </section>
+                </aside>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

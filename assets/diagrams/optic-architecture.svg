@@ -1,0 +1,16 @@
+<svg width="1100" height="560" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 560" role="img" aria-labelledby="title desc">
+  <title id="title">OPTIC architecture</title>
+  <desc id="desc">OPTIC architecture showing vendor report ingestion, hybrid extraction, normalization, PostgreSQL, and the public OPTICLab release.</desc>
+  <rect width="1100" height="560" fill="#f7faf9"/>
+  <text x="52" y="70" font-family="Arial" font-size="34" font-weight="700" fill="#10251f">OPTIC / OPTICLab Architecture</text>
+  <g font-family="Arial" fill="#10251f">
+    <rect x="55" y="160" width="170" height="110" rx="10" fill="#e9f3ff" stroke="#9bb8d3"/><text x="84" y="203" font-size="18" font-weight="700">Vendor Reports</text><text x="84" y="231" font-size="14">Mandiant, Talos,</text><text x="84" y="252" font-size="14">Microsoft, more</text>
+    <rect x="275" y="160" width="170" height="110" rx="10" fill="#e8f3ef" stroke="#9ab8ae"/><text x="309" y="203" font-size="18" font-weight="700">Archive</text><text x="309" y="231" font-size="14">HTML + metadata</text><text x="309" y="252" font-size="14">source capture</text>
+    <rect x="495" y="160" width="170" height="110" rx="10" fill="#fff4df" stroke="#d9b76f"/><text x="520" y="203" font-size="18" font-weight="700">Hybrid Extractor</text><text x="520" y="231" font-size="14">Heuristics + LLM</text><text x="520" y="252" font-size="14">normalizers</text>
+    <rect x="715" y="160" width="170" height="110" rx="10" fill="#f1edf8" stroke="#b1a2cf"/><text x="756" y="203" font-size="18" font-weight="700">PostgreSQL</text><text x="756" y="231" font-size="14">Mentions, entities,</text><text x="756" y="252" font-size="14">relationships</text>
+    <rect x="935" y="160" width="120" height="110" rx="10" fill="#edf7f0" stroke="#92bd9c"/><text x="956" y="203" font-size="18" font-weight="700">OPTICLab</text><text x="956" y="231" font-size="14">Dashboard</text><text x="956" y="252" font-size="14">DB snapshot</text>
+  </g>
+  <g stroke="#52635f" stroke-width="4" fill="none" stroke-linecap="round"><path d="M225 215 H275"/><path d="M445 215 H495"/><path d="M665 215 H715"/><path d="M885 215 H935"/></g>
+  <g fill="#52635f"><polygon points="266,205 284,215 266,225"/><polygon points="486,205 504,215 486,225"/><polygon points="706,205 724,215 706,225"/><polygon points="926,205 944,215 926,225"/></g>
+  <text x="72" y="365" font-family="Arial" font-size="18" fill="#52635f">Audit note: public claims use the repo's archive vs operational corpus distinction and avoid presenting planned MCP placeholders as shipped capability.</text>
+</svg>

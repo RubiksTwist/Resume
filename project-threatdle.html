@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Threatdle Case Study - Alex Cheung</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main class="case-study">
+        <div class="container">
+            <header class="case-hero">
+                <p class="eyebrow">Live cybersecurity game</p>
+                <h1>Threatdle</h1>
+                <p>A daily cybersecurity deduction game that turns threat-intelligence datasets into a browser puzzle with server-side answer validation.</p>
+                <div class="case-actions">
+                    <a class="back-link" href="index.html#projects">Back to main page</a>
+                    <a class="back-link" href="https://threatdle.com" target="_blank" rel="noopener">Live product</a>
+                    <a class="back-link" href="https://threatdle.com/api/game/today" target="_blank" rel="noopener">Today API</a>
+                    <a class="back-link" href="https://github.com/RubiksTwist/Threatdle" target="_blank" rel="noopener">GitHub</a>
+                </div>
+            </header>
+
+            <div class="case-layout">
+                <article class="case-main">
+                    <section>
+                        <h2>Product Surface</h2>
+                        <div class="screenshot-grid">
+                            <figure class="screenshot-frame">
+                                <img src="assets/projects/threatdle.png" alt="Threatdle browser game">
+                                <figcaption>Live Threatdle gameplay surface captured from the public site.</figcaption>
+                            </figure>
+                            <figure class="diagram-frame">
+                                <img src="assets/diagrams/threatdle-architecture.svg" alt="Threatdle architecture diagram">
+                                <figcaption>Threat-intelligence ingestion, puzzle generation, Netlify Functions, and browser gameplay.</figcaption>
+                            </figure>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Problem</h2>
+                        <p>Cybersecurity learning often separates structured threat intelligence from memorable practice. Threatdle uses the shape of a daily puzzle to make actors, malware, and ATT&amp;CK techniques easier to reason about repeatedly.</p>
+                    </section>
+
+                    <section>
+                        <h2>Solution</h2>
+                        <p>The documented workflow ingests MITRE ATT&amp;CK STIX, MISP Galaxy threat-actor data, and curated attack-flow files. A snapshot-keyed SQLite workflow records source materialization, then deterministic puzzle generation creates daily game content with repeat-window controls.</p>
+                    </section>
+
+                    <section>
+                        <h2>Request Flow</h2>
+                        <figure class="diagram-frame">
+                            <img src="assets/diagrams/threatdle-flow.svg" alt="Threatdle request flow diagram">
+                            <figcaption>The browser receives clue payloads while validation and answer material stay behind API endpoints.</figcaption>
+                        </figure>
+                    </section>
+
+                    <section>
+                        <h2>Design Decisions</h2>
+                        <div class="decision-grid">
+                            <div class="decision-card">
+                                <h3>Server-Side Validation</h3>
+                                <p>Guess validation is handled by API endpoints so the answer pool is not simply exposed in the public client bundle.</p>
+                            </div>
+                            <div class="decision-card">
+                                <h3>Deterministic Daily Play</h3>
+                                <p>Date-based generation makes the same daily puzzle resolve consistently for different users and devices.</p>
+                            </div>
+                            <div class="decision-card">
+                                <h3>Snapshot Keys</h3>
+                                <p>Snapshot metadata gives puzzle content a stable reference to the source material used to build it.</p>
+                            </div>
+                            <div class="decision-card">
+                                <h3>Focused First Game Loop</h3>
+                                <p>The first release emphasizes actor, malware, and technique deduction rather than turning every intelligence attribute into a clue.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Live Behavior</h2>
+                        <p>The public site and <code>/api/game/today</code> endpoint expose the current puzzle state. The API returns fields including snapshot identity, timezone, server day key, current day key, latest day, and available game days.</p>
+                    </section>
+
+                    <section>
+                        <h2>Gameplay Boundary</h2>
+                        <p>The public site exposes a focused daily game loop: load the active day, review clue material, make a guess, and let the API validate the answer while keeping solution material out of the static client.</p>
+                    </section>
+                </article>
+
+                <aside class="case-sidebar">
+                    <section class="evidence-panel">
+                        <h2>Stack</h2>
+                        <ul class="case-tag-list">
+                            <li>Browser client</li>
+                            <li>Netlify Functions</li>
+                            <li>Python tooling</li>
+                            <li>SQLite snapshots</li>
+                            <li>MITRE ATT&amp;CK</li>
+                            <li>MISP Galaxy</li>
+                        </ul>
+                    </section>
+                </aside>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

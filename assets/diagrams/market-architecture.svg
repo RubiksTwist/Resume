@@ -1,0 +1,15 @@
+<svg width="1100" height="560" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 560" role="img" aria-labelledby="title desc">
+  <title id="title">SPY GEX and AI Morning Call architecture</title>
+  <desc id="desc">Market intelligence architecture showing data sources, SQLite persistence, GEX analytics, LLM brief generation, and X publishing.</desc>
+  <rect width="1100" height="560" fill="#f7faf9"/>
+  <text x="52" y="70" font-family="Arial" font-size="34" font-weight="700" fill="#10251f">SPY GEX + AI Morning Call Architecture</text>
+  <g font-family="Arial" fill="#10251f">
+    <rect x="55" y="150" width="185" height="110" rx="10" fill="#e9f3ff" stroke="#9bb8d3"/><text x="87" y="193" font-size="18" font-weight="700">Market Sources</text><text x="87" y="222" font-size="14">Alpaca, yfinance, FMP</text>
+    <rect x="290" y="150" width="185" height="110" rx="10" fill="#e8f3ef" stroke="#9ab8ae"/><text x="323" y="193" font-size="18" font-weight="700">SQLite State</text><text x="323" y="222" font-size="14">GEX + morning DBs</text>
+    <rect x="525" y="150" width="185" height="110" rx="10" fill="#fff4df" stroke="#d9b76f"/><text x="555" y="193" font-size="18" font-weight="700">GEX Analytics</text><text x="555" y="222" font-size="14">0DTE, full chain, walls</text>
+    <rect x="760" y="150" width="185" height="110" rx="10" fill="#f1edf8" stroke="#b1a2cf"/><text x="790" y="193" font-size="18" font-weight="700">LLM Synthesis</text><text x="790" y="222" font-size="14">Qwen/Ollama brief</text>
+    <rect x="525" y="350" width="185" height="95" rx="10" fill="#edf7f0" stroke="#92bd9c"/><text x="570" y="390" font-size="18" font-weight="700">X Output</text><text x="570" y="417" font-size="14">GexLevels post</text>
+  </g>
+  <g stroke="#52635f" stroke-width="4" fill="none" stroke-linecap="round"><path d="M240 205 H290"/><path d="M475 205 H525"/><path d="M710 205 H760"/><path d="M852 260 C830 335 735 395 710 398"/></g>
+  <g fill="#52635f"><polygon points="281,195 299,205 281,215"/><polygon points="516,195 534,205 516,215"/><polygon points="751,195 769,205 751,215"/><polygon points="720,386 700,401 724,406"/></g>
+</svg>

@@ -3,49 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alex Cheung - Home</title>
+    <title>Alex Cheung - Portfolio</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <nav>
-        <div class="container">
-            <a href="index.html" class="logo">Alex Cheung</a>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="securityLab.html">Cybersecurity Lab</a></li>
-                <li><a href="azure-challenge.html">Azure Cloud Challenge</a></li>
-                <li><a href="capstone.html">Network Engineering and Security Capstone</a></li>
-                <li><a href="resume.html">About Me</a></li>
-            </ul>
-        </div>
-    </nav>
-    <!-- Blog Posts Section -->
-    <section class="blog-posts">
-        <div class="container">
-            <h2>Blog - Coming Soon</h2>
-            <p>I'm working hard to bring you exciting content. Stay tuned!</p>
-            <img src="https://as2.ftcdn.net/v2/jpg/16/84/53/35/1000_F_1684533599_nhNeFzlqtn6XA3LbP6Errqui8wL6TvGM.jpg" alt="Work in Progress" style="width:100%; max-width:600px;">
-        </div>
-    </section>
+    <main>
+        <section class="portfolio-section" id="projects">
+            <div class="container">
+                <div class="section-heading">
+                    <h2>Projects</h2>
+                    <p>Building AI-powered projects that turn messy data, security workflows, and real-world problems into usable products.</p>
+                </div>
 
-    <!-- Footer -->
+                <div class="project-grid">
+                    <article class="project-card">
+                        <a href="project-healthcode.html" class="project-image-link" aria-label="Read HealthCode details">
+                            <img src="assets/projects/healthcode.png" alt="HealthCode application screenshot">
+                        </a>
+                        <div class="project-card-body">
+                            <p class="project-type">Public-health data product</p>
+                            <h3>HealthCode</h3>
+                            <p>A restaurant inspection intelligence app that turns fragmented public health records into searchable maps, rankings, risk signals, and restaurant detail workflows.</p>
+                            <div class="project-links">
+                                <a href="https://healthcode-staging.netlify.app/" target="_blank" rel="noopener">Live product</a>
+                                <a href="project-healthcode.html">Detailed explanation</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <a href="project-optic.html" class="project-image-link" aria-label="Read OPTIC details">
+                            <img src="assets/projects/optic.png" alt="OPTICLab application screenshot">
+                        </a>
+                        <div class="project-card-body">
+                            <p class="project-type">Threat-intelligence corpus</p>
+                            <h3>OPTIC / OPTICLab</h3>
+                            <p>A threat-intelligence data platform that extracts structured actors, malware, IOCs, techniques, and relationships from vendor research into a public analyst corpus.</p>
+                            <div class="project-links">
+                                <a href="https://opticlab.net" target="_blank" rel="noopener">Live product</a>
+                                <a href="project-optic.html">Detailed explanation</a>
+                                <a href="https://github.com/RubiksTwist/opticLab" target="_blank" rel="noopener">GitHub</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <a href="project-threatdle.html" class="project-image-link" aria-label="Read Threatdle details">
+                            <img src="assets/projects/threatdle.png" alt="Threatdle application screenshot">
+                        </a>
+                        <div class="project-card-body">
+                            <p class="project-type">Live cybersecurity game</p>
+                            <h3>Threatdle</h3>
+                            <p>A daily cybersecurity deduction game that turns ATT&CK, MISP, and curated threat data into playable puzzles with server-side answer validation.</p>
+                            <div class="project-links">
+                                <a href="https://threatdle.com" target="_blank" rel="noopener">Live product</a>
+                                <a href="project-threatdle.html">Detailed explanation</a>
+                                <a href="https://github.com/RubiksTwist/Threatdle" target="_blank" rel="noopener">GitHub</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <a href="project-market-intel.html" class="project-image-link" aria-label="Read market intelligence details">
+                            <img src="assets/projects/spy-gex-x-post.svg" alt="SPY GEX Framework post preview">
+                        </a>
+                        <div class="project-card-body">
+                            <p class="project-type">Market-intelligence pipeline</p>
+                            <h3>SPY GEX + AI Morning Call</h3>
+                            <p>An automated market brief system that combines SPY gamma exposure, VIX context, macro calendars, headlines, and AI synthesis into publishable daily output.</p>
+                            <div class="project-links">
+                                <a href="https://x.com/GexLevels" target="_blank" rel="noopener">Live product</a>
+                                <a href="project-market-intel.html">Detailed explanation</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <a href="project-ehs-intel.html" class="project-image-link" aria-label="Read EHS Intel details">
+                            <img src="assets/projects/ehs-intel.svg" alt="EHS Intel platform architecture preview">
+                        </a>
+                        <div class="project-card-body">
+                            <p class="project-type">Compliance intelligence stack</p>
+                            <h3>EHS Intel Platform</h3>
+                            <p>An environmental, health, and safety intelligence platform that grounds company risk briefs in agency datasets, retrieval tools, and a streaming AI interface.</p>
+                            <div class="project-links">
+                                <a href="project-ehs-intel.html">Detailed explanation</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <a href="project-ai-security-lab.html" class="project-image-link" aria-label="Read AI Security Lab details">
+                            <img src="images/SO_metasploit.png" alt="Security Onion alert screenshot from cybersecurity lab">
+                        </a>
+                        <div class="project-card-body">
+                            <p class="project-type">Adversarial AI lab</p>
+                            <h3>AI Security Testing Lab</h3>
+                            <p>A controlled AI security lab for testing prompt injection, jailbreaks, harmful output, and data-exfiltration behavior against a containerized chatbot runtime.</p>
+                            <div class="project-links">
+                                <a href="project-ai-security-lab.html">Detailed explanation</a>
+                                <a href="https://github.com/RubiksTwist/AI-Hacking" target="_blank" rel="noopener">GitHub</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
     <footer>
         <div class="container">
-            <p>&copy; 2024 Alex Cheung. All rights reserved.</p>
-            <p>Powered by <a href="https://azure.microsoft.com" target="_blank" class="azure-link">
-                <i class="fab fa-microsoft"></i> Microsoft Azure
-            </a></p>
-            <ul>
-                <li><a href="https://www.linkedin.com/in/alex-cheung-878632290" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-                <li><a href="mailto:alexchg0106@gmail.com"><i class="fas fa-envelope"></i></a></li>
-                <li><a href="https://github.com/RubiksTwist" target="_blank"><i class="fab fa-github"></i></a></li>
+            <ul class="social-links" aria-label="Social profiles">
+                <li>
+                    <a href="https://www.linkedin.com/in/alex-cheung-878632290" target="_blank" rel="noopener" aria-label="LinkedIn profile">
+                        <i class="fab fa-linkedin" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/RubiksTwist" target="_blank" rel="noopener" aria-label="GitHub profile">
+                        <i class="fab fa-github" aria-hidden="true"></i>
+                    </a>
+                </li>
             </ul>
+            <p>&copy; 2026 Alex Cheung. All rights reserved.</p>
         </div>
     </footer>
-    <!-- Link to External JavaScript File -->
-    <script src="visitor-counter.js"></script>
-    <script src="latest-blog.js"></script>
 </body>
 </html>

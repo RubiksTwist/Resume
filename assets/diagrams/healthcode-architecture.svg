@@ -1,0 +1,24 @@
+<svg width="1100" height="560" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 560" role="img" aria-labelledby="title desc">
+  <title id="title">HealthCode architecture</title>
+  <desc id="desc">HealthCode architecture connecting Netlify React frontend, Render Express API, Neon Postgres, ingestion jobs, and GitHub Actions.</desc>
+  <rect width="1100" height="560" fill="#f7faf9"/>
+  <text x="52" y="70" font-family="Arial" font-size="34" font-weight="700" fill="#10251f">HealthCode Architecture</text>
+  <g font-family="Arial" font-size="18" font-weight="700" fill="#10251f">
+    <rect x="70" y="145" width="210" height="95" rx="10" fill="#e9f3ff" stroke="#9bb8d3"/>
+    <text x="105" y="185">React / Vite UI</text><text x="105" y="212" font-size="14" font-weight="400">Netlify frontend</text>
+    <rect x="445" y="145" width="210" height="95" rx="10" fill="#e8f3ef" stroke="#9ab8ae"/>
+    <text x="492" y="185">Express API</text><text x="492" y="212" font-size="14" font-weight="400">Render service</text>
+    <rect x="820" y="145" width="210" height="95" rx="10" fill="#fff4df" stroke="#d9b76f"/>
+    <text x="873" y="185">Postgres</text><text x="873" y="212" font-size="14" font-weight="400">Neon staging DB</text>
+    <rect x="70" y="340" width="210" height="95" rx="10" fill="#f1edf8" stroke="#b1a2cf"/>
+    <text x="106" y="380">Public Sources</text><text x="106" y="407" font-size="14" font-weight="400">CSV, LIVES, HTML/PDF</text>
+    <rect x="445" y="340" width="210" height="95" rx="10" fill="#f4f0e8" stroke="#c4ab78"/>
+    <text x="492" y="380">Ingestion Jobs</text><text x="492" y="407" font-size="14" font-weight="400">Adapters + risk tags</text>
+    <rect x="820" y="340" width="210" height="95" rx="10" fill="#edf7f0" stroke="#92bd9c"/>
+    <text x="860" y="380">GitHub Actions</text><text x="860" y="407" font-size="14" font-weight="400">CI, health, ingest</text>
+  </g>
+  <g stroke="#52635f" stroke-width="4" fill="none" stroke-linecap="round">
+    <path d="M280 192 H445"/><path d="M655 192 H820"/><path d="M280 387 H445"/><path d="M655 387 H820"/><path d="M550 340 V240"/><path d="M925 340 V240"/>
+  </g>
+  <g fill="#52635f"><polygon points="436,182 454,192 436,202"/><polygon points="811,182 829,192 811,202"/><polygon points="436,377 454,387 436,397"/><polygon points="811,377 829,387 811,397"/><polygon points="540,249 550,231 560,249"/><polygon points="915,249 925,231 935,249"/></g>
+</svg>

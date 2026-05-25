@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OPTIC / OPTICLab Case Study - Alex Cheung</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main class="case-study">
+        <div class="container">
+            <header class="case-hero">
+                <p class="eyebrow">Threat-intelligence corpus</p>
+                <h1>OPTIC / OPTICLab</h1>
+                <p>A security reporting pipeline that turns vendor research into a normalized, source-backed threat-intelligence corpus and public dashboard.</p>
+                <div class="case-actions">
+                    <a class="back-link" href="index.html#projects">Back to main page</a>
+                    <a class="back-link" href="https://opticlab.net" target="_blank" rel="noopener">Live product</a>
+                    <a class="back-link" href="https://github.com/RubiksTwist/opticLab" target="_blank" rel="noopener">GitHub</a>
+                </div>
+            </header>
+
+            <div class="case-layout">
+                <article class="case-main">
+                    <section>
+                        <h2>Product Surface</h2>
+                        <div class="screenshot-grid">
+                            <figure class="screenshot-frame">
+                                <img src="assets/projects/optic.png" alt="OPTICLab public dashboard">
+                                <figcaption>OPTICLab public release surface with corpus metrics and downloadable snapshot context.</figcaption>
+                            </figure>
+                            <figure class="diagram-frame">
+                                <img src="assets/diagrams/optic-architecture.svg" alt="OPTIC architecture diagram">
+                                <figcaption>Vendor report ingestion, hybrid extraction, normalization, PostgreSQL corpus, and public release layer.</figcaption>
+                            </figure>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Problem</h2>
+                        <p>Threat reports contain useful actor, malware, infrastructure, technique, and relationship data, but analysts often have to read long narrative reports manually and reconstruct structure themselves. OPTIC makes the extracted structure queryable while preserving links back to source text.</p>
+                    </section>
+
+                    <section>
+                        <h2>Solution</h2>
+                        <p>The pipeline ingests reporting from sources such as Mandiant, Google security resources, Cisco Talos, CrowdStrike, Microsoft, Sophos, and Unit42. It combines deterministic extraction, LLM-assisted inference, vendor-specific normalization, and PostgreSQL models for articles, extraction JSON, entities, aliases, mentions, relationships, and technique facts.</p>
+                    </section>
+
+                    <section>
+                        <h2>Data Flow</h2>
+                        <figure class="diagram-frame">
+                            <img src="assets/diagrams/optic-flow.svg" alt="OPTIC extraction flow diagram">
+                            <figcaption>Reports move from collection into quoted extraction records, normalized entities, and analyst-facing dashboard metrics.</figcaption>
+                        </figure>
+                    </section>
+
+                    <section>
+                        <h2>Design Decisions</h2>
+                        <div class="decision-grid">
+                            <div class="decision-card">
+                                <h3>Source Traceability</h3>
+                                <p>Source quotes and extraction JSON are retained so structured records can be challenged and traced.</p>
+                            </div>
+                            <div class="decision-card">
+                                <h3>Archive Versus Corpus</h3>
+                                <p>Public copy separates the broader archive from the analyst-usable operational corpus to avoid inflated claims.</p>
+                            </div>
+                            <div class="decision-card">
+                                <h3>Hybrid Extraction</h3>
+                                <p>Heuristics handle repeatable patterns while model-assisted inference helps with ambiguous narrative context.</p>
+                            </div>
+                            <div class="decision-card">
+                                <h3>Snapshot Release</h3>
+                                <p>The public dashboard and downloadable database snapshot make the corpus inspectable outside the local dev environment.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Verified Corpus Signals</h2>
+                        <p>The dashboard documentation distinguishes 571 normalized archive articles from 402 analyst-usable operational corpus reports. It also documents 18,319 mentions, 18,220 source-quoted mentions, 7,243 searchable IOCs, and 1,113 relationships for the current operational projection.</p>
+                    </section>
+                </article>
+
+                <aside class="case-sidebar">
+                    <section class="evidence-panel">
+                        <h2>Stack</h2>
+                        <ul class="case-tag-list">
+                            <li>Python</li>
+                            <li>PostgreSQL</li>
+                            <li>Hybrid extraction</li>
+                            <li>LLM inference</li>
+                            <li>Static dashboard</li>
+                            <li>Database snapshot</li>
+                        </ul>
+                    </section>
+                </aside>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<svg width="1100" height="560" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 560" role="img" aria-labelledby="title desc">
+  <title id="title">AI security testing flow</title>
+  <desc id="desc">AI security testing flow from attack prompt sets through chatbot responses, classifier review, and documented findings.</desc>
+  <rect width="1100" height="560" fill="#f7faf9"/>
+  <text x="52" y="70" font-family="Arial" font-size="34" font-weight="700" fill="#10251f">Adversarial Testing Flow</text>
+  <g font-family="Arial" fill="#10251f">
+    <rect x="60" y="160" width="190" height="100" rx="10" fill="#e9f3ff" stroke="#9bb8d3"/><text x="92" y="201" font-size="18" font-weight="700">Prompt Sets</text><text x="92" y="228" font-size="14">Injection, jailbreak, RAG</text>
+    <rect x="310" y="160" width="190" height="100" rx="10" fill="#e8f3ef" stroke="#9ab8ae"/><text x="345" y="201" font-size="18" font-weight="700">Chatbot Run</text><text x="345" y="228" font-size="14">Session + response capture</text>
+    <rect x="560" y="160" width="190" height="100" rx="10" fill="#fff4df" stroke="#d9b76f"/><text x="595" y="201" font-size="18" font-weight="700">Classifier</text><text x="595" y="228" font-size="14">Success/failure labeling</text>
+    <rect x="810" y="160" width="190" height="100" rx="10" fill="#f1edf8" stroke="#b1a2cf"/><text x="845" y="201" font-size="18" font-weight="700">Results CSVs</text><text x="845" y="228" font-size="14">Repeatable evidence</text>
+    <rect x="435" y="355" width="230" height="100" rx="10" fill="#edf7f0" stroke="#92bd9c"/><text x="486" y="396" font-size="18" font-weight="700">Manual Notes</text><text x="486" y="423" font-size="14">Qualitative risk review</text>
+  </g>
+  <g stroke="#52635f" stroke-width="4" fill="none" stroke-linecap="round"><path d="M250 210 H310"/><path d="M500 210 H560"/><path d="M750 210 H810"/><path d="M905 260 C850 340 735 405 665 405"/><path d="M435 405 C325 390 230 315 155 260"/></g>
+  <g fill="#52635f"><polygon points="301,200 319,210 301,220"/><polygon points="551,200 569,210 551,220"/><polygon points="801,200 819,210 801,220"/><polygon points="675,394 655,407 679,414"/><polygon points="164,271 147,252 172,259"/></g>
+</svg>

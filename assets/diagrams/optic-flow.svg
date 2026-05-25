@@ -1,0 +1,15 @@
+<svg width="1100" height="560" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 560" role="img" aria-labelledby="title desc">
+  <title id="title">OPTIC evidence flow</title>
+  <desc id="desc">OPTIC evidence flow from source article text to extracted findings, source quotes, searchable IOCs, and relationships.</desc>
+  <rect width="1100" height="560" fill="#f7faf9"/>
+  <text x="52" y="70" font-family="Arial" font-size="34" font-weight="700" fill="#10251f">OPTIC Evidence Flow</text>
+  <g font-family="Arial" fill="#10251f">
+    <rect x="90" y="150" width="210" height="105" rx="10" fill="#e9f3ff" stroke="#9bb8d3"/><text x="130" y="193" font-size="18" font-weight="700">Article Body</text><text x="130" y="222" font-size="14">Parsed sections + ATT&amp;CK tables</text>
+    <rect x="445" y="150" width="210" height="105" rx="10" fill="#e8f3ef" stroke="#9ab8ae"/><text x="486" y="193" font-size="18" font-weight="700">Extraction JSON</text><text x="486" y="222" font-size="14">Actors, malware, IOCs, TTPs</text>
+    <rect x="800" y="150" width="210" height="105" rx="10" fill="#fff4df" stroke="#d9b76f"/><text x="835" y="193" font-size="18" font-weight="700">Projected Tables</text><text x="835" y="222" font-size="14">Mentions + relationships</text>
+    <rect x="265" y="350" width="210" height="105" rx="10" fill="#f1edf8" stroke="#b1a2cf"/><text x="305" y="393" font-size="18" font-weight="700">Source Quotes</text><text x="305" y="422" font-size="14">Evidence for each finding</text>
+    <rect x="625" y="350" width="210" height="105" rx="10" fill="#edf7f0" stroke="#92bd9c"/><text x="666" y="393" font-size="18" font-weight="700">Analyst Queries</text><text x="666" y="422" font-size="14">Corpus dashboard + dump</text>
+  </g>
+  <g stroke="#52635f" stroke-width="4" fill="none" stroke-linecap="round"><path d="M300 202 H445"/><path d="M655 202 H800"/><path d="M550 255 C520 315 450 345 370 350"/><path d="M905 255 C880 325 805 350 730 350"/></g>
+  <g fill="#52635f"><polygon points="436,192 454,202 436,212"/><polygon points="791,192 809,202 791,212"/><polygon points="380,339 360,353 384,358"/><polygon points="738,339 720,353 744,358"/></g>
+</svg>

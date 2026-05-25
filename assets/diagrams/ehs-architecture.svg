@@ -1,0 +1,14 @@
+<svg width="1100" height="560" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 560" role="img" aria-labelledby="title desc">
+  <title id="title">EHS Intel architecture</title>
+  <desc id="desc">EHS Intel architecture showing agency datasets, PostgreSQL data platform, FastAPI MCP tools, and streaming Next.js UI.</desc>
+  <rect width="1100" height="560" fill="#f7faf9"/>
+  <text x="52" y="70" font-family="Arial" font-size="34" font-weight="700" fill="#10251f">EHS Intel Platform Architecture</text>
+  <g font-family="Arial" fill="#10251f">
+    <rect x="70" y="155" width="210" height="105" rx="10" fill="#e9f3ff" stroke="#9bb8d3"/><text x="108" y="198" font-size="18" font-weight="700">Agency Data</text><text x="108" y="226" font-size="14">OSHA, EPA, ITA, TRI, MSHA</text>
+    <rect x="445" y="155" width="210" height="105" rx="10" fill="#fff4df" stroke="#d9b76f"/><text x="492" y="198" font-size="18" font-weight="700">PostgreSQL</text><text x="492" y="226" font-size="14">Ingestion + query layer</text>
+    <rect x="820" y="155" width="210" height="105" rx="10" fill="#e8f3ef" stroke="#9ab8ae"/><text x="862" y="198" font-size="18" font-weight="700">FastAPI / MCP</text><text x="862" y="226" font-size="14">resolve, brief, health</text>
+    <rect x="445" y="355" width="210" height="105" rx="10" fill="#f1edf8" stroke="#b1a2cf"/><text x="492" y="398" font-size="18" font-weight="700">Next.js UI</text><text x="492" y="426" font-size="14">Streaming tool calls</text>
+  </g>
+  <g stroke="#52635f" stroke-width="4" fill="none" stroke-linecap="round"><path d="M280 207 H445"/><path d="M655 207 H820"/><path d="M925 260 C880 350 730 407 655 407"/><path d="M445 407 C340 390 235 320 175 260"/></g>
+  <g fill="#52635f"><polygon points="436,197 454,207 436,217"/><polygon points="811,197 829,207 811,217"/><polygon points="664,396 645,409 668,416"/><polygon points="184,271 167,252 192,259"/></g>
+</svg>

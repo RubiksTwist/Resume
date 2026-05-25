@@ -1,0 +1,15 @@
+<svg width="1100" height="560" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 560" role="img" aria-labelledby="title desc">
+  <title id="title">Threatdle request flow</title>
+  <desc id="desc">Threatdle request flow showing server-controlled today, puzzle day, answer pool, and guess validation endpoints.</desc>
+  <rect width="1100" height="560" fill="#f7faf9"/>
+  <text x="52" y="70" font-family="Arial" font-size="34" font-weight="700" fill="#10251f">Threatdle Request Flow</text>
+  <g font-family="Arial" fill="#10251f">
+    <rect x="70" y="155" width="190" height="95" rx="10" fill="#e9f3ff" stroke="#9bb8d3"/><text x="113" y="195" font-size="18" font-weight="700">Player</text><text x="113" y="222" font-size="14">Browser session</text>
+    <rect x="330" y="155" width="190" height="95" rx="10" fill="#e8f3ef" stroke="#9ab8ae"/><text x="365" y="195" font-size="18" font-weight="700">/api/today</text><text x="365" y="222" font-size="14">Server day key</text>
+    <rect x="590" y="155" width="190" height="95" rx="10" fill="#fff4df" stroke="#d9b76f"/><text x="630" y="195" font-size="18" font-weight="700">/api/day</text><text x="630" y="222" font-size="14">Clues + summary</text>
+    <rect x="850" y="155" width="190" height="95" rx="10" fill="#f1edf8" stroke="#b1a2cf"/><text x="890" y="195" font-size="18" font-weight="700">/api/pool</text><text x="890" y="222" font-size="14">Answer choices</text>
+    <rect x="460" y="355" width="210" height="95" rx="10" fill="#edf7f0" stroke="#92bd9c"/><text x="500" y="395" font-size="18" font-weight="700">/api/guess</text><text x="500" y="422" font-size="14">Server-side validation</text>
+  </g>
+  <g stroke="#52635f" stroke-width="4" fill="none" stroke-linecap="round"><path d="M260 202 H330"/><path d="M520 202 H590"/><path d="M780 202 H850"/><path d="M945 250 C900 340 760 402 670 402"/><path d="M460 402 C330 390 230 315 165 250"/></g>
+  <g fill="#52635f"><polygon points="321,192 339,202 321,212"/><polygon points="581,192 599,202 581,212"/><polygon points="841,192 859,202 841,212"/><polygon points="679,391 660,403 683,411"/><polygon points="173,262 159,242 183,250"/></g>
+</svg>

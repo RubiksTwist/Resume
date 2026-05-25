@@ -1,0 +1,14 @@
+<svg width="1100" height="560" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 560" role="img" aria-labelledby="title desc">
+  <title id="title">Threatdle architecture</title>
+  <desc id="desc">Threatdle architecture showing ATT&amp;CK, MISP, curated flows, puzzle generation, Netlify Functions, and the browser game.</desc>
+  <rect width="1100" height="560" fill="#f7faf9"/>
+  <text x="52" y="70" font-family="Arial" font-size="34" font-weight="700" fill="#10251f">Threatdle Architecture</text>
+  <g font-family="Arial" fill="#10251f">
+    <rect x="70" y="150" width="210" height="105" rx="10" fill="#e9f3ff" stroke="#9bb8d3"/><text x="105" y="193" font-size="18" font-weight="700">Threat Intel Data</text><text x="105" y="222" font-size="14">ATT&amp;CK, MISP, curated flows</text>
+    <rect x="445" y="150" width="210" height="105" rx="10" fill="#e8f3ef" stroke="#9ab8ae"/><text x="485" y="193" font-size="18" font-weight="700">Puzzle Builder</text><text x="485" y="222" font-size="14">Snapshot + daily generation</text>
+    <rect x="820" y="150" width="210" height="105" rx="10" fill="#fff4df" stroke="#d9b76f"/><text x="858" y="193" font-size="18" font-weight="700">Browser Game</text><text x="858" y="222" font-size="14">Actor, malware, technique</text>
+    <rect x="445" y="350" width="210" height="105" rx="10" fill="#f1edf8" stroke="#b1a2cf"/><text x="486" y="393" font-size="18" font-weight="700">Netlify API</text><text x="486" y="422" font-size="14">today, day, pool, guess</text>
+  </g>
+  <g stroke="#52635f" stroke-width="4" fill="none" stroke-linecap="round"><path d="M280 202 H445"/><path d="M655 202 H820"/><path d="M550 255 V350"/><path d="M655 402 C760 380 810 300 850 255"/></g>
+  <g fill="#52635f"><polygon points="436,192 454,202 436,212"/><polygon points="811,192 829,202 811,212"/><polygon points="540,341 550,359 560,341"/><polygon points="842,266 855,247 861,270"/></g>
+</svg>

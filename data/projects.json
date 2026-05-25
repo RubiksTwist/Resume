@@ -1,0 +1,59 @@
+[
+  {
+    "id": "healthcode",
+    "name": "HealthCode",
+    "type": "Public-health data product",
+    "description": "A full-stack restaurant inspection app with jurisdiction adapters, Postgres normalization, risk tagging, search, ranking, and map workflows.",
+    "liveUrl": "https://healthcode-staging.netlify.app/",
+    "detailPage": "project-healthcode.html",
+    "githubUrl": "https://github.com/RubiksTwist/healthCodeApp",
+    "screenshot": "assets/projects/healthcode.png",
+    "captureUrl": "https://healthcode-staging.netlify.app/"
+  },
+  {
+    "id": "optic",
+    "name": "OPTIC / OPTICLab",
+    "type": "Threat-intelligence corpus",
+    "description": "A public release layer for a multi-source threat-intelligence extraction, normalization, PostgreSQL loading, and evidence dashboard workflow.",
+    "liveUrl": "https://opticlab.net",
+    "detailPage": "project-optic.html",
+    "screenshot": "assets/projects/optic.png",
+    "captureUrl": "https://opticlab.net"
+  },
+  {
+    "id": "threatdle",
+    "name": "Threatdle",
+    "type": "Live cybersecurity game",
+    "description": "A daily threat-intelligence deduction game that turns ATT&CK, MISP, and curated attack-flow data into server-validated browser puzzles.",
+    "liveUrl": "https://threatdle.com",
+    "detailPage": "project-threatdle.html",
+    "screenshot": "assets/projects/threatdle.png",
+    "captureUrl": "https://threatdle.com"
+  },
+  {
+    "id": "market-intel",
+    "name": "SPY GEX + AI Morning Call",
+    "type": "Market-intelligence pipeline",
+    "description": "An automated daily workflow that combines options GEX analytics, macro/futures context, headlines, multi-model inference, and X-post packaging.",
+    "liveUrl": "https://x.com/GexLevels",
+    "detailPage": "project-market-intel.html",
+    "screenshot": "assets/projects/spy-gex-x-post.svg"
+  },
+  {
+    "id": "ehs-intel",
+    "name": "EHS Intel Platform",
+    "type": "Compliance intelligence stack",
+    "description": "A DB-first compliance intelligence system with PostgreSQL ingestion, FastAPI/MCP tools, and a streaming AI interface for company risk briefs.",
+    "detailPage": "project-ehs-intel.html",
+    "screenshot": "assets/projects/ehs-intel.svg"
+  },
+  {
+    "id": "ai-security-lab",
+    "name": "AI Security Testing Lab",
+    "type": "Adversarial AI lab",
+    "description": "A local Ollama and containerized chatbot testing environment for prompt-injection, jailbreak, and data-exfiltration failure-mode review.",
+    "detailPage": "project-ai-security-lab.html",
+    "githubUrl": "https://github.com/RubiksTwist/AI-Hacking",
+    "screenshot": "images/SO_metasploit.png"
+  }
+]

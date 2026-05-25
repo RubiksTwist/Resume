@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Security Testing Lab Case Study - Alex Cheung</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main class="case-study">
+        <div class="container">
+            <header class="case-hero">
+                <p class="eyebrow">Adversarial AI lab</p>
+                <h1>AI Security Testing Lab</h1>
+                <p>Local AI security test environment for prompt injection, jailbreak, harmful-output, and data-exfiltration evaluation against a containerized chatbot runtime.</p>
+                <div class="case-actions">
+                    <a class="back-link" href="index.html#projects">Back to main page</a>
+                    <a class="back-link" href="https://github.com/RubiksTwist/AI-Hacking" target="_blank" rel="noopener">GitHub</a>
+                </div>
+            </header>
+
+            <div class="case-layout">
+                <article class="case-main">
+                    <section>
+                        <h2>Product Surface</h2>
+                        <div class="screenshot-grid">
+                            <figure class="screenshot-frame">
+                                <img src="images/SO_metasploit.png" alt="Security Onion alert view for Metasploit activity">
+                                <figcaption>Security lab detection context from the broader local testing environment.</figcaption>
+                            </figure>
+                            <figure class="diagram-frame">
+                                <img src="assets/diagrams/ai-security-architecture.svg" alt="AI Security Testing Lab architecture diagram">
+                                <figcaption>Host model server, containerized chatbot runtime, adversarial prompt sets, classifier, and review outputs.</figcaption>
+                            </figure>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Problem</h2>
+                        <p>AI security testing needs repeatable adversarial prompts, a controlled target application, and reviewable results. Manual probing alone is useful for exploration, but it does not produce a consistent record of failures, attempted attacks, and model behavior over time.</p>
+                    </section>
+
+                    <section>
+                        <h2>Solution</h2>
+                        <p>The lab pairs a Windows-hosted Ollama model server with an Ubuntu VM Docker chatbot runtime. Prompt sets are loaded from CSV files, sent to the chatbot, classified with a separate judge model, and written to result files for review. Manual Burp Suite notes complement the automated runs where qualitative inspection matters.</p>
+                    </section>
+
+                    <section>
+                        <h2>Evaluation Flow</h2>
+                        <figure class="diagram-frame">
+                            <img src="assets/diagrams/ai-security-flow.svg" alt="AI Security Testing Lab evaluation flow diagram">
+                            <figcaption>Prompt suites exercise the chatbot, collect responses, classify outcomes, and produce reviewable CSV results.</figcaption>
+                        </figure>
+                    </section>
+
+                    <section>
+                        <h2>Design Decisions</h2>
+                        <div class="decision-grid">
+                            <div class="decision-card">
+                                <h3>Local Containment</h3>
+                                <p>Risky prompts and attack simulations stay inside a controlled local environment instead of touching a public service.</p>
+                            </div>
+                            <div class="decision-card">
+                                <h3>Separated Model Roles</h3>
+                                <p>Chatbot models and the classification judge can be changed independently, reducing coupling between target and evaluator.</p>
+                            </div>
+                            <div class="decision-card">
+                                <h3>File-Based Results</h3>
+                                <p>Prompt inputs and result outputs are file-backed so test cases can be expanded, rerun, and compared.</p>
+                            </div>
+                            <div class="decision-card">
+                                <h3>Manual Plus Automated Review</h3>
+                                <p>Automation catches repeatable outcomes while manual notes preserve context around ambiguous failures.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Test Methodology</h2>
+                        <p>The repository contains prompt-injection, jailbreak, harmful-output, RAG, and RBAC testing folders, plus scripts for automated prompt execution and classification. The README documents model setup using IBM Granite, Mistral, and Qwen-family models through Ollama.</p>
+                    </section>
+
+                </article>
+
+                <aside class="case-sidebar">
+                    <section class="evidence-panel">
+                        <h2>Stack</h2>
+                        <ul class="case-tag-list">
+                            <li>Ollama</li>
+                            <li>Docker</li>
+                            <li>Ubuntu VM</li>
+                            <li>Python</li>
+                            <li>Burp Suite</li>
+                            <li>CSV tests</li>
+                            <li>Qwen</li>
+                            <li>Mistral</li>
+                            <li>Granite</li>
+                        </ul>
+                    </section>
+                </aside>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<svg width="1100" height="560" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 560" role="img" aria-labelledby="title desc">
+  <title id="title">EHS Intel retrieval flow</title>
+  <desc id="desc">EHS Intel retrieval flow from user company query through entity resolution, source-backed retrieval, brief generation, and compliance guardrails.</desc>
+  <rect width="1100" height="560" fill="#f7faf9"/>
+  <text x="52" y="70" font-family="Arial" font-size="34" font-weight="700" fill="#10251f">EHS Intel Retrieval Flow</text>
+  <g font-family="Arial" fill="#10251f">
+    <rect x="70" y="160" width="190" height="100" rx="10" fill="#e9f3ff" stroke="#9bb8d3"/><text x="105" y="201" font-size="18" font-weight="700">Company Query</text><text x="105" y="228" font-size="14">User asks for a brief</text>
+    <rect x="330" y="160" width="190" height="100" rx="10" fill="#e8f3ef" stroke="#9ab8ae"/><text x="363" y="201" font-size="18" font-weight="700">Entity Resolve</text><text x="363" y="228" font-size="14">Aliases + confidence</text>
+    <rect x="590" y="160" width="190" height="100" rx="10" fill="#fff4df" stroke="#d9b76f"/><text x="626" y="201" font-size="18" font-weight="700">Source Retrieval</text><text x="626" y="228" font-size="14">Agency records + raw rows</text>
+    <rect x="850" y="160" width="190" height="100" rx="10" fill="#f1edf8" stroke="#b1a2cf"/><text x="888" y="201" font-size="18" font-weight="700">Brief Output</text><text x="888" y="228" font-size="14">Warnings + red flags</text>
+    <rect x="460" y="355" width="230" height="100" rx="10" fill="#edf7f0" stroke="#92bd9c"/><text x="505" y="396" font-size="18" font-weight="700">Guardrails</text><text x="505" y="423" font-size="14">No invented claims</text>
+  </g>
+  <g stroke="#52635f" stroke-width="4" fill="none" stroke-linecap="round"><path d="M260 210 H330"/><path d="M520 210 H590"/><path d="M780 210 H850"/><path d="M945 260 C900 335 780 405 690 405"/></g>
+  <g fill="#52635f"><polygon points="321,200 339,210 321,220"/><polygon points="581,200 599,210 581,220"/><polygon points="841,200 859,210 841,220"/><polygon points="700,394 680,407 704,414"/></g>
+</svg>

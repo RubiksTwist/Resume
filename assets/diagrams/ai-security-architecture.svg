@@ -1,0 +1,14 @@
+<svg width="1100" height="560" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 560" role="img" aria-labelledby="title desc">
+  <title id="title">AI security lab architecture</title>
+  <desc id="desc">AI security lab architecture showing Windows host Ollama, Ubuntu VM, Docker chatbot, prompts, and classifier model.</desc>
+  <rect width="1100" height="560" fill="#f7faf9"/>
+  <text x="52" y="70" font-family="Arial" font-size="34" font-weight="700" fill="#10251f">AI Security Testing Lab Architecture</text>
+  <g font-family="Arial" fill="#10251f">
+    <rect x="80" y="150" width="240" height="125" rx="10" fill="#e9f3ff" stroke="#9bb8d3"/><text x="122" y="195" font-size="18" font-weight="700">Windows Host</text><text x="122" y="223" font-size="14">Ollama localhost:11434</text><text x="122" y="244" font-size="14">Granite, Mistral, Qwen</text>
+    <rect x="430" y="150" width="240" height="125" rx="10" fill="#e8f3ef" stroke="#9ab8ae"/><text x="472" y="195" font-size="18" font-weight="700">Ubuntu VM</text><text x="472" y="223" font-size="14">Docker chatbot runtime</text><text x="472" y="244" font-size="14">HTTP calls to host model</text>
+    <rect x="780" y="150" width="240" height="125" rx="10" fill="#fff4df" stroke="#d9b76f"/><text x="827" y="195" font-size="18" font-weight="700">Testing Tools</text><text x="827" y="223" font-size="14">Prompt tester, Burp, CSVs</text><text x="827" y="244" font-size="14">Results and notes</text>
+    <rect x="430" y="360" width="240" height="95" rx="10" fill="#f1edf8" stroke="#b1a2cf"/><text x="475" y="398" font-size="18" font-weight="700">Classifier</text><text x="475" y="426" font-size="14">Qwen evaluates outcomes</text>
+  </g>
+  <g stroke="#52635f" stroke-width="4" fill="none" stroke-linecap="round"><path d="M320 212 H430"/><path d="M670 212 H780"/><path d="M900 275 C850 345 735 407 670 407"/></g>
+  <g fill="#52635f"><polygon points="421,202 439,212 421,222"/><polygon points="771,202 789,212 771,222"/><polygon points="680,396 660,409 684,416"/></g>
+</svg>

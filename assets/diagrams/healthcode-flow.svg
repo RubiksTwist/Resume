@@ -1,0 +1,16 @@
+<svg width="1100" height="560" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 560" role="img" aria-labelledby="title desc">
+  <title id="title">HealthCode data flow</title>
+  <desc id="desc">HealthCode data flow from public health feeds through adapters, normalized tables, APIs, and map or search workflows.</desc>
+  <rect width="1100" height="560" fill="#f7faf9"/>
+  <text x="52" y="70" font-family="Arial" font-size="34" font-weight="700" fill="#10251f">HealthCode Data Flow</text>
+  <g font-family="Arial" fill="#10251f">
+    <rect x="65" y="150" width="190" height="115" rx="10" fill="#e9f3ff" stroke="#9bb8d3"/><text x="95" y="195" font-size="18" font-weight="700">Official Feeds</text><text x="95" y="223" font-size="14">NYC, LA, Chicago</text><text x="95" y="244" font-size="14">Santa Clara HTML/PDF</text>
+    <rect x="315" y="150" width="190" height="115" rx="10" fill="#e8f3ef" stroke="#9ab8ae"/><text x="346" y="195" font-size="18" font-weight="700">Adapters</text><text x="346" y="223" font-size="14">Parse rows, pages, PDFs</text><text x="346" y="244" font-size="14">Batch upserts</text>
+    <rect x="565" y="150" width="190" height="115" rx="10" fill="#fff4df" stroke="#d9b76f"/><text x="596" y="195" font-size="18" font-weight="700">Postgres Model</text><text x="596" y="223" font-size="14">Restaurants, inspections</text><text x="596" y="244" font-size="14">violations, raw rows</text>
+    <rect x="815" y="150" width="190" height="115" rx="10" fill="#f1edf8" stroke="#b1a2cf"/><text x="848" y="195" font-size="18" font-weight="700">API Queries</text><text x="848" y="223" font-size="14">Search, map, detail</text><text x="848" y="244" font-size="14">rankings, tiles</text>
+    <rect x="315" y="350" width="190" height="95" rx="10" fill="#f4f0e8" stroke="#c4ab78"/><text x="352" y="388" font-size="18" font-weight="700">Risk Rules</text><text x="352" y="416" font-size="14">Category + confidence</text>
+    <rect x="815" y="350" width="190" height="95" rx="10" fill="#edf7f0" stroke="#92bd9c"/><text x="852" y="388" font-size="18" font-weight="700">User Workflows</text><text x="852" y="416" font-size="14">Map, filters, detail pages</text>
+  </g>
+  <g stroke="#52635f" stroke-width="4" fill="none" stroke-linecap="round"><path d="M255 207 H315"/><path d="M505 207 H565"/><path d="M755 207 H815"/><path d="M410 350 V265"/><path d="M910 265 V350"/></g>
+  <g fill="#52635f"><polygon points="306,197 324,207 306,217"/><polygon points="556,197 574,207 556,217"/><polygon points="806,197 824,207 806,217"/><polygon points="400,274 410,256 420,274"/><polygon points="900,341 910,359 920,341"/></g>
+</svg>
