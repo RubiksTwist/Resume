@@ -1,0 +1,35 @@
+<svg width="1100" height="560" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 560" role="img" aria-labelledby="title desc">
+  <title id="title">Reddit Scroll Limiter architecture</title>
+  <desc id="desc">Architecture showing popup settings, Manifest V3 service worker, Chrome storage, and Reddit content scripts.</desc>
+  <rect width="1100" height="560" fill="#f7faf9"/>
+  <text x="52" y="70" font-family="Arial" font-size="34" font-weight="700" fill="#10251f">Extension Architecture</text>
+  <g font-family="Arial" fill="#10251f">
+    <rect x="70" y="155" width="220" height="120" rx="10" fill="#fff3ec" stroke="#f05a28"/>
+    <text x="112" y="198" font-size="18" font-weight="700">Popup UI</text>
+    <text x="112" y="226" font-size="14">Limits, breaks, snooze</text>
+    <text x="112" y="248" font-size="14">and feed rules</text>
+    <rect x="430" y="155" width="240" height="120" rx="10" fill="#e8f3ef" stroke="#9ab8ae"/>
+    <text x="472" y="198" font-size="18" font-weight="700">Chrome Storage</text>
+    <text x="472" y="226" font-size="14">Settings and session</text>
+    <text x="472" y="248" font-size="14">state stay local</text>
+    <rect x="800" y="155" width="230" height="120" rx="10" fill="#e9f3ff" stroke="#9bb8d3"/>
+    <text x="842" y="198" font-size="18" font-weight="700">Content Script</text>
+    <text x="842" y="226" font-size="14">Post detection and</text>
+    <text x="842" y="248" font-size="14">break UI on Reddit</text>
+    <rect x="430" y="355" width="240" height="105" rx="10" fill="#fff8e8" stroke="#d9b76f"/>
+    <text x="470" y="398" font-size="18" font-weight="700">MV3 Service Worker</text>
+    <text x="470" y="426" font-size="14">Defaults and install</text>
+    <text x="470" y="448" font-size="14">lifecycle handling</text>
+  </g>
+  <g stroke="#52635f" stroke-width="4" fill="none" stroke-linecap="round">
+    <path d="M290 215 H430"/>
+    <path d="M670 215 H800"/>
+    <path d="M550 355 V275"/>
+  </g>
+  <g fill="#52635f">
+    <polygon points="421,205 439,215 421,225"/>
+    <polygon points="791,205 809,215 791,225"/>
+    <polygon points="540,284 550,266 560,284"/>
+  </g>
+  <text x="406" y="315" font-family="Arial" font-size="14" fill="#52635f">No analytics, external servers, remote scripts, or tracking pixels</text>
+</svg>

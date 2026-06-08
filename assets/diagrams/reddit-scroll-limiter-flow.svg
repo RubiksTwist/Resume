@@ -1,0 +1,42 @@
+<svg width="1100" height="560" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 560" role="img" aria-labelledby="title desc">
+  <title id="title">Reddit Scroll Limiter runtime flow</title>
+  <desc id="desc">Runtime flow from loading settings to observing Reddit posts, warning, pausing, snoozing, and resetting the session.</desc>
+  <rect width="1100" height="560" fill="#f7faf9"/>
+  <text x="52" y="70" font-family="Arial" font-size="34" font-weight="700" fill="#10251f">Runtime Flow</text>
+  <g font-family="Arial" fill="#10251f">
+    <rect x="60" y="160" width="180" height="100" rx="10" fill="#e8f3ef" stroke="#9ab8ae"/>
+    <text x="93" y="201" font-size="18" font-weight="700">Load Settings</text>
+    <text x="93" y="228" font-size="14">Storage + defaults</text>
+    <rect x="285" y="160" width="180" height="100" rx="10" fill="#e9f3ff" stroke="#9bb8d3"/>
+    <text x="315" y="201" font-size="18" font-weight="700">Observe Feed</text>
+    <text x="315" y="228" font-size="14">Count viewed posts</text>
+    <rect x="510" y="160" width="180" height="100" rx="10" fill="#fff8e8" stroke="#d9b76f"/>
+    <text x="548" y="201" font-size="18" font-weight="700">Warn User</text>
+    <text x="548" y="228" font-size="14">Optional threshold</text>
+    <rect x="735" y="160" width="180" height="100" rx="10" fill="#fff3ec" stroke="#f05a28"/>
+    <text x="770" y="201" font-size="18" font-weight="700">Show Break</text>
+    <text x="770" y="228" font-size="14">Pause feed access</text>
+    <rect x="470" y="355" width="200" height="100" rx="10" fill="#f1edf8" stroke="#b1a2cf"/>
+    <text x="523" y="396" font-size="18" font-weight="700">Snooze</text>
+    <text x="523" y="423" font-size="14">Limited extra posts</text>
+    <rect x="755" y="355" width="200" height="100" rx="10" fill="#edf7f0" stroke="#92bd9c"/>
+    <text x="802" y="396" font-size="18" font-weight="700">Reset Session</text>
+    <text x="802" y="423" font-size="14">Break window ends</text>
+  </g>
+  <g stroke="#52635f" stroke-width="4" fill="none" stroke-linecap="round">
+    <path d="M240 210 H285"/>
+    <path d="M465 210 H510"/>
+    <path d="M690 210 H735"/>
+    <path d="M825 260 V355"/>
+    <path d="M735 405 H670"/>
+    <path d="M470 405 C320 395 220 320 150 260"/>
+  </g>
+  <g fill="#52635f">
+    <polygon points="276,200 294,210 276,220"/>
+    <polygon points="501,200 519,210 501,220"/>
+    <polygon points="726,200 744,210 726,220"/>
+    <polygon points="815,346 825,364 835,346"/>
+    <polygon points="679,395 661,405 679,415"/>
+    <polygon points="159,271 142,252 167,259"/>
+  </g>
+</svg>

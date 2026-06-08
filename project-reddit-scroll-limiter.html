@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reddit Scroll Limiter Case Study - Alex Cheung</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main class="case-study">
+        <div class="container">
+            <header class="case-hero">
+                <p class="eyebrow">Published Chrome extension</p>
+                <h1>Reddit Scroll Limiter</h1>
+                <p>A Manifest V3 Chrome extension that puts a configurable stopping point on Reddit feeds while keeping settings and session state local to the browser.</p>
+                <div class="case-actions">
+                    <a class="back-link" href="index.html#projects">Back to main page</a>
+                    <a class="back-link" href="https://chromewebstore.google.com/detail/reddit-scroll-limiter/bcopejcpidfjbmljckhagbildkhfkemb" target="_blank" rel="noopener">Chrome Web Store</a>
+                    <a class="back-link" href="https://github.com/RubiksTwist/redditScrollLimiter" target="_blank" rel="noopener">GitHub</a>
+                </div>
+            </header>
+
+            <div class="case-layout">
+                <article class="case-main">
+                    <section>
+                        <h2>Product Surface</h2>
+                        <div class="screenshot-grid">
+                            <figure class="screenshot-frame">
+                                <img src="assets/projects/reddit-scroll-limiter.png" alt="Reddit Scroll Limiter settings popup">
+                                <figcaption>Chrome extension popup with post limits, break length, snooze, feed rules, and warning controls.</figcaption>
+                            </figure>
+                            <figure class="screenshot-frame">
+                                <img src="assets/projects/reddit-scroll-limiter-break.png" alt="Reddit Scroll Limiter break message on Reddit">
+                                <figcaption>Break state shown on Reddit after the configured browsing limit has been reached.</figcaption>
+                            </figure>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Problem</h2>
+                        <p>Reddit's feeds are built for continuous scrolling, so a user who wants a boundary has to rely on willpower or a blunt site blocker. The useful version of this tool needed to be lighter: let Reddit work normally, count the current session, warn before the limit, and create a pause that can be adjusted instead of feeling punitive.</p>
+                    </section>
+
+                    <section>
+                        <h2>Solution</h2>
+                        <p>Reddit Scroll Limiter injects a content script into modern Reddit, old Reddit, new Reddit, and sh.reddit.com. It watches feed posts in the page, tracks viewed-post and optional time limits, and shows a break UI when the session reaches the configured boundary. The popup exposes the controls a user needs day to day: post limit, break length, reset window, snooze amount, warning threshold, feed allowlist/blocklist rules, and temporary disable options.</p>
+                    </section>
+
+                    <section>
+                        <h2>Architecture</h2>
+                        <figure class="diagram-frame">
+                            <img src="assets/diagrams/reddit-scroll-limiter-architecture.svg" alt="Reddit Scroll Limiter architecture diagram">
+                            <figcaption>Manifest V3 service worker, popup controls, local Chrome storage, and Reddit content scripts coordinate without any external service.</figcaption>
+                        </figure>
+                    </section>
+
+                    <section>
+                        <h2>Runtime Flow</h2>
+                        <figure class="diagram-frame">
+                            <img src="assets/diagrams/reddit-scroll-limiter-flow.svg" alt="Reddit Scroll Limiter runtime flow diagram">
+                            <figcaption>The extension loads settings, observes the feed, warns near the threshold, enforces the break state, and persists session state locally.</figcaption>
+                        </figure>
+                    </section>
+
+                    <section>
+                        <h2>Design Decisions</h2>
+                        <div class="decision-grid">
+                            <div class="decision-card">
+                                <h3>Local-First Privacy</h3>
+                                <p>Settings and session state use Chrome storage. The extension does not collect analytics, transmit browsing data, use remote scripts, or send Reddit content to a server.</p>
+                            </div>
+                            <div class="decision-card">
+                                <h3>Feed-Aware Rules</h3>
+                                <p>Users can apply limits to every Reddit feed, only specific feeds, or every feed except listed ones, which keeps the tool useful without blocking legitimate research or focused browsing.</p>
+                            </div>
+                            <div class="decision-card">
+                                <h3>Snooze Without Defeat</h3>
+                                <p>A short snooze gives users a controlled extension, while per-session snooze limits stop that escape hatch from turning into another infinite scroll.</p>
+                            </div>
+                            <div class="decision-card">
+                                <h3>Modern And Old Reddit</h3>
+                                <p>The content script supports current Reddit surfaces and old Reddit, using an in-feed break card where possible with an overlay fallback where needed.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Release And Validation</h2>
+                        <p>The repository includes build and validation scripts for the Chrome Web Store package, static syntax checks, UI smoke tests, runtime smoke tests, release readiness checks, and live Reddit testing notes. Version 1.0.0 is published on the Chrome Web Store as a privacy-disclosed extension that does not collect or use user data.</p>
+                    </section>
+                </article>
+
+                <aside class="case-sidebar">
+                    <section class="evidence-panel">
+                        <h2>Stack</h2>
+                        <ul class="case-tag-list">
+                            <li>Manifest V3</li>
+                            <li>Chrome Extensions</li>
+                            <li>JavaScript</li>
+                            <li>CSS</li>
+                            <li>HTML</li>
+                            <li>chrome.storage</li>
+                            <li>Content scripts</li>
+                            <li>Service worker</li>
+                            <li>Chrome Web Store</li>
+                        </ul>
+                    </section>
+
+                    <section class="evidence-panel">
+                        <h2>Highlights</h2>
+                        <ul>
+                            <li>Adjustable post and optional time limits.</li>
+                            <li>Configurable break length and reset window.</li>
+                            <li>Warning banner before lockout.</li>
+                            <li>Subreddit allowlist and blocklist modes.</li>
+                            <li>Temporary disable controls for a session, an hour, or the current feed.</li>
+                        </ul>
+                    </section>
+                </aside>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
