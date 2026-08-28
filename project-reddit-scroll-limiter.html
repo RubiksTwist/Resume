@@ -4,6 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reddit Scroll Limiter Case Study - Alex Cheung</title>
+    <meta name="description" content="Reddit Scroll Limiter is a local-first Chrome extension that adds adjustable post and break limits to Reddit's infinite feeds.">
+    <meta name="author" content="Alex Cheung">
+    <meta name="theme-color" content="#18332d">
+    <link rel="canonical" href="https://www.alexcheung.info/project-reddit-scroll-limiter.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Reddit Scroll Limiter Case Study - Alex Cheung">
+    <meta property="og:description" content="A local-first Chrome extension that gives Reddit's infinite feeds a clear stopping point.">
+    <meta property="og:url" content="https://www.alexcheung.info/project-reddit-scroll-limiter.html">
+    <meta property="og:image" content="https://www.alexcheung.info/assets/projects/reddit-scroll-limiter.png">
+    <meta property="og:image:alt" content="Reddit Scroll Limiter extension settings">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -26,11 +38,11 @@
                         <h2>Product Surface</h2>
                         <div class="screenshot-grid">
                             <figure class="screenshot-frame">
-                                <img src="assets/projects/reddit-scroll-limiter.png" alt="Reddit Scroll Limiter settings popup">
+                                <img src="assets/projects/reddit-scroll-limiter.webp" alt="Reddit Scroll Limiter settings popup" width="1280" height="800" decoding="async" fetchpriority="high">
                                 <figcaption>Chrome extension popup with post limits, break length, snooze, feed rules, and warning controls.</figcaption>
                             </figure>
                             <figure class="screenshot-frame">
-                                <img src="assets/projects/reddit-scroll-limiter-break.png" alt="Reddit Scroll Limiter break message on Reddit">
+                                <img src="assets/projects/reddit-scroll-limiter-break.webp" alt="Reddit Scroll Limiter break message on Reddit" width="1280" height="800" loading="lazy" decoding="async">
                                 <figcaption>Break state shown on Reddit after the configured browsing limit has been reached.</figcaption>
                             </figure>
                         </div>
@@ -49,7 +61,7 @@
                     <section>
                         <h2>Architecture</h2>
                         <figure class="diagram-frame">
-                            <img src="assets/diagrams/reddit-scroll-limiter-architecture.svg" alt="Reddit Scroll Limiter architecture diagram">
+                            <img src="assets/diagrams/reddit-scroll-limiter-architecture.svg" alt="Reddit Scroll Limiter architecture diagram" width="1100" height="560" loading="lazy" decoding="async">
                             <figcaption>Manifest V3 service worker, popup controls, local Chrome storage, and Reddit content scripts coordinate without any external service.</figcaption>
                         </figure>
                     </section>
@@ -57,7 +69,7 @@
                     <section>
                         <h2>Runtime Flow</h2>
                         <figure class="diagram-frame">
-                            <img src="assets/diagrams/reddit-scroll-limiter-flow.svg" alt="Reddit Scroll Limiter runtime flow diagram">
+                            <img src="assets/diagrams/reddit-scroll-limiter-flow.svg" alt="Reddit Scroll Limiter runtime flow diagram" width="1100" height="560" loading="lazy" decoding="async">
                             <figcaption>The extension loads settings, observes the feed, warns near the threshold, enforces the break state, and persists session state locally.</figcaption>
                         </figure>
                     </section>

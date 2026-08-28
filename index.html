@@ -4,14 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alex Cheung - Portfolio</title>
+    <meta name="description" content="Alex Cheung builds AI-powered data, cybersecurity, browser, market-intelligence, and compliance products. Explore selected projects and technical case studies.">
+    <meta name="author" content="Alex Cheung">
+    <meta name="theme-color" content="#18332d">
+    <link rel="canonical" href="https://www.alexcheung.info/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Alex Cheung - Portfolio">
+    <meta property="og:description" content="AI-powered data, cybersecurity, browser, market-intelligence, and compliance products by Alex Cheung.">
+    <meta property="og:url" content="https://www.alexcheung.info/">
+    <meta property="og:image" content="https://www.alexcheung.info/assets/projects/optic.png">
+    <meta property="og:image:alt" content="Selected product work from Alex Cheung's portfolio">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <main>
         <section class="portfolio-section" id="projects">
             <div class="container">
                 <div class="section-heading">
+                    <h1>Alex Cheung</h1>
                     <h2>Projects</h2>
                     <p>Building AI-powered projects and practical browser tools that turn messy data, security workflows, and real-world problems into usable products.</p>
                 </div>
@@ -19,7 +31,7 @@
                 <div class="project-grid">
                     <article class="project-card">
                         <a href="project-healthcode.html" class="project-image-link" aria-label="Read HealthCode details">
-                            <img src="assets/projects/healthcode.png" alt="HealthCode application screenshot">
+                            <img src="assets/projects/healthcode.webp" alt="HealthCode application screenshot" width="1440" height="1000" decoding="async" fetchpriority="high">
                         </a>
                         <div class="project-card-body">
                             <p class="project-type">Public-health data product</p>
@@ -34,7 +46,7 @@
 
                     <article class="project-card">
                         <a href="project-optic.html" class="project-image-link" aria-label="Read OPTIC details">
-                            <img src="assets/projects/optic.png" alt="OPTICLab application screenshot">
+                            <img src="assets/projects/optic.webp" alt="OPTICLab application screenshot" width="1440" height="1000" loading="lazy" decoding="async">
                         </a>
                         <div class="project-card-body">
                             <p class="project-type">Threat-intelligence corpus</p>
@@ -50,7 +62,7 @@
 
                     <article class="project-card">
                         <a href="project-threatdle.html" class="project-image-link" aria-label="Read Threatdle details">
-                            <img src="assets/projects/threatdle.png" alt="Threatdle application screenshot">
+                            <img src="assets/projects/threatdle.webp" alt="Threatdle application screenshot" width="1440" height="1000" loading="lazy" decoding="async">
                         </a>
                         <div class="project-card-body">
                             <p class="project-type">Live cybersecurity game</p>
@@ -66,7 +78,7 @@
 
                     <article class="project-card">
                         <a href="project-reddit-scroll-limiter.html" class="project-image-link" aria-label="Read Reddit Scroll Limiter details">
-                            <img src="assets/projects/reddit-scroll-limiter.png" alt="Reddit Scroll Limiter Chrome extension popup">
+                            <img src="assets/projects/reddit-scroll-limiter.webp" alt="Reddit Scroll Limiter Chrome extension popup" width="1280" height="800" loading="lazy" decoding="async">
                         </a>
                         <div class="project-card-body">
                             <p class="project-type">Published Chrome extension</p>
@@ -82,7 +94,7 @@
 
                     <article class="project-card">
                         <a href="project-market-intel.html" class="project-image-link" aria-label="Read market intelligence details">
-                            <img src="assets/projects/spy-gex-x-post.svg" alt="SPY GEX Framework post preview">
+                            <img src="assets/projects/spy-gex-x-post.svg" alt="SPY GEX Framework post preview" width="620" height="920" loading="lazy" decoding="async">
                         </a>
                         <div class="project-card-body">
                             <p class="project-type">Market-intelligence pipeline</p>
@@ -97,7 +109,7 @@
 
                     <article class="project-card">
                         <a href="project-ehs-intel.html" class="project-image-link" aria-label="Read EHS Intel details">
-                            <img src="assets/projects/ehs-intel.svg" alt="EHS Intel platform architecture preview">
+                            <img src="assets/projects/ehs-intel.svg" alt="EHS Intel platform architecture preview" width="1200" height="760" loading="lazy" decoding="async">
                         </a>
                         <div class="project-card-body">
                             <p class="project-type">Compliance intelligence stack</p>
@@ -111,7 +123,7 @@
 
                     <article class="project-card">
                         <a href="project-ai-security-lab.html" class="project-image-link" aria-label="Read AI Security Lab details">
-                            <img src="images/SO_metasploit.png" alt="Security Onion alert screenshot from cybersecurity lab">
+                            <img src="images/SO_metasploit.webp" alt="Security Onion alert screenshot from cybersecurity lab" width="1405" height="305" loading="lazy" decoding="async">
                         </a>
                         <div class="project-card-body">
                             <p class="project-type">Adversarial AI lab</p>
@@ -133,12 +145,16 @@
             <ul class="social-links" aria-label="Social profiles">
                 <li>
                     <a href="https://www.linkedin.com/in/alex-cheung-878632290" target="_blank" rel="noopener" aria-label="LinkedIn profile">
-                        <i class="fab fa-linkedin" aria-hidden="true"></i>
+                        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3c0-2.6-1.6-3.8-3.7-3.8-1.4 0-2.4.8-2.8 1.6V9.7H8.5v8.8H12v-4.9c0-1.3.3-2.5 1.8-2.5s1.5 1.4 1.5 2.6v4.8h3.2M5.5 6.2a2 2 0 1 0 4 0 2 2 0 0 0-4 0m.3 12.3h3.4V9.7H5.8v8.8Z"/>
+                        </svg>
                     </a>
                 </li>
                 <li>
                     <a href="https://github.com/RubiksTwist" target="_blank" rel="noopener" aria-label="GitHub profile">
-                        <i class="fab fa-github" aria-hidden="true"></i>
+                        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <path d="M12 2A10 10 0 0 0 8.84 21.5c.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.31-3.36-1.31-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .08 1.53 1.03 1.53 1.03.87 1.55 2.34 1.1 2.91.85.09-.65.35-1.1.63-1.35-2.22-.25-4.55-1.11-4.55-4.95 0-1.11.38-2 1.03-2.71-.1-.25-.38-1.29.1-2.64 0 0 .84-.27 2.75 1.02A9.7 9.7 0 0 1 12 6.84c.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.48 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.85-2.34 4.7-4.57 4.95.36.31.69.91.69 1.85V21c0 .27.16.59.67.5A10 10 0 0 0 12 2Z"/>
+                        </svg>
                     </a>
                 </li>
             </ul>

@@ -4,6 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Security Testing Lab Case Study - Alex Cheung</title>
+    <meta name="description" content="A controlled AI security lab for evaluating prompt injection, jailbreaks, harmful output, and data-exfiltration behavior in containerized chatbots.">
+    <meta name="author" content="Alex Cheung">
+    <meta name="theme-color" content="#18332d">
+    <link rel="canonical" href="https://www.alexcheung.info/project-ai-security-lab.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="AI Security Testing Lab Case Study - Alex Cheung">
+    <meta property="og:description" content="A controlled lab for testing prompt injection, jailbreaks, harmful output, and data-exfiltration behavior.">
+    <meta property="og:url" content="https://www.alexcheung.info/project-ai-security-lab.html">
+    <meta property="og:image" content="https://www.alexcheung.info/images/SO_metasploit.png">
+    <meta property="og:image:alt" content="Security Onion alert view from the AI security lab">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -25,11 +37,11 @@
                         <h2>Product Surface</h2>
                         <div class="screenshot-grid">
                             <figure class="screenshot-frame">
-                                <img src="images/SO_metasploit.png" alt="Security Onion alert view for Metasploit activity">
+                                <img src="images/SO_metasploit.webp" alt="Security Onion alert view for Metasploit activity" width="1405" height="305" decoding="async" fetchpriority="high">
                                 <figcaption>Security lab detection context from the broader local testing environment.</figcaption>
                             </figure>
                             <figure class="diagram-frame">
-                                <img src="assets/diagrams/ai-security-architecture.svg" alt="AI Security Testing Lab architecture diagram">
+                                <img src="assets/diagrams/ai-security-architecture.svg" alt="AI Security Testing Lab architecture diagram" width="1100" height="560" loading="lazy" decoding="async">
                                 <figcaption>Host model server, containerized chatbot runtime, adversarial prompt sets, classifier, and review outputs.</figcaption>
                             </figure>
                         </div>
@@ -48,7 +60,7 @@
                     <section>
                         <h2>Evaluation Flow</h2>
                         <figure class="diagram-frame">
-                            <img src="assets/diagrams/ai-security-flow.svg" alt="AI Security Testing Lab evaluation flow diagram">
+                            <img src="assets/diagrams/ai-security-flow.svg" alt="AI Security Testing Lab evaluation flow diagram" width="1100" height="560" loading="lazy" decoding="async">
                             <figcaption>Prompt suites exercise the chatbot, collect responses, classify outcomes, and produce reviewable CSV results.</figcaption>
                         </figure>
                     </section>

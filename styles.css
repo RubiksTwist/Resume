@@ -64,15 +64,6 @@ nav ul li a:hover {
     text-align: center;
 }
 
-.profile-pic {
-    width: 150px; /* Adjust the size as needed */
-    height: 150px; /* Adjust the size as needed */
-    border-radius: 50%; /* This makes the image circular */
-    border: 3px solid #fff; /* Optional: Adds a border around the image */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow */
-    margin-bottom: 20px; /* Space between the image and the text below */
-}
-
 .hero h1 {
     font-size: 48px;
     margin-bottom: 20px;
@@ -147,6 +138,12 @@ nav ul li a:hover {
     margin-bottom: 10px; /* Space between logo and text */
 }
 
+.cert-icon {
+    color: #0f6f5c;
+    fill: currentColor;
+    height: 80px;
+}
+
 /* Footer */
 footer {
     background-color: #2c3e50;
@@ -202,6 +199,12 @@ footer .social-links a:hover {
     border-color: #EF7C24;
 }
 
+footer .social-links svg {
+    fill: currentColor;
+    height: 20px;
+    width: 20px;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     nav ul {
@@ -234,8 +237,14 @@ footer .social-links a:hover {
     text-decoration: underline;
 }
 
-/* If using the Azure logo */
-.azure-link i {
+.icon {
+    fill: currentColor;
+    height: 1em;
+    vertical-align: -0.125em;
+    width: 1em;
+}
+
+.azure-link .icon {
     margin-right: 5px;
 }
 
@@ -324,10 +333,12 @@ footer .social-links a:hover {
     text-align: center;
 }
 
-.feature-item i {
-    font-size: 48px;
+.feature-item .feature-icon {
     color: #1abc9c;
+    fill: currentColor;
+    height: 48px;
     margin-bottom: 10px;
+    width: 48px;
 }
 
 .feature-item h3 {
@@ -613,10 +624,17 @@ main > .portfolio-section:first-child {
     margin-top: 0;
 }
 
+.section-heading h1 {
+    color: #10251f;
+    font-size: 48px;
+    line-height: 1.08;
+    margin: 0 0 10px;
+}
+
 .section-heading h2,
 .automation-note h2 {
     font-size: 36px;
-    margin-bottom: 10px;
+    margin: 0 0 10px;
 }
 
 .section-heading p,
@@ -1025,7 +1043,8 @@ main > .portfolio-section:first-child {
     }
 
     .portfolio-hero h1,
-    .project-detail h1 {
+    .project-detail h1,
+    .section-heading h1 {
         font-size: 38px;
     }
 

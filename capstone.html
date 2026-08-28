@@ -4,8 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Network Engineering & Security Capstone - Alex Cheung</title>
+    <meta name="description" content="Alex Cheung's network engineering and security capstone, including segmented topology, routing, infrastructure services, monitoring, and defensive controls.">
+    <meta name="author" content="Alex Cheung">
+    <meta name="theme-color" content="#18332d">
+    <link rel="canonical" href="https://www.alexcheung.info/capstone.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Network Engineering & Security Capstone - Alex Cheung">
+    <meta property="og:description" content="A network engineering capstone focused on segmented topology, infrastructure services, monitoring, and defensive controls.">
+    <meta property="og:url" content="https://www.alexcheung.info/capstone.html">
+    <meta property="og:image" content="https://www.alexcheung.info/images/network%20topology.png">
+    <meta property="og:image:alt" content="Network engineering capstone topology">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <!-- Navigation Bar -->
@@ -80,28 +91,28 @@
             <h2>Key Features of the Network</h2>
             <div class="features-grid">
                 <div class="feature-item">
-                    <i class="fas fa-shield-alt"></i>
+                    <svg class="feature-icon" aria-hidden="true"><use href="assets/icons.svg#shield"></use></svg>
                     <h3>Layer 3 Security</h3>
                     <p>
                         SVIs and ACLs were used to enforce security policies at the network edge, ensuring that only authorized traffic could pass between VLANs.
                     </p>
                 </div>
                 <div class="feature-item">
-                    <i class="fas fa-network-wired"></i>
+                    <svg class="feature-icon" aria-hidden="true"><use href="assets/icons.svg#network"></use></svg>
                     <h3>VLAN Segmentation</h3>
                     <p>
                         The network was segmented into multiple VLANs to isolate traffic and improve performance. Inter-VLAN routing was configured for necessary communication.
                     </p>
                 </div>
                 <div class="feature-item">
-                    <i class="fas fa-lock"></i>
+                    <svg class="feature-icon" aria-hidden="true"><use href="assets/icons.svg#lock"></use></svg>
                     <h3>IPSec VPN</h3>
                     <p>
                         An IPSec VPN was set up between sites to ensure secure communication over the internet, protecting sensitive data from interception.
                     </p>
                 </div>
                 <div class="feature-item">
-                    <i class="fas fa-tools"></i>
+                    <svg class="feature-icon" aria-hidden="true"><use href="assets/icons.svg#tools"></use></svg>
                     <h3>Network Monitoring</h3>
                     <p>
                         Tools like syslog and NTP were configured to monitor network activity and ensure accurate time synchronization across devices.
@@ -192,14 +203,14 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2024 Alex Cheung. All rights reserved.</p>
-            <p>Powered by <a href="https://azure.microsoft.com" target="_blank" class="azure-link">
-                <i class="fab fa-microsoft"></i> Microsoft Azure
+            <p>&copy; 2026 Alex Cheung. All rights reserved.</p>
+            <p>Powered by <a href="https://azure.microsoft.com" target="_blank" rel="noopener" class="azure-link">
+                <svg class="icon" aria-hidden="true"><use href="assets/icons.svg#microsoft"></use></svg> Microsoft Azure
             </a></p>
-            <ul>
-                <li><a href="https://www.linkedin.com/in/alex-cheung-878632290" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-                <li><a href="mailto:alexchg0106@gmail.com"><i class="fas fa-envelope"></i></a></li>
-                <li><a href="https://github.com/RubiksTwist" target="_blank"><i class="fab fa-github"></i></a></li>
+            <ul class="social-links" aria-label="Contact links">
+                <li><a href="https://www.linkedin.com/in/alex-cheung-878632290" target="_blank" rel="noopener" aria-label="LinkedIn profile"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#linkedin"></use></svg></a></li>
+                <li><a href="mailto:alexchg0106@gmail.com" aria-label="Email Alex Cheung"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#email"></use></svg></a></li>
+                <li><a href="https://github.com/RubiksTwist" target="_blank" rel="noopener" aria-label="GitHub profile"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#github"></use></svg></a></li>
             </ul>
         </div>
     </footer>
