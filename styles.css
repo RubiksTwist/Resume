@@ -664,13 +664,15 @@ main > .portfolio-section:first-child {
 }
 
 .project-image-link {
+    aspect-ratio: 16 / 10;
     background: #dfe8e4;
     display: block;
+    overflow: hidden;
 }
 
 .project-card img {
-    aspect-ratio: 16 / 10;
     display: block;
+    height: 100%;
     object-fit: cover;
     width: 100%;
 }
