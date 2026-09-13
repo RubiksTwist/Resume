@@ -1,0 +1,24 @@
+<svg width="1100" height="560" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 560" role="img" aria-labelledby="title desc">
+  <title id="title">Just Rescues rescue-specific collection flow</title>
+  <desc id="desc">Rescue-owned public adoption pages use direct site, embedded platform, structured catalog, or browser-rendered collection paths. Each follows rescue-specific validation before normalized records become an approved static public catalog.</desc>
+  <rect width="1100" height="560" fill="#f7faf9"/>
+  <text x="52" y="70" font-family="Arial" font-size="34" font-weight="700" fill="#10251f">Just Rescues Collection Flow</text>
+  <g font-family="Arial" fill="#10251f">
+    <rect x="45" y="150" width="205" height="100" rx="10" fill="#e9f3ff" stroke="#9bb8d3"/>
+    <text x="78" y="190" font-size="18" font-weight="700">Rescue-Owned Pages</text><text x="78" y="217" font-size="14">Public adoption workflows</text>
+    <rect x="300" y="110" width="205" height="75" rx="10" fill="#e8f3ef" stroke="#9ab8ae"/>
+    <text x="327" y="143" font-size="17" font-weight="700">Direct Site Catalogs</text><text x="327" y="166" font-size="13">HTML, CMS, JSON-LD</text>
+    <rect x="300" y="205" width="205" height="75" rx="10" fill="#fff4df" stroke="#d9b76f"/>
+    <text x="322" y="238" font-size="17" font-weight="700">Official Embeds</text><text x="322" y="261" font-size="13">Shelterluv, Petfinder, Adopt-a-Pet</text>
+    <rect x="300" y="300" width="205" height="75" rx="10" fill="#f1edf8" stroke="#b1a2cf"/>
+    <text x="323" y="333" font-size="17" font-weight="700">Rendered Catalogs</text><text x="323" y="356" font-size="13">Bounded browser collection</text>
+    <rect x="570" y="150" width="205" height="100" rx="10" fill="#f4f0e8" stroke="#c4ab78"/>
+    <text x="603" y="190" font-size="18" font-weight="700">Rescue-Specific Checks</text><text x="603" y="217" font-size="14">Identity, completeness, freshness</text>
+    <rect x="840" y="150" width="215" height="100" rx="10" fill="#edf7f0" stroke="#92bd9c"/>
+    <text x="868" y="190" font-size="18" font-weight="700">Approved Static Catalog</text><text x="868" y="217" font-size="14">Browser search + rescue links</text>
+    <rect x="570" y="350" width="205" height="82" rx="10" fill="#f5e9ee" stroke="#c89bad"/>
+    <text x="607" y="384" font-size="17" font-weight="700">Quarantine</text><text x="607" y="409" font-size="13">Incomplete or changed source</text>
+  </g>
+  <g stroke="#52635f" stroke-width="4" fill="none" stroke-linecap="round"><path d="M250 200 H275 V147 H300"/><path d="M250 200 H300"/><path d="M250 200 H275 V337 H300"/><path d="M505 147 H540 V200 H570"/><path d="M505 242 H570"/><path d="M505 337 H540 V200 H570"/><path d="M775 200 H840"/><path d="M672 250 V350"/></g>
+  <g fill="#52635f"><polygon points="291,137 309,147 291,157"/><polygon points="291,190 309,200 291,210"/><polygon points="291,327 309,337 291,347"/><polygon points="561,190 579,200 561,210"/><polygon points="561,232 579,242 561,252"/><polygon points="561,190 579,200 561,210"/><polygon points="831,190 849,200 831,210"/><polygon points="662,341 672,359 682,341"/></g>
+</svg>

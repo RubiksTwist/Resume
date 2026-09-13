@@ -1,5 +1,16 @@
 [
   {
+    "id": "justrescues",
+    "name": "Just Rescues",
+    "type": "Rescue-dog discovery platform",
+    "description": "A static-first discovery product that adapts to rescue-specific public catalog workflows, surfaces listing freshness, and directs adopters to each rescue's own process.",
+    "liveUrl": "https://www.justrescues.com/",
+    "detailPage": "project-justrescues.html",
+    "githubUrl": "https://github.com/RubiksTwist/justrescues-site",
+    "screenshot": "assets/projects/justrescues-home.png",
+    "captureUrl": "https://www.justrescues.com/"
+  },
+  {
     "id": "healthcode",
     "name": "HealthCode",
     "type": "Public-health data product",

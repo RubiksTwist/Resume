@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Just Rescues Case Study - Alex Cheung</title>
+    <meta name="description" content="Just Rescues is a static-first rescue-dog discovery platform built around source-specific pipelines, freshness context, and direct rescue handoffs.">
+    <meta name="author" content="Alex Cheung">
+    <meta name="theme-color" content="#18332d">
+    <link rel="canonical" href="https://www.alexcheung.info/project-justrescues.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Just Rescues Case Study - Alex Cheung">
+    <meta property="og:description" content="A rescue-dog discovery platform that adapts to the public catalog workflow each rescue already maintains.">
+    <meta property="og:url" content="https://www.alexcheung.info/project-justrescues.html">
+    <meta property="og:image" content="https://www.alexcheung.info/assets/projects/justrescues-home.png">
+    <meta property="og:image:alt" content="Just Rescues homepage for finding rescue dogs across New York">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main class="case-study">
+        <div class="container">
+            <header class="case-hero">
+                <p class="eyebrow">Rescue-dog discovery platform</p>
+                <h1>Just Rescues</h1>
+                <p>A static-first search experience that brings rescue dogs across New York into one discovery layer while keeping each rescue's own public workflow and adoption process authoritative.</p>
+                <div class="case-actions">
+                    <a class="back-link" href="index.html#projects">Back to main page</a>
+                    <a class="back-link" href="https://www.justrescues.com/" target="_blank" rel="noopener">Live product</a>
+                    <a class="back-link" href="https://github.com/RubiksTwist/justrescues-site" target="_blank" rel="noopener">Public GitHub</a>
+                </div>
+            </header>
+
+            <div class="case-layout">
+                <article class="case-main">
+                    <section>
+                        <h2>Product Surface</h2>
+                        <div class="screenshot-grid">
+                            <figure class="screenshot-frame">
+                                <img src="assets/projects/justrescues-home.png" alt="Just Rescues homepage with New York rescue-dog search controls" width="1280" height="720" decoding="async" fetchpriority="high">
+                                <figcaption>The public homepage gives prospective adopters a focused way to begin a rescue-dog search.</figcaption>
+                            </figure>
+                            <figure class="screenshot-frame">
+                                <img src="assets/projects/justrescues-dogs.png" alt="Just Rescues dog cards showing photos, rescue names, attributes, and freshness labels" width="1280" height="720" loading="lazy" decoding="async">
+                                <figcaption>Dog cards preserve rescue attribution, surface useful filters, and make listing freshness visible.</figcaption>
+                            </figure>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Problem</h2>
+                        <p>Families looking to adopt often have to search many rescue websites, each with its own catalog format, filtering behavior, and update cadence. Just Rescues makes that discovery process friendlier without pretending to replace the organization that knows a dog's availability or manages its adoption process.</p>
+                    </section>
+
+                    <section>
+                        <h2>Solution</h2>
+                        <p>Just Rescues publishes a searchable static catalog of adoptable dogs from reviewed rescue organizations. Visitors can explore breed, age, size, and sex, see the rescue and observation context for each listing, and continue to the responsible rescue's own profile or application workflow to confirm availability.</p>
+                    </section>
+
+                    <section>
+                        <h2>One Pipeline Per Rescue</h2>
+                        <p>The system is intentionally not a single generic connector. Every rescue begins at its own public adoption page and has a tailored collection procedure, expected catalog shape, allowed hosts, pagination behavior, identity checks, request budget, fixtures, and quarantine rules.</p>
+                        <p>That means the platform can follow the workflow a rescue already maintains: direct plain HTML and rescue-authored JSON; Squarespace, Webflow, Drupal, WordPress, and Wix catalogs; or official embedded systems such as Shelterluv, Petfinder, Adopt-a-Pet, Petstablished/Wagtopia, 24PetConnect, ShelterBuddy, Adopets, and RescueGroups. A shared vendor parser can help read a particular technical shape, but it never turns that vendor into an independent source of truth.</p>
+                    </section>
+
+                    <section>
+                        <h2>Collection and Publication Flow</h2>
+                        <figure class="diagram-frame">
+                            <img src="assets/diagrams/justrescues-flow.svg" alt="Just Rescues collection flow from rescue-owned sites through source-specific validation into a static public catalog" width="1100" height="560" loading="lazy" decoding="async">
+                            <figcaption>Different public catalog shapes converge only after rescue-specific validation and review.</figcaption>
+                        </figure>
+                    </section>
+
+                    <section>
+                        <h2>Design Decisions</h2>
+                        <div class="decision-grid">
+                            <div class="decision-card">
+                                <h3>First-Party Authority</h3>
+                                <p>Each pipeline starts with the rescue's public adoption experience. Structured platform data is used only within that rescue-specific boundary.</p>
+                            </div>
+                            <div class="decision-card">
+                                <h3>Fail-Closed Freshness</h3>
+                                <p>Failed, incomplete, or structurally changed runs quarantine instead of silently removing dogs or replacing a known-good catalog.</p>
+                            </div>
+                            <div class="decision-card">
+                                <h3>Static Public Delivery</h3>
+                                <p>An approved export produces versioned static catalog files searched in the browser, avoiding a public database or always-on catalog API.</p>
+                            </div>
+                            <div class="decision-card">
+                                <h3>Photo and Privacy Boundary</h3>
+                                <p>Dog photos remain on their original hosts. The public release contains external HTTPS image references, not copied image bytes or private operating data.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Private Operations, Public Discovery</h2>
+                        <figure class="diagram-frame">
+                            <img src="assets/diagrams/justrescues-architecture.svg" alt="Just Rescues diagram separating private collection operations from the public static website" width="1100" height="560" loading="lazy" decoding="async">
+                            <figcaption>Collection evidence and operational controls remain private; visitors receive only the approved catalog, freshness context, and direct rescue handoffs.</figcaption>
+                        </figure>
+                    </section>
+
+                    <section>
+                        <h2>Reliability in a Human Context</h2>
+                        <p>Collection is deliberately bounded and paced, with source-specific completeness checks and offline fixture replay for safe parser development. A missing dog only changes public availability after complete successful observations; a failed run does not make a rescue's dogs disappear. The result is a useful discovery tool that stays clear about what it knows and sends people back to the rescue for the final answer.</p>
+                    </section>
+                </article>
+
+                <aside class="case-sidebar">
+                    <section class="evidence-panel">
+                        <h2>Stack</h2>
+                        <ul class="case-tag-list">
+                            <li>Python</li>
+                            <li>SQLite</li>
+                            <li>Static JSON catalog</li>
+                            <li>Browser-side search</li>
+                            <li>Netlify</li>
+                            <li>Rescue-specific pipelines</li>
+                            <li>Fixture-based testing</li>
+                        </ul>
+                    </section>
+                </aside>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

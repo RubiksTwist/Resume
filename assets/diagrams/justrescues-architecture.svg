@@ -1,0 +1,17 @@
+<svg width="1100" height="560" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 560" role="img" aria-labelledby="title desc">
+  <title id="title">Just Rescues private operations and public website boundary</title>
+  <desc id="desc">A private operations environment performs rescue-specific collection, stores evidence, validates and publishes approved static files. The public static site serves only catalog data, external image URLs, freshness context, and links to rescues.</desc>
+  <rect width="1100" height="560" fill="#f7faf9"/>
+  <text x="52" y="70" font-family="Arial" font-size="34" font-weight="700" fill="#10251f">Just Rescues Publication Boundary</text>
+  <rect x="45" y="112" width="585" height="370" rx="16" fill="#eef4f0" stroke="#9ab8ae" stroke-width="2"/>
+  <text x="76" y="150" font-family="Arial" font-size="20" font-weight="700" fill="#10251f">Private operations</text>
+  <rect x="82" y="195" width="160" height="100" rx="10" fill="#e9f3ff" stroke="#9bb8d3"/><text x="106" y="235" font-family="Arial" font-size="17" font-weight="700" fill="#10251f">Rescue-specific</text><text x="106" y="259" font-family="Arial" font-size="17" font-weight="700" fill="#10251f">collection</text><text x="106" y="282" font-family="Arial" font-size="13" fill="#10251f">Bounded public visits</text>
+  <rect x="300" y="195" width="160" height="100" rx="10" fill="#fff4df" stroke="#d9b76f"/><text x="331" y="235" font-family="Arial" font-size="17" font-weight="700" fill="#10251f">Evidence +</text><text x="331" y="259" font-family="Arial" font-size="17" font-weight="700" fill="#10251f">quality gates</text><text x="331" y="282" font-family="Arial" font-size="13" fill="#10251f">Reviewable, fail closed</text>
+  <rect x="191" y="350" width="160" height="90" rx="10" fill="#f4f0e8" stroke="#c4ab78"/><text x="222" y="387" font-family="Arial" font-size="17" font-weight="700" fill="#10251f">Approved export</text><text x="222" y="413" font-family="Arial" font-size="13" fill="#10251f">Atomic static release</text>
+  <rect x="690" y="112" width="365" height="370" rx="16" fill="#eef3fb" stroke="#9bb8d3" stroke-width="2"/>
+  <text x="721" y="150" font-family="Arial" font-size="20" font-weight="700" fill="#10251f">Public static website</text>
+  <rect x="740" y="195" width="265" height="100" rx="10" fill="#edf7f0" stroke="#92bd9c"/><text x="774" y="235" font-family="Arial" font-size="17" font-weight="700" fill="#10251f">Browser-local search</text><text x="774" y="260" font-family="Arial" font-size="13" fill="#10251f">Catalog files, filters, pages</text><text x="774" y="282" font-family="Arial" font-size="13" fill="#10251f">External image URLs only</text>
+  <rect x="740" y="350" width="265" height="90" rx="10" fill="#f1edf8" stroke="#b1a2cf"/><text x="777" y="387" font-family="Arial" font-size="17" font-weight="700" fill="#10251f">Rescue handoff</text><text x="777" y="413" font-family="Arial" font-size="13" fill="#10251f">Freshness + direct application link</text>
+  <g stroke="#52635f" stroke-width="4" fill="none" stroke-linecap="round"><path d="M242 245 H300"/><path d="M380 350 V295"/><path d="M351 395 H675 V245 H740"/><path d="M872 350 V295"/></g>
+  <g fill="#52635f"><polygon points="291,235 309,245 291,255"/><polygon points="370,304 380,286 390,304"/><polygon points="731,235 749,245 731,255"/><polygon points="862,304 872,286 882,304"/></g>
+</svg>
