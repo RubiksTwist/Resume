@@ -926,6 +926,19 @@ main > .portfolio-section:first-child {
     width: 100%;
 }
 
+.product-screenshot {
+    padding: 22px 22px 0;
+}
+
+.product-screenshot img {
+    border: 1px solid #dfe6e3;
+    border-radius: 5px;
+}
+
+.product-screenshot figcaption {
+    margin: 22px -22px 0;
+}
+
 .screenshot-frame figcaption,
 .diagram-frame figcaption {
     border-top: 1px solid #dfe6e3;
