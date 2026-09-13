@@ -923,6 +923,7 @@ main > .portfolio-section:first-child {
 .screenshot-frame img,
 .diagram-frame img {
     display: block;
+    height: auto;
     width: 100%;
 }
 
