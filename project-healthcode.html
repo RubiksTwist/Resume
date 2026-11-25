@@ -27,7 +27,7 @@
                 <p>Full-stack restaurant inspection intelligence that turns fragmented public health records into searchable, map-based decision workflows.</p>
                 <div class="case-actions">
                     <a class="back-link" href="index.html#projects">Back to main page</a>
-                    <a class="back-link" href="https://healthcode-staging.netlify.app/" target="_blank" rel="noopener">Live product</a>
+                    <a class="back-link" href="https://healthcode-staging.netlify.app/" target="_blank" rel="noopener">Live staging</a>
                     <a class="back-link" href="https://healthcode-api-staging.onrender.com/health" target="_blank" rel="noopener">API health</a>
                 </div>
             </header>
@@ -56,6 +56,7 @@
                     <section>
                         <h2>Solution</h2>
                         <p>HealthCode normalizes inspection feeds into a PostgreSQL-backed domain model for restaurants, inspections, violations, risk tags, and ingest runs. The React frontend gives users map, search, ranking, and detail workflows while the Express API applies validation, response caps, and privacy-conscious request logging.</p>
+                        <p>NYC restaurant inspections are the primary staging dataset. A separate Santa Clara adapter discovers facility histories, caches inspection PDFs, and parses major and minor violation sections into the same schema.</p>
                     </section>
 
                     <section>
@@ -90,7 +91,25 @@
 
                     <section>
                         <h2>Operations And Reliability</h2>
-                        <p>The workflow uses GitHub Actions for migrations, sample ingest, risk backfill, tests, and frontend build checks. Separate scheduled staging checks verify the public frontend, API health endpoint, and database health endpoint, while weekly/manual staging ingest keeps the data path exercised.</p>
+                        <p>The workflow uses GitHub Actions for migrations, sample ingest, risk backfill, tests, and frontend build checks. Scheduled staging checks verify the public frontend and API health every 30 minutes, with deeper database-backed smoke checks on demand. Render runs a daily NYC ingestion job that pulls incrementally and runs a full reconciliation weekly.</p>
+                    </section>
+
+                    <section>
+                        <h2>Recent Engineering</h2>
+                        <div class="decision-grid">
+                            <div class="decision-card">
+                                <h3>Stopping Database Growth</h3>
+                                <p>NYC Open Data issues new row IDs on every fetch, so each full run appended another copy of the dataset, reaching 7.6 million rows and 20 GB (93.5% of the database). The fix keeps one current snapshot of raw rows and adds cache headers to the nine read endpoints.</p>
+                            </div>
+                            <div class="decision-card">
+                                <h3>Self-Hosted Basemap</h3>
+                                <p>OpenStreetMap's tile policy rules out consumer apps loading its tiles, so the maps now use a bundled NYC vector basemap (Protomaps PMTiles, zoom 0 to 14) that scripts extract and verify.</p>
+                            </div>
+                            <div class="decision-card">
+                                <h3>Mobile App</h3>
+                                <p>An NYC-only React Native (Expo) app for iOS and Android runs on the same API, with native maps, on-device clustering, grade and cuisine filters, search, inspection history, and rankings. It has preview and production build profiles but no app-store release yet.</p>
+                            </div>
+                        </div>
                     </section>
                 </article>
 
@@ -101,6 +120,8 @@
                             <li>React</li>
                             <li>Vite</li>
                             <li>Leaflet</li>
+                            <li>Protomaps PMTiles</li>
+                            <li>React Native / Expo</li>
                             <li>Express</li>
                             <li>PostgreSQL</li>
                             <li>Netlify</li>

@@ -13,7 +13,7 @@
     <meta property="og:description" content="A public, source-linked threat-intelligence corpus for analyst research and verification.">
     <meta property="og:url" content="https://www.alexcheung.info/project-optic.html">
     <meta property="og:image" content="https://www.alexcheung.info/assets/projects/optic.png">
-    <meta property="og:image:alt" content="OPTICLab public threat-intelligence dashboard">
+    <meta property="og:image:alt" content="OPTICLab public threat-intelligence release page">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="styles.css">
@@ -24,7 +24,7 @@
             <header class="case-hero">
                 <p class="eyebrow">Threat-intelligence corpus</p>
                 <h1>OPTIC / OPTICLab</h1>
-                <p>A security reporting pipeline that turns vendor research into a normalized, source-backed threat-intelligence corpus and public dashboard.</p>
+                <p>A security reporting pipeline that turns vendor research into a normalized, source-backed threat-intelligence corpus, published with schema documentation and a downloadable PostgreSQL snapshot.</p>
                 <div class="case-actions">
                     <a class="back-link" href="index.html#projects">Back to main page</a>
                     <a class="back-link" href="https://opticlab.net" target="_blank" rel="noopener">Live product</a>
@@ -38,7 +38,7 @@
                         <h2>Product Surface</h2>
                         <div class="screenshot-grid">
                             <figure class="screenshot-frame">
-                                <img src="assets/projects/optic.webp" alt="OPTICLab public dashboard" width="1440" height="1000" decoding="async" fetchpriority="high">
+                                <img src="assets/projects/optic.webp" alt="OPTICLab public release page with corpus metrics" width="1440" height="1000" decoding="async" fetchpriority="high">
                                 <figcaption>OPTICLab public release surface with corpus metrics and downloadable snapshot context.</figcaption>
                             </figure>
                             <figure class="diagram-frame">
@@ -62,7 +62,7 @@
                         <h2>Data Flow</h2>
                         <figure class="diagram-frame">
                             <img src="assets/diagrams/optic-flow.svg" alt="OPTIC extraction flow diagram" width="1100" height="560" loading="lazy" decoding="async">
-                            <figcaption>Reports move from collection into quoted extraction records, normalized entities, and analyst-facing dashboard metrics.</figcaption>
+                            <figcaption>Reports move from collection into quoted extraction records, normalized entities, and public corpus metrics.</figcaption>
                         </figure>
                     </section>
 
@@ -83,14 +83,25 @@
                             </div>
                             <div class="decision-card">
                                 <h3>Snapshot Release</h3>
-                                <p>The public dashboard and downloadable database snapshot make the corpus inspectable outside the local dev environment.</p>
+                                <p>The public release page and downloadable database snapshot make the corpus inspectable outside the local dev environment.</p>
                             </div>
                         </div>
                     </section>
 
                     <section>
-                        <h2>Verified Corpus Signals</h2>
-                        <p>The dashboard documentation distinguishes 571 normalized archive articles from 402 analyst-usable operational corpus reports. It also documents 18,319 mentions, 18,220 source-quoted mentions, 7,243 searchable IOCs, and 1,113 relationships for the current operational projection.</p>
+                        <h2>Current Public Release</h2>
+                        <p>The release on opticlab.net covers 1,078 articles from 4 data sources, 981 of them with current extractions. Those articles yield 40,476 findings. 40,122 of them (99.1%) keep a source quote, and 32,081 come from language the report states directly. The release also holds 15,617 searchable IOCs and 2,607 connected relationships.</p>
+                    </section>
+
+                    <section>
+                        <h2>Measuring Extraction Quality</h2>
+                        <p>An audit against the source articles measured precision by data type. It ranged from 98% for ATT&amp;CK IDs copied from report tables down to 37% for techniques the model inferred, so model-extracted data is now gated on what each article actually supports.</p>
+                        <p>A reviewed 36-article answer key compares extraction models before the corpus is re-extracted. The best configuration scored 91.7 article-level F1, averaged over two runs. A cheaper model scored 88.4 at roughly one-ninth the cost. Identical runs vary by 2 to 4 points, so smaller gaps are treated as noise.</p>
+                    </section>
+
+                    <section>
+                        <h2>Analyst Tools Over MCP</h2>
+                        <p>A read-only MCP server exposes five tools over stdio: <code>actor_brief</code>, <code>who_uses</code>, <code>whats_new</code>, <code>claim_evidence</code>, and <code>report_counts</code>. Every answer cites vendor, date, and URL, and the tools keep quoted relationships separate from weaker same-report mentions. Cross-vendor identity clusters let one APT29 brief condense 41 reports (about 215,000 tokens) into about 1,150 tokens. The server runs locally against the corpus and is not part of the public release. The repository passes 703 automated tests.</p>
                     </section>
                 </article>
 
@@ -102,7 +113,8 @@
                             <li>PostgreSQL</li>
                             <li>Hybrid extraction</li>
                             <li>LLM inference</li>
-                            <li>Static dashboard</li>
+                            <li>Static release site</li>
+                            <li>MCP (FastMCP)</li>
                             <li>Database snapshot</li>
                         </ul>
                     </section>

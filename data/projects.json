@@ -25,7 +25,7 @@
     "id": "optic",
     "name": "OPTIC / OPTICLab",
     "type": "Threat-intelligence corpus",
-    "description": "A public release layer for a multi-source threat-intelligence extraction, normalization, PostgreSQL loading, and evidence dashboard workflow.",
+    "description": "A public release layer for a multi-source threat-intelligence extraction, normalization, and PostgreSQL loading workflow, with schema documentation and a downloadable snapshot.",
     "liveUrl": "https://opticlab.net",
     "detailPage": "project-optic.html",
     "screenshot": "assets/projects/optic.png",

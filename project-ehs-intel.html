@@ -91,6 +91,11 @@
                         <p>The documented local workflow starts PostgreSQL in Docker, runs ingestion and migration paths, launches the MCP/FastAPI HTTP server, and serves a Next.js/React/TypeScript frontend. The web route coordinates streaming tool calls against retrieval endpoints rather than relying on free-form model context alone.</p>
                     </section>
 
+                    <section>
+                        <h2>Running As An MCP Server</h2>
+                        <p>The MCP server now runs on a private remote host, and Claude clients connect to it as a tool. By default it exposes two tools. One resolves a company name and state to OSHA establishments and EPA facilities, and the other generates the brief, which also accepts an OSHA activity number or EPA registry ID directly. Each brief section reports whether it was checked, not checked (with a reason), or failed, so a data gap is never presented as a clean record. The repository passes 137 tests.</p>
+                    </section>
+
                 </article>
 
                 <aside class="case-sidebar">

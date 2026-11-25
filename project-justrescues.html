@@ -106,6 +106,12 @@
                         <h2>Reliability in a Human Context</h2>
                         <p>Collection is deliberately bounded and paced, with source-specific completeness checks and offline fixture replay for safe parser development. A missing dog only changes public availability after complete successful observations; a failed run does not make a rescue's dogs disappear. The result is a useful discovery tool that stays clear about what it knows and sends people back to the rescue for the final answer.</p>
                     </section>
+
+                    <section>
+                        <h2>Live Daily Operation</h2>
+                        <p>Since November 23, 2026, a dedicated Linux host collects every day at midnight and publishes a site release at noon (Eastern) under systemd timers. The dispatcher paces sources through the day and resumes the same batch after a restart. It retries a transient failure once after a 30-minute cool-down, but never retries rate limits, access denials, connector drift, or quarantines. It also closes runs left open by a collector that died.</p>
+                        <p>The release published on November 25, 2026 lists 40 rescues, 1,508 visible dogs, and 4,322 dog detail pages. The collection codebase passes 468 tests across 34 test modules.</p>
+                    </section>
                 </article>
 
                 <aside class="case-sidebar">
@@ -117,6 +123,8 @@
                             <li>Static JSON catalog</li>
                             <li>Browser-side search</li>
                             <li>Netlify</li>
+                            <li>Playwright</li>
+                            <li>systemd timers</li>
                             <li>Rescue-specific pipelines</li>
                             <li>Fixture-based testing</li>
                         </ul>

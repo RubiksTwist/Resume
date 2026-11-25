@@ -681,6 +681,16 @@ main > .portfolio-section:first-child {
     object-position: top;
 }
 
+.section-heading a {
+    color: #18332d;
+    font-weight: 600;
+}
+
+.project-card img[src$="ai-security-architecture.svg"] {
+    background: #f7faf9;
+    object-fit: contain;
+}
+
 .project-card-body {
     display: flex;
     flex: 1;
