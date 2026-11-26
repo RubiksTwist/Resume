@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Urbanist:wght@400..600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=4">
+<link rel="stylesheet" href="styles.css?v=5">
 <script type="speculationrules">{"prefetch":[{"where":{"href_matches":"/*.html"},"eagerness":"moderate"}]}</script>
 <script src="app.js?v=2" defer></script>
 </head>
@@ -108,6 +108,31 @@
       <article class="trail">
         <ol class="trail__track mono" aria-hidden="true"><li>Source</li><li>Product</li><li>Screen</li></ol>
         <div class="trail__source">
+          <p class="trail__from">Nine years of Pike13 records</p>
+          <p class="stat"><span class="stat__n">239,000+</span><span class="stat__l">source records migrated</span></p>
+        </div>
+        <div class="trail__body">
+          <p class="trail__step mono">Operations platform</p>
+          <h3><a href="project-dog-institute.html">The Dog Institute</a></h3>
+          <p>The customer and staff platform I built to replace Pike13 at a Brooklyn dog-training business. Square takes the payments, and one ledger tracks every package and visit.</p>
+          <dl class="facts">
+            <div><dt>customer records</dt><dd>2,180</dd></div>
+            <div><dt>card fees, Sept. 2026 vs. Square</dt><dd>14.6% to ~3%</dd></div>
+          </dl>
+          <ul class="tags" aria-label="Stack"><li>PostgreSQL</li><li>Netlify Functions</li><li>Square</li></ul>
+          <div class="actions">
+            <a class="btn btn--solid" href="project-dog-institute.html">Read the case study</a>
+            <a class="link-arrow" href="https://store.thedoginstitute.com/" target="_blank" rel="noopener">Visit site <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </div>
+        </div>
+        <a class="trail__media shot" href="project-dog-institute.html" tabindex="-1" aria-hidden="true">
+          <img src="assets/projects/dog-institute-shop.webp" style="view-transition-name: shot-dog-institute" alt="" width="1440" height="1000" loading="lazy" decoding="async">
+        </a>
+      </article>
+
+      <article class="trail">
+        <ol class="trail__track mono" aria-hidden="true"><li>Source</li><li>Product</li><li>Screen</li></ol>
+        <div class="trail__source">
           <p class="trail__from">New York's rescue organizations</p>
           <p class="stat"><span class="stat__n">40</span><span class="stat__l">rescues covered</span></p>
         </div>
@@ -126,7 +151,7 @@
           </div>
         </div>
         <a class="trail__media shot" href="project-justrescues.html" tabindex="-1" aria-hidden="true">
-          <img src="assets/projects/justrescues-home.png" style="view-transition-name: shot-justrescues" alt="" width="1280" height="720" loading="lazy" decoding="async">
+          <img src="assets/projects/justrescues-results.webp" style="view-transition-name: shot-justrescues" alt="" width="1440" height="1000" loading="lazy" decoding="async">
         </a>
       </article>
 
@@ -176,7 +201,7 @@
           </div>
         </div>
         <a class="trail__media shot" href="project-healthcode.html" tabindex="-1" aria-hidden="true">
-          <img src="assets/projects/healthcode.webp" style="view-transition-name: shot-healthcode" alt="" width="1440" height="1000" loading="lazy" decoding="async">
+          <img src="assets/projects/healthcode-nearby-map.webp" style="view-transition-name: shot-healthcode" alt="" width="1440" height="880" loading="lazy" decoding="async">
         </a>
       </article>
     </div>
@@ -195,7 +220,7 @@
               <p>A daily cybersecurity deduction game built from MITRE ATT&amp;CK and MISP threat data, with answers checked on the server.</p>
             </div>
             <div class="index__links"><a href="https://threatdle.com" target="_blank" rel="noopener">Play</a><a href="https://github.com/RubiksTwist/Threatdle" target="_blank" rel="noopener">GitHub</a></div>
-            <img class="index__thumb" src="assets/projects/threatdle.webp" alt="" width="1440" height="1000" loading="lazy" decoding="async">
+            <img class="index__thumb" src="assets/projects/threatdle-midgame.webp" alt="" width="1440" height="1000" loading="lazy" decoding="async">
           </li>
           <li class="index__row" data-p="reddit">
             <div class="index__main">
@@ -210,7 +235,7 @@
               <h3><a class="index__link" href="project-ehs-intel.html">EHS Intel</a></h3>
               <p>An MCP server that turns OSHA and EPA records into a facility's compliance brief, and says plainly when a source could not be checked.</p>
             </div>
-            <img class="index__thumb index__thumb--contain" src="assets/projects/ehs-intel.svg" alt="" width="1200" height="760" loading="lazy" decoding="async">
+            <img class="index__thumb" src="assets/projects/ehs-intel-brief.webp" alt="" width="1440" height="1000" loading="lazy" decoding="async">
           </li>
           <li class="index__row" data-p="gex">
             <div class="index__main">
@@ -218,7 +243,7 @@
               <p>A daily pipeline that computes options gamma levels and market context, then drafts a morning brief for X.</p>
             </div>
             <div class="index__links"><a href="https://x.com/GexLevels" target="_blank" rel="noopener">See posts</a></div>
-            <img class="index__thumb" src="assets/projects/spy-gex-x-post.svg" alt="" width="620" height="920" loading="lazy" decoding="async">
+            <img class="index__thumb" src="assets/projects/market-intel-gex-levels.webp" alt="" width="1440" height="1000" loading="lazy" decoding="async">
           </li>
           <li class="index__row" data-p="ailab">
             <div class="index__main">
@@ -226,15 +251,15 @@
               <p>A contained lab that runs prompt-injection, jailbreak, and data-exfiltration suites against a local chatbot and scores the results.</p>
             </div>
             <div class="index__links"><a href="https://github.com/RubiksTwist/AI-Hacking" target="_blank" rel="noopener">GitHub</a></div>
-            <img class="index__thumb index__thumb--contain" src="assets/diagrams/ai-security-architecture.svg" alt="" width="1100" height="560" loading="lazy" decoding="async">
+            <img class="index__thumb" src="assets/projects/ai-security-lab-results.webp" alt="" width="1440" height="1000" loading="lazy" decoding="async">
           </li>
         </ul>
         <div class="preview" aria-hidden="true">
-          <img data-p="threatdle" src="assets/projects/threatdle.webp" style="view-transition-name: shot-threatdle" alt="" width="1440" height="1000" loading="lazy" decoding="async">
+          <img data-p="threatdle" src="assets/projects/threatdle-midgame.webp" style="view-transition-name: shot-threatdle" alt="" width="1440" height="1000" loading="lazy" decoding="async">
           <img data-p="reddit" src="assets/projects/reddit-scroll-limiter.webp" style="view-transition-name: shot-reddit" alt="" width="1280" height="800" loading="lazy" decoding="async">
-          <img data-p="ehs" class="contain" src="assets/projects/ehs-intel.svg" style="view-transition-name: shot-ehs" alt="" width="1200" height="760" loading="lazy" decoding="async">
-          <img data-p="gex" class="contain" src="assets/projects/spy-gex-x-post.svg" style="view-transition-name: shot-gex" alt="" width="620" height="920" loading="lazy" decoding="async">
-          <img data-p="ailab" class="contain" src="assets/diagrams/ai-security-architecture.svg" style="view-transition-name: shot-ailab" alt="" width="1100" height="560" loading="lazy" decoding="async">
+          <img data-p="ehs" src="assets/projects/ehs-intel-brief.webp" style="view-transition-name: shot-ehs" alt="" width="1440" height="1000" loading="lazy" decoding="async">
+          <img data-p="gex" src="assets/projects/market-intel-gex-levels.webp" style="view-transition-name: shot-gex" alt="" width="1440" height="1000" loading="lazy" decoding="async">
+          <img data-p="ailab" src="assets/projects/ai-security-lab-results.webp" style="view-transition-name: shot-ailab" alt="" width="1440" height="1000" loading="lazy" decoding="async">
         </div>
       </div>
     </div>
@@ -261,6 +286,7 @@
       <div class="closing__cols">
         <nav class="closing__links" aria-labelledby="f-work">
           <p class="mono" id="f-work">Work</p>
+          <a href="project-dog-institute.html">The Dog Institute</a>
           <a href="project-justrescues.html">Just Rescues</a>
           <a href="project-optic.html">OPTIC / OPTICLab</a>
           <a href="project-healthcode.html">HealthCode</a>

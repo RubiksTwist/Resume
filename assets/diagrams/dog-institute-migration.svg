@@ -1,0 +1,22 @@
+<svg width="1100" height="560" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 560" role="img" aria-labelledby="title desc">
+  <title id="title">The Dog Institute Pike13 migration flow</title>
+  <desc id="desc">Nine years of Pike13 history, more than 239,000 source records, are matched on identity evidence and consolidated into 2,180 customer records. Ambiguous identity claims go to a staff review queue. Customers link their sign-in to a record only on a unique verified-email match, and Pike13 was retired on November 22, 2026, with its history kept in the platform.</desc>
+  <rect width="1100" height="560" fill="#f7faf9"/>
+  <text x="52" y="70" font-family="Arial" font-size="34" font-weight="700" fill="#10251f">Pike13 Migration Flow</text>
+  <g font-family="Arial" fill="#10251f">
+    <rect x="45" y="150" width="215" height="100" rx="10" fill="#e9f3ff" stroke="#9bb8d3"/>
+    <text x="70" y="190" font-size="18" font-weight="700">Pike13, 2017 to 2026</text><text x="70" y="217" font-size="14">239,000+ source records</text>
+    <rect x="310" y="150" width="215" height="100" rx="10" fill="#f4f0e8" stroke="#c4ab78"/>
+    <text x="335" y="190" font-size="18" font-weight="700">Match Identities</text><text x="335" y="217" font-size="14">People, dogs, plans, visits</text>
+    <rect x="575" y="150" width="215" height="100" rx="10" fill="#edf7f0" stroke="#92bd9c"/>
+    <text x="600" y="190" font-size="18" font-weight="700">2,180 Customers</text><text x="600" y="217" font-size="14">History, packages, balances</text>
+    <rect x="840" y="150" width="215" height="100" rx="10" fill="#e8f3ef" stroke="#9ab8ae"/>
+    <text x="865" y="190" font-size="18" font-weight="700">Customer Sign-In</text><text x="865" y="217" font-size="14">Linked on verified email</text>
+    <rect x="310" y="340" width="215" height="90" rx="10" fill="#f5e9ee" stroke="#c89bad"/>
+    <text x="335" y="377" font-size="17" font-weight="700">Staff Review Queue</text><text x="335" y="402" font-size="13">Ambiguous identity claims</text>
+    <rect x="45" y="340" width="215" height="90" rx="10" fill="#fff4df" stroke="#d9b76f"/>
+    <text x="70" y="377" font-size="17" font-weight="700">Pike13 Retired</text><text x="70" y="402" font-size="13">Nov 22, 2026, history kept</text>
+  </g>
+  <g stroke="#52635f" stroke-width="4" fill="none" stroke-linecap="round"><path d="M260 200 H310"/><path d="M525 200 H575"/><path d="M790 200 H840"/><path d="M152 250 V340"/><path d="M417 250 V340"/><path d="M525 385 H682 V250"/></g>
+  <g fill="#52635f"><polygon points="301,190 319,200 301,210"/><polygon points="566,190 584,200 566,210"/><polygon points="831,190 849,200 831,210"/><polygon points="142,331 152,349 162,331"/><polygon points="407,331 417,349 427,331"/><polygon points="672,259 682,241 692,259"/></g>
+</svg>

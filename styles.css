@@ -565,6 +565,7 @@ h3 { font-size: 28px; line-height: 1.15; letter-spacing: -.02em; }
 .case-main h2::before { content: ""; position: absolute; left: -40px; top: .36em; width: 9px; height: 9px; background: var(--accent); }
 .case-main p { font-size: 19px; line-height: 1.65; max-width: 62ch; }
 .case-main p + p { margin-top: 1.1em; }
+.case-main p + figure { margin-top: 28px; }
 .case-main code { font: 400 .84em/1 var(--mono); padding: 2px 6px; background: rgba(38, 37, 30, .07); }
 .case-main a { text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 4px; }
 

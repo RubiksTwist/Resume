@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Urbanist:wght@400..600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=4">
+<link rel="stylesheet" href="styles.css?v=5">
 <script type="speculationrules">{"prefetch":[{"where":{"href_matches":"/*.html"},"eagerness":"moderate"}]}</script>
 <script src="app.js?v=2" defer></script>
 </head>
@@ -68,12 +68,20 @@
       <h2>Product Surface</h2>
       <div class="screenshot-grid">
           <figure class="screenshot-frame product-screenshot">
-              <img src="assets/projects/justrescues-home.png" style="view-transition-name: shot-justrescues" alt="Just Rescues homepage with New York rescue-dog search controls" width="1280" height="720" decoding="async" fetchpriority="high">
-              <figcaption>The public homepage gives prospective adopters a focused way to begin a rescue-dog search.</figcaption>
+              <img src="assets/projects/justrescues-home.webp" style="view-transition-name: shot-justrescues" alt="Just Rescues homepage reading Rescue Dogs Across New York, with a search bar for breed, age, size and gender and a row of breed shortcuts" width="1440" height="1000" decoding="async" fetchpriority="high">
+              <figcaption>The public homepage. A search starts from breed, age, size or gender across every connected rescue.</figcaption>
           </figure>
           <figure class="screenshot-frame product-screenshot">
-              <img src="assets/projects/justrescues-dogs.png" alt="Just Rescues dog cards showing photos, rescue names, attributes, and freshness labels" width="1280" height="720" loading="lazy" decoding="async">
-              <figcaption>Dog cards preserve rescue attribution, surface useful filters, and make listing freshness visible.</figcaption>
+              <img src="assets/projects/justrescues-results.webp" alt="Search results filtered to small puppies, showing 52 dogs as cards with a photo, the rescue's name, traits and an Updated today label" width="1440" height="1000" loading="lazy" decoding="async">
+              <figcaption>A search for small puppies on November 25, 2026. Each card names its rescue and says when the listing was last updated.</figcaption>
+          </figure>
+          <figure class="screenshot-frame product-screenshot">
+              <img src="assets/projects/justrescues-dog-detail.webp" alt="A dog's page with the rescue's photo and description, a notice reading Listed as available, last checked November 25, 2026, and buttons to confirm availability with the rescue or view the original listing" width="1440" height="1000" loading="lazy" decoding="async">
+              <figcaption>Every dog page says when the listing was last checked and sends the adopter to the rescue to confirm and apply. Just Rescues takes no applications.</figcaption>
+          </figure>
+          <figure class="screenshot-frame product-screenshot">
+              <img src="assets/projects/justrescues-phone.webp" alt="A dog's page at phone width, with the photo above the rescue name, the dog's breed and location, and the availability notice" width="780" height="1688" loading="lazy" decoding="async">
+              <figcaption>The same kind of page on a 390px-wide phone screen.</figcaption>
           </figure>
       </div>
     </div>
@@ -89,6 +97,7 @@
       <section id="s-solution">
         <h2>Solution</h2>
         <p>Just Rescues publishes a searchable static catalog of adoptable dogs from reviewed rescue organizations. Visitors can explore breed, age, size, and sex, see the rescue and observation context for each listing, and continue to the responsible rescue's own profile or application workflow to confirm availability.</p>
+        <p>Every dog page carries a freshness notice, such as "Listed as available, last checked November 25, 2026," and labels the description as written by the rescue. Visitors can save dogs to a favorites list that lives only in their own browser, so the site needs no accounts.</p>
       </section>
 
       <section id="s-one-pipeline-per-rescue">
@@ -133,11 +142,14 @@
             <img src="assets/diagrams/justrescues-architecture.svg" alt="Just Rescues diagram separating private collection operations from the public static website" width="1100" height="560" loading="lazy" decoding="async">
             <figcaption>Collection evidence and operational controls remain private; visitors receive only the approved catalog, freshness context, and direct rescue handoffs.</figcaption>
         </figure>
+        <p>The operator gets a private, read-only health view of every source. For each rescue it shows the last attempt and last complete publication, requests and bytes against their ceilings, and the reason a run stopped. That reason is reduced to one plain label, such as throttled, changed access route, parser drift, or quality-check quarantine. The view answers only on the operator's own machine. Any other visitor gets a 404, and the public site has no link to it.</p>
       </section>
 
       <section id="s-reliability-in-a-human-context">
         <h2>Reliability in a Human Context</h2>
-        <p>Collection is deliberately bounded and paced, with source-specific completeness checks and offline fixture replay for safe parser development. A missing dog only changes public availability after complete successful observations; a failed run does not make a rescue's dogs disappear. The result is a useful discovery tool that stays clear about what it knows and sends people back to the rescue for the final answer.</p>
+        <p>Collection is deliberately bounded and paced, with source-specific completeness checks and offline fixture replay for safe parser development. Each source is read only from its allowed hosts, within a request and byte budget, with images blocked during collection and a global stop switch over every source.</p>
+        <p>Before a run can publish, source-level quality gates check it. A run is held back when its dog count swings sharply from the rescue's usual count, when the parser stops matching the page, when the site returns a block or challenge page, when listings repeat identical content or lose their links, or when pagination or the run's manifest is incomplete. A held run is quarantined and the last good catalog stays in place.</p>
+        <p>A missing dog only changes public availability after complete successful observations; a failed run does not make a rescue's dogs disappear. The result is a useful discovery tool that stays clear about what it knows and sends people back to the rescue for the final answer.</p>
       </section>
 
       <section id="s-live-daily-operation">
@@ -195,6 +207,7 @@
       <div class="closing__cols">
         <nav class="closing__links" aria-labelledby="f-work">
           <p class="mono" id="f-work">Work</p>
+          <a href="project-dog-institute.html">The Dog Institute</a>
           <a href="project-justrescues.html" aria-current="page">Just Rescues</a>
           <a href="project-optic.html">OPTIC / OPTICLab</a>
           <a href="project-healthcode.html">HealthCode</a>

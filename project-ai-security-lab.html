@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>AI Security Testing Lab Case Study - Alex Cheung</title>
-<meta name="description" content="A controlled AI security lab for evaluating prompt injection, jailbreaks, harmful output, and data-exfiltration behavior in containerized chatbots.">
+<meta name="description" content="A contained lab that attacks a practice customer-service chatbot with scripted prompt suites, scores each attempt with a second model, and records where data leaked.">
 <meta name="author" content="Alex Cheung">
 <meta name="theme-color" content="#dfdedb">
 <link rel="canonical" href="https://www.alexcheung.info/project-ai-security-lab.html">
 <meta property="og:type" content="article">
 <meta property="og:title" content="AI Security Testing Lab Case Study - Alex Cheung">
-<meta property="og:description" content="A controlled lab for testing prompt injection, jailbreaks, harmful output, and data-exfiltration behavior.">
+<meta property="og:description" content="Scripted prompt-injection, jailbreak, RAG and access-control tests against a practice chatbot, scored by a second model.">
 <meta property="og:url" content="https://www.alexcheung.info/project-ai-security-lab.html">
 <meta property="og:image" content="https://www.alexcheung.info/assets/projects/ai-security-lab-social.png">
 <meta property="og:image:alt" content="AI Security Testing Lab architecture diagram">
@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Urbanist:wght@400..600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=4">
+<link rel="stylesheet" href="styles.css?v=5">
 <script type="speculationrules">{"prefetch":[{"where":{"href_matches":"/*.html"},"eagerness":"moderate"}]}</script>
 <script src="app.js?v=2" defer></script>
 </head>
@@ -33,12 +33,14 @@
 <a class="skip-link" href="#main">Skip to content</a>
 
 <nav class="rail rail--long" aria-label="Sections on this page">
-  <ol class="rail__list" style="--n:8; --skip:1">
+  <ol class="rail__list" style="--n:10; --skip:1">
     <li><a class="rail__out" href="index.html#work"><svg class="rail__arrow" aria-hidden="true"><use href="#i-arrow"/></svg><span class="rail__label">Work</span></a></li>
     <li><a href="#top"><span class="rail__label">Intro</span></a></li>
     <li><a href="#s-problem"><span class="rail__label">Problem</span></a></li>
     <li><a href="#s-solution"><span class="rail__label">Solution</span></a></li>
     <li><a href="#s-evaluation-flow"><span class="rail__label">Evaluation Flow</span></a></li>
+    <li><a href="#s-what-the-runs-found"><span class="rail__label">What The Runs Found</span></a></li>
+    <li><a href="#s-where-data-leaked"><span class="rail__label">Where Data Leaked</span></a></li>
     <li><a href="#s-design-decisions"><span class="rail__label">Design Decisions</span></a></li>
     <li><a href="#s-test-methodology"><span class="rail__label">Test Methodology</span></a></li>
     <li><a href="#next"><span class="rail__label">Next</span></a></li>
@@ -52,20 +54,26 @@
       <a class="btn btn--outline back" href="index.html#work"><svg aria-hidden="true"><use href="#i-arrow"/></svg>Back to work</a>
       <p class="eyebrow">Adversarial AI lab</p>
       <h1>AI Security Testing Lab</h1>
-      <p class="case-hero__lead">Local AI security test environment for prompt injection, jailbreak, harmful-output, and data-exfiltration evaluation against a containerized chatbot runtime.</p>
+      <p class="case-hero__lead">A contained lab for attacking a customer-service chatbot the way an outsider would, scoring every attempt with a second model, and recording what got through.</p>
       <div class="case-actions">
         <a class="btn btn--solid" href="https://github.com/RubiksTwist/AI-Hacking" target="_blank" rel="noopener">GitHub</a>
       </div>
     </div>
   </header>
 
-  <section class="case-lead" id="s-lab-architecture">
+  <section class="case-lead" id="s-product-surface">
     <div class="wrap">
-      <h2>Lab Architecture</h2>
-      <figure class="diagram-frame">
-          <img src="assets/diagrams/ai-security-architecture.svg" style="view-transition-name: shot-ailab" alt="AI Security Testing Lab architecture diagram" width="1100" height="560" decoding="async" fetchpriority="high">
-          <figcaption>Host model server, containerized chatbot runtime, adversarial prompt sets, classifier, and review outputs.</figcaption>
-      </figure>
+      <h2>Product Surface</h2>
+      <div class="screenshot-grid">
+          <figure class="screenshot-frame product-screenshot">
+              <img src="assets/projects/ai-security-lab-results.webp" style="view-transition-name: shot-ailab" alt="Results summary showing judge verdicts for four prompt-injection suites as stacked bars with counts and median reply times, above an excerpt of the direct-injection results table" width="1440" height="1000" decoding="async" fetchpriority="high">
+              <figcaption>Judge verdicts from the lab's result CSVs, rendered for this page. Model replies are left out, and the judge's reasons are cut short.</figcaption>
+          </figure>
+          <figure class="diagram-frame">
+              <img src="assets/diagrams/ai-security-architecture.svg" alt="AI Security Testing Lab architecture diagram" width="1100" height="560" loading="lazy" decoding="async">
+              <figcaption>Host model server, containerized chatbot runtime, adversarial prompt sets, classifier, and review outputs.</figcaption>
+          </figure>
+      </div>
     </div>
   </section>
 
@@ -73,12 +81,12 @@
     <article class="case-main">
       <section id="s-problem">
         <h2>Problem</h2>
-        <p>AI security testing needs repeatable adversarial prompts, a controlled target application, and reviewable results. Manual probing alone is useful for exploration, but it does not produce a consistent record of failures, attempted attacks, and model behavior over time.</p>
+        <p>Companies now put chatbots in front of customers and connect them to documents, ticket systems and account data. A chatbot that can be talked into reading the wrong document or obeying text hidden in a ticket becomes a way to leak data. Finding those failures takes repeatable attacks, a safe target, and a record that someone else can review. Manual probing is good for exploring, but it does not leave a consistent record.</p>
       </section>
 
       <section id="s-solution">
         <h2>Solution</h2>
-        <p>The lab pairs a Windows-hosted Ollama model server with an Ubuntu VM Docker chatbot runtime. Prompt sets are loaded from CSV files, sent to the chatbot, classified with a separate judge model, and written to result files for review. Manual Burp Suite notes complement the automated runs where qualitative inspection matters.</p>
+        <p>The lab pairs a Windows-hosted Ollama model server with an Ubuntu VM Docker chatbot runtime. The target is a deliberately vulnerable practice chatbot for a fictional cable retailer, with a document search (RAG) knowledge base, customer logins and a support-ticket system. A script sends each prompt from a CSV file at a set rate and records the reply and its response time. A separate judge model labels each reply, and everything is written to result files for review. Manual Burp Suite work covers what a script cannot, such as multi-turn attacks and requests made with or without a login.</p>
       </section>
 
       <section id="s-evaluation-flow">
@@ -86,6 +94,21 @@
         <figure class="diagram-frame">
             <img src="assets/diagrams/ai-security-flow.svg" alt="AI Security Testing Lab evaluation flow diagram" width="1100" height="560" loading="lazy" decoding="async">
             <figcaption>Prompt suites exercise the chatbot, collect responses, classify outcomes, and produce reviewable CSV results.</figcaption>
+        </figure>
+      </section>
+
+      <section id="s-what-the-runs-found">
+        <h2>What The Runs Found</h2>
+        <p>The injection and jailbreak suites hold 85 prompts, and each was sent twice, for 170 judged runs. The judge, Qwen3 8B, labeled 22 runs as attacks that got through, 4 as possible, and 139 as held. Five runs could not be judged because the judge model timed out or lost its connection. Direct injection had the most hits, with 12 of 50 runs getting through, mostly by getting the chatbot to reveal its instructions or planted credentials. Replies took a median of 20.9 to 31.4 seconds per suite on local hardware.</p>
+        <p>Other suites tested the guardrails. None of 10 hostile prompts got the chatbot to repeat the hostile phrase. The chatbot rejected 6 of 8 long-prompt runs at its 2,000-character limit. A rate-limit probe hit HTTP 429 at request 31. The judge is a first pass, not the final word. In one run it marked a success when the chatbot had only repeated the user's own question, which is why the manual notes matter.</p>
+      </section>
+
+      <section id="s-where-data-leaked">
+        <h2>Where Data Leaked</h2>
+        <p>The most serious findings came from what the chatbot was allowed to reach. It could read support tickets and search internal documents, and it followed instructions it found there. A ticket that said to reveal the system prompt made the chatbot list planted cloud and payment credentials. A logged-out visitor who named a ticket filed under a login was granted the 50% discount that the ticket's text asked for. A plain request for development documents pulled admin addresses and API keys from the knowledge base into the answer. Together they show four risks of an over-permissioned AI tool. They are prompt exposure, credential leakage, policy bypass and indirect access to records that sit behind a login.</p>
+        <figure class="screenshot-frame product-screenshot">
+            <img src="assets/projects/ai-security-lab-findings.webp" alt="Three finding cards showing an indirect prompt injection through a support ticket, a logged-out visitor triggering a ticket's instruction, and a retrieval request exposing internal development documents, with the planted credentials masked" width="1440" height="720" loading="lazy" decoding="async">
+            <figcaption>Three findings from the lab's test notes, rendered for this page. The credentials were planted test values and are masked here.</figcaption>
         </figure>
       </section>
 
@@ -106,14 +129,14 @@
             </div>
             <div class="decision-card">
                 <h3>Manual Plus Automated Review</h3>
-                <p>Automation catches repeatable outcomes while manual notes preserve context around ambiguous failures.</p>
+                <p>Automation catches repeatable outcomes. Manual notes keep the context around ambiguous verdicts and the multi-step attacks a script cannot score.</p>
             </div>
         </div>
       </section>
 
       <section id="s-test-methodology">
         <h2>Test Methodology</h2>
-        <p>The repository contains prompt-injection, jailbreak, harmful-output, RAG, and RBAC testing folders, plus scripts for automated prompt execution and classification. The README documents model setup using IBM Granite, Mistral, and Qwen-family models through Ollama.</p>
+        <p>Testing followed written rules of engagement and a threat model for the chatbot, with notes on the OWASP Top 10 for LLM applications and MITRE ATLAS as reference. Recon came first. It identified the model, mapped the API in Burp Suite, and measured the rate limit. The scripted suites covered direct, narrative and encoded prompt injection, jailbreak personas, harmful and off-topic prompts, oversized inputs, and targeted RAG requests run with and without a login. The repository's 11 result files hold 276 recorded runs, each with its response time. The automated suites ran at the chatbot's lowest AI security setting with Mistral 7B. Manual probes at the next level showed an input filter that rejected the phrase "ignore all previous instructions".</p>
       </section>
     </article>
 
@@ -165,6 +188,7 @@
       <div class="closing__cols">
         <nav class="closing__links" aria-labelledby="f-work">
           <p class="mono" id="f-work">Work</p>
+          <a href="project-dog-institute.html">The Dog Institute</a>
           <a href="project-justrescues.html">Just Rescues</a>
           <a href="project-optic.html">OPTIC / OPTICLab</a>
           <a href="project-healthcode.html">HealthCode</a>
