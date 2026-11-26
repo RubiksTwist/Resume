@@ -1,136 +1,216 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-type="software" data-radius="sharp" data-buttons="pill">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reddit Scroll Limiter Case Study - Alex Cheung</title>
-    <meta name="description" content="Reddit Scroll Limiter is a local-first Chrome extension that adds adjustable post and break limits to Reddit's infinite feeds.">
-    <meta name="author" content="Alex Cheung">
-    <meta name="theme-color" content="#18332d">
-    <link rel="canonical" href="https://www.alexcheung.info/project-reddit-scroll-limiter.html">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="Reddit Scroll Limiter Case Study - Alex Cheung">
-    <meta property="og:description" content="A local-first Chrome extension that gives Reddit's infinite feeds a clear stopping point.">
-    <meta property="og:url" content="https://www.alexcheung.info/project-reddit-scroll-limiter.html">
-    <meta property="og:image" content="https://www.alexcheung.info/assets/projects/reddit-scroll-limiter.png">
-    <meta property="og:image:alt" content="Reddit Scroll Limiter extension settings">
-    <meta name="twitter:card" content="summary_large_image">
-    <link rel="icon" href="favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Reddit Scroll Limiter Case Study - Alex Cheung</title>
+<meta name="description" content="Reddit Scroll Limiter is a local-first Chrome extension that adds adjustable post and break limits to Reddit's infinite feeds.">
+<meta name="author" content="Alex Cheung">
+<meta name="theme-color" content="#dfdedb">
+<link rel="canonical" href="https://www.alexcheung.info/project-reddit-scroll-limiter.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Reddit Scroll Limiter Case Study - Alex Cheung">
+<meta property="og:description" content="A local-first Chrome extension that gives Reddit's infinite feeds a clear stopping point.">
+<meta property="og:url" content="https://www.alexcheung.info/project-reddit-scroll-limiter.html">
+<meta property="og:image" content="https://www.alexcheung.info/assets/projects/reddit-scroll-limiter.png">
+<meta property="og:image:alt" content="Reddit Scroll Limiter extension settings">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Urbanist:wght@400..600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=4">
+<script type="speculationrules">{"prefetch":[{"where":{"href_matches":"/*.html"},"eagerness":"moderate"}]}</script>
+<script src="app.js?v=2" defer></script>
 </head>
 <body>
-    <main class="case-study">
-        <div class="container">
-            <header class="case-hero">
-                <p class="eyebrow">Published Chrome extension</p>
-                <h1>Reddit Scroll Limiter</h1>
-                <p>A Manifest V3 Chrome extension that puts a configurable stopping point on Reddit feeds while keeping settings and session state local to the browser.</p>
-                <div class="case-actions">
-                    <a class="back-link" href="index.html#projects">Back to main page</a>
-                    <a class="back-link" href="https://chromewebstore.google.com/detail/reddit-scroll-limiter/bcopejcpidfjbmljckhagbildkhfkemb" target="_blank" rel="noopener">Chrome Web Store</a>
-                    <a class="back-link" href="https://github.com/RubiksTwist/redditScrollLimiter" target="_blank" rel="noopener">GitHub</a>
-                </div>
-            </header>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3c0-2.6-1.6-3.8-3.7-3.8-1.4 0-2.4.8-2.8 1.6V9.7H8.5v8.8H12v-4.9c0-1.3.3-2.5 1.8-2.5s1.5 1.4 1.5 2.6v4.8h3.2M5.5 6.2a2 2 0 1 0 4 0 2 2 0 0 0-4 0m.3 12.3h3.4V9.7H5.8v8.8Z"/></symbol>
+  <symbol id="i-github" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 8.84 21.5c.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.31-3.36-1.31-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .08 1.53 1.03 1.53 1.03.87 1.55 2.34 1.1 2.91.85.09-.65.35-1.1.63-1.35-2.22-.25-4.55-1.11-4.55-4.95 0-1.11.38-2 1.03-2.71-.1-.25-.38-1.29.1-2.64 0 0 .84-.27 2.75 1.02A9.7 9.7 0 0 1 12 6.84c.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.48 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.85-2.34 4.7-4.57 4.95.36.31.69.91.69 1.85V21c0 .27.16.59.67.5A10 10 0 0 0 12 2Z"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+</svg>
 
-            <div class="case-layout">
-                <article class="case-main">
-                    <section>
-                        <h2>Product Surface</h2>
-                        <div class="screenshot-grid">
-                            <figure class="screenshot-frame">
-                                <img src="assets/projects/reddit-scroll-limiter.webp" alt="Reddit Scroll Limiter settings popup" width="1280" height="800" decoding="async" fetchpriority="high">
-                                <figcaption>Chrome extension popup with post limits, break length, snooze, feed rules, and warning controls.</figcaption>
-                            </figure>
-                            <figure class="screenshot-frame">
-                                <img src="assets/projects/reddit-scroll-limiter-break.webp" alt="Reddit Scroll Limiter break message on Reddit" width="1280" height="800" loading="lazy" decoding="async">
-                                <figcaption>Break state shown on Reddit after the configured browsing limit has been reached.</figcaption>
-                            </figure>
-                        </div>
-                    </section>
+<a class="skip-link" href="#main">Skip to content</a>
 
-                    <section>
-                        <h2>Problem</h2>
-                        <p>Reddit's feeds are built for continuous scrolling, so a user who wants a boundary has to rely on willpower or a blunt site blocker. The useful version of this tool needed to be lighter: let Reddit work normally, count the current session, warn before the limit, and create a pause that can be adjusted instead of feeling punitive.</p>
-                    </section>
+<nav class="rail rail--long" aria-label="Sections on this page">
+  <ol class="rail__list" style="--n:9; --skip:1">
+    <li><a class="rail__out" href="index.html#work"><svg class="rail__arrow" aria-hidden="true"><use href="#i-arrow"/></svg><span class="rail__label">Work</span></a></li>
+    <li><a href="#top"><span class="rail__label">Intro</span></a></li>
+    <li><a href="#s-problem"><span class="rail__label">Problem</span></a></li>
+    <li><a href="#s-solution"><span class="rail__label">Solution</span></a></li>
+    <li><a href="#s-architecture"><span class="rail__label">Architecture</span></a></li>
+    <li><a href="#s-runtime-flow"><span class="rail__label">Runtime Flow</span></a></li>
+    <li><a href="#s-design-decisions"><span class="rail__label">Design Decisions</span></a></li>
+    <li><a href="#s-release-and-validation"><span class="rail__label">Release And Validation</span></a></li>
+    <li><a href="#next"><span class="rail__label">Next</span></a></li>
+  </ol>
+</nav>
 
-                    <section>
-                        <h2>Solution</h2>
-                        <p>Reddit Scroll Limiter injects a content script into modern Reddit, old Reddit, new Reddit, and sh.reddit.com. It watches feed posts in the page, tracks viewed-post and optional time limits, and shows a break UI when the session reaches the configured boundary. The popup exposes the controls a user needs day to day: post limit, break length, reset window, snooze amount, warning threshold, feed allowlist/blocklist rules, and temporary disable options.</p>
-                    </section>
+<main id="main" class="case">
 
-                    <section>
-                        <h2>Architecture</h2>
-                        <figure class="diagram-frame">
-                            <img src="assets/diagrams/reddit-scroll-limiter-architecture.svg" alt="Reddit Scroll Limiter architecture diagram" width="1100" height="560" loading="lazy" decoding="async">
-                            <figcaption>Manifest V3 service worker, popup controls, local Chrome storage, and Reddit content scripts coordinate without any external service.</figcaption>
-                        </figure>
-                    </section>
+  <header class="case-hero" id="top">
+    <div class="wrap case-hero__grid">
+      <a class="btn btn--outline back" href="index.html#work"><svg aria-hidden="true"><use href="#i-arrow"/></svg>Back to work</a>
+      <p class="eyebrow">Published Chrome extension</p>
+      <h1>Reddit Scroll Limiter</h1>
+      <p class="case-hero__lead">A Manifest V3 Chrome extension that puts a configurable stopping point on Reddit feeds while keeping settings and session state local to the browser.</p>
+      <div class="case-actions">
+        <a class="btn btn--solid" href="https://chromewebstore.google.com/detail/reddit-scroll-limiter/bcopejcpidfjbmljckhagbildkhfkemb" target="_blank" rel="noopener">Chrome Web Store</a>
+        <a class="btn btn--outline" href="https://github.com/RubiksTwist/redditScrollLimiter" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </header>
 
-                    <section>
-                        <h2>Runtime Flow</h2>
-                        <figure class="diagram-frame">
-                            <img src="assets/diagrams/reddit-scroll-limiter-flow.svg" alt="Reddit Scroll Limiter runtime flow diagram" width="1100" height="560" loading="lazy" decoding="async">
-                            <figcaption>The extension loads settings, observes the feed, warns near the threshold, enforces the break state, and persists session state locally.</figcaption>
-                        </figure>
-                    </section>
+  <section class="case-lead" id="s-product-surface">
+    <div class="wrap">
+      <h2>Product Surface</h2>
+      <div class="screenshot-grid">
+          <figure class="screenshot-frame">
+              <img src="assets/projects/reddit-scroll-limiter.webp" style="view-transition-name: shot-reddit" alt="Reddit Scroll Limiter settings popup" width="1280" height="800" decoding="async" fetchpriority="high">
+              <figcaption>Chrome extension popup with post limits, break length, snooze, feed rules, and warning controls.</figcaption>
+          </figure>
+          <figure class="screenshot-frame">
+              <img src="assets/projects/reddit-scroll-limiter-break.webp" alt="Reddit Scroll Limiter break message on Reddit" width="1280" height="800" loading="lazy" decoding="async">
+              <figcaption>Break state shown on Reddit after the configured browsing limit has been reached.</figcaption>
+          </figure>
+      </div>
+    </div>
+  </section>
 
-                    <section>
-                        <h2>Design Decisions</h2>
-                        <div class="decision-grid">
-                            <div class="decision-card">
-                                <h3>Local-First Privacy</h3>
-                                <p>Settings and session state use Chrome storage. The extension does not collect analytics, transmit browsing data, use remote scripts, or send Reddit content to a server.</p>
-                            </div>
-                            <div class="decision-card">
-                                <h3>Feed-Aware Rules</h3>
-                                <p>Users can apply limits to every Reddit feed, only specific feeds, or every feed except listed ones, which keeps the tool useful without blocking legitimate research or focused browsing.</p>
-                            </div>
-                            <div class="decision-card">
-                                <h3>Snooze Without Defeat</h3>
-                                <p>A short snooze gives users a controlled extension, while per-session snooze limits stop that escape hatch from turning into another infinite scroll.</p>
-                            </div>
-                            <div class="decision-card">
-                                <h3>Modern And Old Reddit</h3>
-                                <p>The content script supports current Reddit surfaces and old Reddit, using an in-feed break card where possible with an overlay fallback where needed.</p>
-                            </div>
-                        </div>
-                    </section>
+  <div class="wrap case-layout">
+    <article class="case-main">
+      <section id="s-problem">
+        <h2>Problem</h2>
+        <p>Reddit's feeds are built for continuous scrolling, so a user who wants a boundary has to rely on willpower or a blunt site blocker. The useful version of this tool needed to be lighter: let Reddit work normally, count the current session, warn before the limit, and create a pause that can be adjusted instead of feeling punitive.</p>
+      </section>
 
-                    <section>
-                        <h2>Release And Validation</h2>
-                        <p>The repository includes build and validation scripts for the Chrome Web Store package, static syntax checks, UI smoke tests, runtime smoke tests, release readiness checks, and live Reddit testing notes. Version 1.0.0 is published on the Chrome Web Store as a privacy-disclosed extension that does not collect or use user data.</p>
-                    </section>
-                </article>
+      <section id="s-solution">
+        <h2>Solution</h2>
+        <p>Reddit Scroll Limiter injects a content script into modern Reddit, old Reddit, new Reddit, and sh.reddit.com. It watches feed posts in the page, tracks viewed-post and optional time limits, and shows a break UI when the session reaches the configured boundary. The popup exposes the controls a user needs day to day: post limit, break length, reset window, snooze amount, warning threshold, feed allowlist/blocklist rules, and temporary disable options.</p>
+      </section>
 
-                <aside class="case-sidebar">
-                    <section class="evidence-panel">
-                        <h2>Stack</h2>
-                        <ul class="case-tag-list">
-                            <li>Manifest V3</li>
-                            <li>Chrome Extensions</li>
-                            <li>JavaScript</li>
-                            <li>CSS</li>
-                            <li>HTML</li>
-                            <li>chrome.storage</li>
-                            <li>Content scripts</li>
-                            <li>Service worker</li>
-                            <li>Chrome Web Store</li>
-                        </ul>
-                    </section>
+      <section id="s-architecture">
+        <h2>Architecture</h2>
+        <figure class="diagram-frame">
+            <img src="assets/diagrams/reddit-scroll-limiter-architecture.svg" alt="Reddit Scroll Limiter architecture diagram" width="1100" height="560" loading="lazy" decoding="async">
+            <figcaption>Manifest V3 service worker, popup controls, local Chrome storage, and Reddit content scripts coordinate without any external service.</figcaption>
+        </figure>
+      </section>
 
-                    <section class="evidence-panel">
-                        <h2>Highlights</h2>
-                        <ul>
-                            <li>Adjustable post and optional time limits.</li>
-                            <li>Configurable break length and reset window.</li>
-                            <li>Warning banner before lockout.</li>
-                            <li>Subreddit allowlist and blocklist modes.</li>
-                            <li>Temporary disable controls for a session, an hour, or the current feed.</li>
-                        </ul>
-                    </section>
-                </aside>
+      <section id="s-runtime-flow">
+        <h2>Runtime Flow</h2>
+        <figure class="diagram-frame">
+            <img src="assets/diagrams/reddit-scroll-limiter-flow.svg" alt="Reddit Scroll Limiter runtime flow diagram" width="1100" height="560" loading="lazy" decoding="async">
+            <figcaption>The extension loads settings, observes the feed, warns near the threshold, enforces the break state, and persists session state locally.</figcaption>
+        </figure>
+      </section>
+
+      <section id="s-design-decisions">
+        <h2>Design Decisions</h2>
+        <div class="decision-grid">
+            <div class="decision-card">
+                <h3>Local-First Privacy</h3>
+                <p>Settings and session state use Chrome storage. The extension does not collect analytics, transmit browsing data, use remote scripts, or send Reddit content to a server.</p>
+            </div>
+            <div class="decision-card">
+                <h3>Feed-Aware Rules</h3>
+                <p>Users can apply limits to every Reddit feed, only specific feeds, or every feed except listed ones, which keeps the tool useful without blocking legitimate research or focused browsing.</p>
+            </div>
+            <div class="decision-card">
+                <h3>Snooze Without Defeat</h3>
+                <p>A short snooze gives users a controlled extension, while per-session snooze limits stop that escape hatch from turning into another infinite scroll.</p>
+            </div>
+            <div class="decision-card">
+                <h3>Modern And Old Reddit</h3>
+                <p>The content script supports current Reddit surfaces and old Reddit, using an in-feed break card where possible with an overlay fallback where needed.</p>
             </div>
         </div>
-    </main>
+      </section>
+
+      <section id="s-release-and-validation">
+        <h2>Release And Validation</h2>
+        <p>The repository includes build and validation scripts for the Chrome Web Store package, static syntax checks, UI smoke tests, runtime smoke tests, release readiness checks, and live Reddit testing notes. Version 1.0.0 is published on the Chrome Web Store as a privacy-disclosed extension that does not collect or use user data.</p>
+      </section>
+    </article>
+
+    <aside class="case-sidebar">
+      <section class="evidence-panel">
+          <h2>Stack</h2>
+          <ul class="case-tag-list">
+              <li>Manifest V3</li>
+              <li>Chrome Extensions</li>
+              <li>JavaScript</li>
+              <li>CSS</li>
+              <li>HTML</li>
+              <li>chrome.storage</li>
+              <li>Content scripts</li>
+              <li>Service worker</li>
+              <li>Chrome Web Store</li>
+          </ul>
+      </section>
+
+      <section class="evidence-panel">
+          <h2>Highlights</h2>
+          <ul>
+              <li>Adjustable post and optional time limits.</li>
+              <li>Configurable break length and reset window.</li>
+              <li>Warning banner before lockout.</li>
+              <li>Subreddit allowlist and blocklist modes.</li>
+              <li>Temporary disable controls for a session, an hour, or the current feed.</li>
+          </ul>
+      </section>
+    </aside>
+  </div>
+
+</main>
+
+<nav class="next-up" id="next" aria-label="Continue">
+  <div class="wrap">
+    <a href="project-ehs-intel.html">
+      <span class="next-up__label mono">Next project</span>
+      <span class="next-up__title"><strong>EHS Intel Platform Case Study</strong><svg aria-hidden="true"><use href="#i-arrow"/></svg></span>
+    </a>
+  </div>
+</nav>
+
+<footer class="closing" id="contact" aria-labelledby="contact-h">
+  <div class="wrap closing__grid">
+    <div class="closing__main">
+      <h2 id="contact-h">Resume on request.</h2>
+      <div class="closing__side">
+        <p>I tailor it to each role. Tell me which position you are hiring for and I will send the version that fits.</p>
+        <div class="closing__actions">
+          <a class="btn btn--light" href="mailto:alexchg0106@gmail.com?subject=Resume%20request">Email me</a>
+          <ul class="socials socials--light" aria-label="Profiles">
+            <li><a href="https://www.linkedin.com/in/alex-cheung-878632290" target="_blank" rel="noopener" aria-label="LinkedIn"><svg aria-hidden="true"><use href="#i-linkedin"/></svg></a></li>
+            <li><a href="https://github.com/RubiksTwist" target="_blank" rel="noopener" aria-label="GitHub"><svg aria-hidden="true"><use href="#i-github"/></svg></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="closing__foot">
+      <div class="closing__cols">
+        <nav class="closing__links" aria-labelledby="f-work">
+          <p class="mono" id="f-work">Work</p>
+          <a href="project-justrescues.html">Just Rescues</a>
+          <a href="project-optic.html">OPTIC / OPTICLab</a>
+          <a href="project-healthcode.html">HealthCode</a>
+          <a href="project-threatdle.html">Threatdle</a>
+          <a href="project-reddit-scroll-limiter.html" aria-current="page">Reddit Scroll Limiter</a>
+          <a href="project-ehs-intel.html">EHS Intel</a>
+          <a href="project-market-intel.html">SPY GEX + AI Morning Call</a>
+          <a href="project-ai-security-lab.html">AI Security Testing Lab</a>
+        </nav>
+        <nav class="closing__links" aria-labelledby="f-more">
+          <p class="mono" id="f-more">Alex Cheung</p>
+          <a href="about.html">About</a>
+          <a href="https://github.com/RubiksTwist" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.linkedin.com/in/alex-cheung-878632290" target="_blank" rel="noopener">LinkedIn</a>
+        </nav>
+      </div>
+      <p class="closing__legal mono"><span>&copy; 2026 Alex Cheung</span><span>Hosted on Azure Static Web Apps</span></p>
+    </div>
+  </div>
+</footer>
 </body>
 </html>

@@ -4,3 +4,6 @@ Desktop.ini
 .idea/
 .vscode/
 *.log
+
+# Content that is kept on disk but is not part of the site. See AGENTS.md.
+_parked/

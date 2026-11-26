@@ -1,0 +1,9 @@
+{
+  "routes": [
+    {
+      "route": "/resume.html",
+      "redirect": "/about.html",
+      "statusCode": 301
+    }
+  ]
+}
