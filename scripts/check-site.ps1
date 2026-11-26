@@ -31,6 +31,8 @@ foreach ($htmlFile in $htmlFiles) {
         'favicon' = '<link\s+rel="icon"\s+href="[^"]+"'
         'Open Graph title' = '<meta\s+property="og:title"\s+content="[^"]+">'
         'Open Graph image' = '<meta\s+property="og:image"\s+content="https://[^"]+">'
+        'the site stylesheet' = '<link\s+rel="stylesheet"\s+href="styles\.css'
+        'the section rail' = '<nav\s+class="rail[ "]'
     }
 
     foreach ($requirement in $requiredPatterns.GetEnumerator()) {
@@ -56,8 +58,9 @@ foreach ($htmlFile in $htmlFiles) {
         }
     }
 
+    $linkedContent = [regex]::Replace($content, '<link\s+rel="preconnect"[^>]*>', '', 'IgnoreCase')
     $attributeMatches = [regex]::Matches(
-        $content,
+        $linkedContent,
         '(?:href|src)\s*=\s*["''](?<url>[^"'']+)["'']',
         'IgnoreCase'
     )

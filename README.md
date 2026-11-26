@@ -31,8 +31,10 @@ Some social networks block automated checks; those responses are reported as war
 ## Structure
 
 - `index.html` — portfolio landing page
+- `about.html` — about page (replaces the old `resume.html`; `staticwebapp.config.json` redirects the old URL)
 - `project-*.html` — individual case studies
-- `styles.css` — shared site styles
+- `styles.css` — styles for every page
+- `app.js` — the section rail: marks the current section, and lets a phone visitor drag the bar to scrub the page
 - `assets/projects/` — project screenshots and share images
 - `assets/diagrams/` — architecture and workflow diagrams
 - `images/` — additional screenshots
