@@ -4,22 +4,22 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>SPY GEX + AI Morning Call Case Study - Alex Cheung</title>
-<meta name="description" content="An automated market-intelligence pipeline combining SPY gamma exposure, volatility, macro events, headlines, and AI synthesis into daily output.">
+<meta name="description" content="A daily pipeline that computes SPY gamma levels and expected ranges, adds macro, calendar and headline context, and only then has language models write a short market brief.">
 <meta name="author" content="Alex Cheung">
 <meta name="theme-color" content="#dfdedb">
 <link rel="canonical" href="https://www.alexcheung.info/project-market-intel.html">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SPY GEX + AI Morning Call Case Study - Alex Cheung">
-<meta property="og:description" content="An automated market brief combining gamma exposure, volatility, macro events, headlines, and AI synthesis.">
+<meta property="og:description" content="A daily market brief built on computed SPY gamma levels, with the numbers stored before any model writes the text.">
 <meta property="og:url" content="https://www.alexcheung.info/project-market-intel.html">
-<meta property="og:image" content="https://www.alexcheung.info/assets/projects/spy-gex-x-post-social.png">
-<meta property="og:image:alt" content="SPY GEX market-intelligence output">
+<meta property="og:image" content="https://www.alexcheung.info/assets/projects/market-intel-gex-levels-social.png">
+<meta property="og:image:alt" content="SPY net gamma exposure by strike with the gamma flip, walls and magnet strike for November 20, 2026">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="favicon.svg?v=2" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Urbanist:wght@400..600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=4">
+<link rel="stylesheet" href="styles.css?v=5">
 <script type="speculationrules">{"prefetch":[{"where":{"href_matches":"/*.html"},"eagerness":"moderate"}]}</script>
 <script src="app.js?v=2" defer></script>
 </head>
@@ -33,11 +33,12 @@
 <a class="skip-link" href="#main">Skip to content</a>
 
 <nav class="rail rail--long" aria-label="Sections on this page">
-  <ol class="rail__list" style="--n:8; --skip:1">
+  <ol class="rail__list" style="--n:9; --skip:1">
     <li><a class="rail__out" href="index.html#work"><svg class="rail__arrow" aria-hidden="true"><use href="#i-arrow"/></svg><span class="rail__label">Work</span></a></li>
     <li><a href="#top"><span class="rail__label">Intro</span></a></li>
     <li><a href="#s-problem"><span class="rail__label">Problem</span></a></li>
     <li><a href="#s-solution"><span class="rail__label">Solution</span></a></li>
+    <li><a href="#s-daily-output"><span class="rail__label">Daily Output</span></a></li>
     <li><a href="#s-workflow"><span class="rail__label">Workflow</span></a></li>
     <li><a href="#s-design-decisions"><span class="rail__label">Design Decisions</span></a></li>
     <li><a href="#s-operations-and-reliability"><span class="rail__label">Operations And Reliability</span></a></li>
@@ -52,7 +53,7 @@
       <a class="btn btn--outline back" href="index.html#work"><svg aria-hidden="true"><use href="#i-arrow"/></svg>Back to work</a>
       <p class="eyebrow">Market-intelligence pipeline</p>
       <h1>SPY GEX + AI Morning Call</h1>
-      <p class="case-hero__lead">Automated market intelligence that turns options, macro, calendar, and headline data into reviewable analytics and publishable brief text.</p>
+      <p class="case-hero__lead">A daily pipeline that turns options, volatility, calendar and headline data into a short market brief. Every level is computed and stored before a language model writes any text.</p>
       <div class="case-actions">
         <a class="btn btn--solid" href="https://x.com/GexLevels" target="_blank" rel="noopener">Public output</a>
       </div>
@@ -63,9 +64,9 @@
     <div class="wrap">
       <h2>Product Surface</h2>
       <div class="screenshot-grid">
-          <figure class="screenshot-frame">
-              <img src="assets/projects/spy-gex-x-post.svg" style="view-transition-name: shot-gex" alt="SPY GEX public X post screenshot" width="620" height="920" decoding="async" fetchpriority="high">
-              <figcaption>Representative user-facing output for the SPY GEX framework on the GexLevels X surface.</figcaption>
+          <figure class="screenshot-frame product-screenshot">
+              <img src="assets/projects/market-intel-gex-levels.webp" style="view-transition-name: shot-gex" alt="Bar chart of SPY net gamma exposure by strike from 680 to 790 for November 20, 2026, mostly negative below 731. Spot 708.21, gamma flip 731, put wall 710, and call wall and magnet strike 775 are marked. A table lists full-chain and 0DTE levels." width="1440" height="1000" decoding="async" fetchpriority="high">
+              <figcaption>Net gamma exposure by strike and the derived levels for November 20, 2026, drawn for this page from the values the pipeline stored in SQLite.</figcaption>
           </figure>
           <figure class="diagram-frame">
               <img src="assets/diagrams/market-architecture.svg" alt="SPY GEX and AI Morning Call architecture diagram" width="1100" height="560" loading="lazy" decoding="async">
@@ -79,12 +80,21 @@
     <article class="case-main">
       <section id="s-problem">
         <h2>Problem</h2>
-        <p>Useful market commentary needs more than an LLM prompt. It needs repeatable data capture, computed market structure, calendar context, headline context, and a publishing gate so generated language is downstream of reviewable inputs.</p>
+        <p>A morning market note has to be ready before the open on every trading day, and it is only as good as the numbers under it. Asking a language model for commentary gives fluent text with nothing to check it against. The numbers needed to be computed first, stored so any day can be reviewed later, and kept apart from the step that writes and publishes the text.</p>
       </section>
 
       <section id="s-solution">
         <h2>Solution</h2>
-        <p>The CalculateGamma workflow fetches SPY options, SPY and VIX OHLC data, computes full-chain and 0DTE gamma exposure, persists daily state in SQLite, and exports analyst artifacts. AI Morning Call adds macro, futures, ETF, economic-calendar, and FinancialJuice/X headline context before model synthesis and optional posting.</p>
+        <p>Two Python pipelines share the work. CalculateGamma pulls the SPY options chain and SPY and VIX prices, then computes gamma exposure for the full chain and for same-day (0DTE) options. From that it derives the levels a reader looks for. These are the gamma flip, the magnet strike, the top call and put walls, and the put/call open-interest ratio. ATR and VIX set an expected range for the day, and a prior-day comparison shows how the levels moved. The results go to SQLite, CSV files, TradingView Pine inputs and a written brief.</p>
+        <p>AI Morning Call adds macro indicators, futures, ETFs, the economic calendar and FinancialJuice headlines. The database held 1,798 stored headlines at the time of review. Four hosted models answer the same prompt, and a local Qwen model combines their answers by equal vote. The run stops before the vote if fewer than two models respond, and every raw answer is saved next to the final post.</p>
+      </section>
+
+      <section id="s-daily-output">
+        <h2>Daily Output</h2>
+        <figure class="screenshot-frame product-screenshot">
+            <img src="assets/projects/market-intel-daily-brief.webp" alt="Daily brief for November 20, 2026 with sections for key levels, scenario map, market structure and catalyst context, followed by the post-ready text." width="1440" height="1100" loading="lazy" decoding="async">
+            <figcaption>The brief and post-ready text the pipeline wrote for November 20, 2026, rendered for this page from its output files. Market commentary, not advice.</figcaption>
+        </figure>
       </section>
 
       <section id="s-workflow">
@@ -100,11 +110,11 @@
         <div class="decision-grid">
             <div class="decision-card">
                 <h3>Analytics Before Language</h3>
-                <p>Gamma levels, VIX context, ATR ranges, and prior-day shifts are computed before model text is generated.</p>
+                <p>Gamma levels, VIX context, ATR ranges and prior-day shifts are computed before any model text is generated, so the brief describes numbers a reader can check.</p>
             </div>
             <div class="decision-card">
                 <h3>SQLite Replayability</h3>
-                <p>Daily market state, briefs, generated tweets, predictions, and outcomes are persisted so runs can be reviewed later.</p>
+                <p>Daily market state, briefs, generated posts, model answers and outcomes are stored so any run can be reviewed later. The gamma tables are written with upserts, so rerunning a day replaces its rows instead of duplicating them.</p>
             </div>
             <div class="decision-card">
                 <h3>Publishing Separation</h3>
@@ -112,14 +122,15 @@
             </div>
             <div class="decision-card">
                 <h3>Model Accountability</h3>
-                <p>A multi-model morning-call path supports scorecards, thresholded consensus, and outcome logging instead of one-off prompt output.</p>
+                <p>A scorecard stores each day's stated range next to the actual high, low and close. Each model's answer is logged with the day's outcome instead of living only in a one-off prompt.</p>
             </div>
         </div>
       </section>
 
       <section id="s-operations-and-reliability">
         <h2>Operations And Reliability</h2>
-        <p>The repositories include a market-day aware daily runner, ET timezone handling, generated CSV/Pine/text outputs, optional X API posting, dry-run controls, retention behavior, and hooks for failure alerting. The GexLevels link is presented as the public output surface for the generated market brief. The output is market commentary. It is not investment advice, and the project makes no trading-performance claim.</p>
+        <p>Both runners work in Eastern Time and check the market calendar. On a non-trading day the morning call still stores its data but skips the model calls, and it does not post on half-days. A failed gamma run sends an email or ntfy alert, and the morning call alerts over Telegram. The morning call prunes its tables on 30-day and 180-day retention windows. Posting to X is optional and has a dry-run mode.</p>
+        <p>The GexLevels account on X is the public output for the brief. The output is market commentary. It is not investment advice, and the project makes no trading-performance claim.</p>
       </section>
     </article>
 
@@ -170,6 +181,7 @@
       <div class="closing__cols">
         <nav class="closing__links" aria-labelledby="f-work">
           <p class="mono" id="f-work">Work</p>
+          <a href="project-dog-institute.html">The Dog Institute</a>
           <a href="project-justrescues.html">Just Rescues</a>
           <a href="project-optic.html">OPTIC / OPTICLab</a>
           <a href="project-healthcode.html">HealthCode</a>

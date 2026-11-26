@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Urbanist:wght@400..600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=4">
+<link rel="stylesheet" href="styles.css?v=5">
 <script type="speculationrules">{"prefetch":[{"where":{"href_matches":"/*.html"},"eagerness":"moderate"}]}</script>
 <script src="app.js?v=2" defer></script>
 </head>
@@ -65,9 +65,21 @@
     <div class="wrap">
       <h2>Product Surface</h2>
       <div class="screenshot-grid">
-          <figure class="screenshot-frame">
-              <img src="assets/projects/healthcode.webp" style="view-transition-name: shot-healthcode" alt="HealthCode map and restaurant inspection interface" width="1440" height="1000" decoding="async" fetchpriority="high">
-              <figcaption>Live staging frontend captured from the deployed HealthCode application.</figcaption>
+          <figure class="screenshot-frame product-screenshot">
+              <img src="assets/projects/healthcode-nearby-map.webp" style="view-transition-name: shot-healthcode" alt="HealthCode Near me view in Williamsburg, Brooklyn, with 100 nearby restaurants as grade-colored markers on a street map above a list of the closest places and their grades" width="1440" height="880" decoding="async" fetchpriority="high">
+              <figcaption>Near me on the staging site, with the location set to Williamsburg, Brooklyn. Markers are colored by inspection grade on the self-hosted basemap.</figcaption>
+          </figure>
+          <figure class="screenshot-frame product-screenshot">
+              <img src="assets/projects/healthcode-restaurant-detail.webp" alt="HealthCode restaurant page for a Brooklyn restaurant with a B grade, showing its latest inspection, score and four violations, each with a plain-language label beside the official wording and a critical flag where it applies" width="1440" height="1000" loading="lazy" decoding="async">
+              <figcaption>A restaurant page. Each violation shows a plain-language label next to the city's official wording.</figcaption>
+          </figure>
+          <figure class="screenshot-frame product-screenshot">
+              <img src="assets/projects/healthcode-rankings.webp" alt="HealthCode neighborhood rankings for Williamsburg sorted by lowest concern, with sort buttons for lowest, highest, improved, recent, pest and temperature, and ranked restaurants with score, inspection date, trend and top issue" width="1000" height="760" loading="lazy" decoding="async">
+              <figcaption>Williamsburg neighborhood rankings, sorted by lowest inspection concern.</figcaption>
+          </figure>
+          <figure class="screenshot-frame product-screenshot">
+              <img src="assets/projects/healthcode-phone.webp" alt="HealthCode Near me view at phone width, with the search box, the grade-colored map and the nearby list stacked in one column" width="780" height="1688" loading="lazy" decoding="async">
+              <figcaption>The same Near me view on a 390px-wide phone screen.</figcaption>
           </figure>
           <figure class="diagram-frame">
               <img src="assets/diagrams/healthcode-architecture.svg" alt="HealthCode architecture diagram" width="1100" height="560" loading="lazy" decoding="async">
@@ -87,6 +99,7 @@
       <section id="s-solution">
         <h2>Solution</h2>
         <p>HealthCode normalizes inspection feeds into a PostgreSQL-backed domain model for restaurants, inspections, violations, risk tags, and ingest runs. The React frontend gives users map, search, ranking, and detail workflows while the Express API applies validation, response caps, and privacy-conscious request logging.</p>
+        <p>One search box takes a restaurant name, a neighborhood, or a ZIP code. A neighborhood or ZIP opens a ranked list that can be sorted by lowest or highest concern, most improved, most recent, pest issues, or temperature issues. Near me maps the 100 closest restaurants. Each restaurant page lists its inspections, with every violation shown in plain language next to the official wording.</p>
         <p>NYC restaurant inspections are the primary staging dataset. A separate Santa Clara adapter discovers facility histories, caches inspection PDFs, and parses major and minor violation sections into the same schema.</p>
       </section>
 
@@ -122,7 +135,8 @@
 
       <section id="s-operations-and-reliability">
         <h2>Operations And Reliability</h2>
-        <p>The workflow uses GitHub Actions for migrations, sample ingest, risk backfill, tests, and frontend build checks. Scheduled staging checks verify the public frontend and API health every 30 minutes, with deeper database-backed smoke checks on demand. Render runs a daily NYC ingestion job that pulls incrementally and runs a full reconciliation weekly.</p>
+        <p>The workflow uses GitHub Actions for migrations, sample ingest, risk backfill, tests, and frontend build checks. Scheduled staging checks verify the public frontend and API health every 30 minutes, with deeper database-backed smoke checks on demand. Render runs a daily NYC ingestion job that pulls incrementally and runs a full reconciliation weekly. A separate workflow runs migrations, ingestion, and risk backfill against staging on demand.</p>
+        <p>The public API sets a separate rate limit for each kind of request, from 30 map requests a minute up to 300 requests a minute in total per client. Map responses stop at 500 restaurants. Two health endpoints report whether the API and the database are up. Request logs keep a hashed client IP and never store the raw IP or the search text. The recorded checks were 15 passing adapter tests and passing staging smoke checks across Netlify, Render, and Neon.</p>
       </section>
 
       <section id="s-recent-engineering">
@@ -194,6 +208,7 @@
       <div class="closing__cols">
         <nav class="closing__links" aria-labelledby="f-work">
           <p class="mono" id="f-work">Work</p>
+          <a href="project-dog-institute.html">The Dog Institute</a>
           <a href="project-justrescues.html">Just Rescues</a>
           <a href="project-optic.html">OPTIC / OPTICLab</a>
           <a href="project-healthcode.html" aria-current="page">HealthCode</a>

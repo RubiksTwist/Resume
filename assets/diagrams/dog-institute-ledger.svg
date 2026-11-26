@@ -1,0 +1,26 @@
+<svg width="1100" height="560" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 560" role="img" aria-labelledby="title desc">
+  <title id="title">The Dog Institute payment and ledger flow</title>
+  <desc id="desc">Customers buy online and staff sell at the front desk through Square, which takes the card and is the payment authority. Payment, refund and order evidence flows into the platform's package-and-visit ledger, which also holds balances imported from Pike13. Bookings and staff check-ins deduct visits from the same ledger, and anything that does not match goes to staff review.</desc>
+  <rect width="1100" height="560" fill="#f7faf9"/>
+  <text x="52" y="70" font-family="Arial" font-size="34" font-weight="700" fill="#10251f">Payments and Ledger</text>
+  <g font-family="Arial" fill="#10251f">
+    <rect x="45" y="110" width="215" height="80" rx="10" fill="#e9f3ff" stroke="#9bb8d3"/>
+    <text x="70" y="145" font-size="17" font-weight="700">Customer Portal</text><text x="70" y="170" font-size="13">Online package purchase</text>
+    <rect x="45" y="210" width="215" height="80" rx="10" fill="#e9f3ff" stroke="#9bb8d3"/>
+    <text x="70" y="245" font-size="17" font-weight="700">Front Desk</text><text x="70" y="270" font-size="13">In-person sale</text>
+    <rect x="310" y="150" width="215" height="100" rx="10" fill="#fff4df" stroke="#d9b76f"/>
+    <text x="335" y="190" font-size="18" font-weight="700">Square</text><text x="335" y="217" font-size="14">Takes card payments</text>
+    <rect x="575" y="150" width="235" height="100" rx="10" fill="#edf7f0" stroke="#92bd9c"/>
+    <text x="600" y="190" font-size="18" font-weight="700">Package Ledger</text><text x="600" y="217" font-size="14">Purchases, visits left, history</text>
+    <rect x="860" y="150" width="195" height="100" rx="10" fill="#e8f3ef" stroke="#9ab8ae"/>
+    <text x="885" y="190" font-size="18" font-weight="700">One Balance</text><text x="885" y="217" font-size="14">Staff and customer views</text>
+    <rect x="575" y="40" width="235" height="70" rx="10" fill="#f1edf8" stroke="#b1a2cf"/>
+    <text x="600" y="70" font-size="16" font-weight="700">Imported Pike13 Balances</text><text x="600" y="93" font-size="13">Opening packages and visits</text>
+    <rect x="575" y="340" width="235" height="80" rx="10" fill="#f4f0e8" stroke="#c4ab78"/>
+    <text x="600" y="374" font-size="17" font-weight="700">Bookings and Check-In</text><text x="600" y="399" font-size="13">Each class uses one visit</text>
+    <rect x="310" y="340" width="215" height="80" rx="10" fill="#f5e9ee" stroke="#c89bad"/>
+    <text x="335" y="374" font-size="17" font-weight="700">Staff Review</text><text x="335" y="399" font-size="13">Payments that do not match</text>
+  </g>
+  <g stroke="#52635f" stroke-width="4" fill="none" stroke-linecap="round"><path d="M260 150 H285 V200 H310"/><path d="M260 250 H285 V200 H310"/><path d="M525 200 H575"/><path d="M810 200 H860"/><path d="M692 110 V150"/><path d="M692 340 V250"/><path d="M640 250 V300 H417 V340"/></g>
+  <g fill="#52635f"><polygon points="301,190 319,200 301,210"/><polygon points="566,190 584,200 566,210"/><polygon points="851,190 869,200 851,210"/><polygon points="682,141 692,159 702,141"/><polygon points="682,259 692,241 702,259"/><polygon points="407,331 417,349 427,331"/></g>
+</svg>

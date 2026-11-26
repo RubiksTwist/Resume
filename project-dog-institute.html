@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en" data-type="software" data-radius="sharp" data-buttons="pill">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>The Dog Institute Case Study - Alex Cheung</title>
+<meta name="description" content="The customer and staff platform Alex Cheung built to replace Pike13 at The Dog Institute of Williamsburg: a staff portal for classes, check-in and client records, its own customer emails, Square payments, a package-and-visit ledger, and nine years of migrated history.">
+<meta name="author" content="Alex Cheung">
+<meta name="theme-color" content="#dfdedb">
+<link rel="canonical" href="https://www.alexcheung.info/project-dog-institute.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Dog Institute Case Study - Alex Cheung">
+<meta property="og:description" content="An operations platform that replaced Pike13 for a Brooklyn dog-training business and cut card fees from 14.6% of sales in September 2026 to about 3%.">
+<meta property="og:url" content="https://www.alexcheung.info/project-dog-institute.html">
+<meta property="og:image" content="https://www.alexcheung.info/assets/projects/dog-institute-shop.png">
+<meta property="og:image:alt" content="The Dog Institute customer site listing training packages with prices and visit counts">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Urbanist:wght@400..600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=5">
+<script type="speculationrules">{"prefetch":[{"where":{"href_matches":"/*.html"},"eagerness":"moderate"}]}</script>
+<script src="app.js?v=2" defer></script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3c0-2.6-1.6-3.8-3.7-3.8-1.4 0-2.4.8-2.8 1.6V9.7H8.5v8.8H12v-4.9c0-1.3.3-2.5 1.8-2.5s1.5 1.4 1.5 2.6v4.8h3.2M5.5 6.2a2 2 0 1 0 4 0 2 2 0 0 0-4 0m.3 12.3h3.4V9.7H5.8v8.8Z"/></symbol>
+  <symbol id="i-github" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 8.84 21.5c.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.31-3.36-1.31-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .08 1.53 1.03 1.53 1.03.87 1.55 2.34 1.1 2.91.85.09-.65.35-1.1.63-1.35-2.22-.25-4.55-1.11-4.55-4.95 0-1.11.38-2 1.03-2.71-.1-.25-.38-1.29.1-2.64 0 0 .84-.27 2.75 1.02A9.7 9.7 0 0 1 12 6.84c.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.48 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.85-2.34 4.7-4.57 4.95.36.31.69.91.69 1.85V21c0 .27.16.59.67.5A10 10 0 0 0 12 2Z"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+</svg>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<nav class="rail rail--long" aria-label="Sections on this page">
+  <ol class="rail__list" style="--n:11; --skip:1">
+    <li><a class="rail__out" href="index.html#work"><svg class="rail__arrow" aria-hidden="true"><use href="#i-arrow"/></svg><span class="rail__label">Work</span></a></li>
+    <li><a href="#top"><span class="rail__label">Intro</span></a></li>
+    <li><a href="#s-problem"><span class="rail__label">Problem</span></a></li>
+    <li><a href="#s-what-i-built"><span class="rail__label">What I Built</span></a></li>
+    <li><a href="#s-staff-portal"><span class="rail__label">Staff Portal</span></a></li>
+    <li><a href="#s-email-and-jobs"><span class="rail__label">Email and Daily Jobs</span></a></li>
+    <li><a href="#s-payments-and-fees"><span class="rail__label">Payments and Fees</span></a></li>
+    <li><a href="#s-migration"><span class="rail__label">Migration</span></a></li>
+    <li><a href="#s-design-decisions"><span class="rail__label">Design Decisions</span></a></li>
+    <li><a href="#s-current-work"><span class="rail__label">Current Work</span></a></li>
+    <li><a href="#next"><span class="rail__label">Next</span></a></li>
+  </ol>
+</nav>
+
+<main id="main" class="case">
+
+  <header class="case-hero" id="top">
+    <div class="wrap case-hero__grid">
+      <a class="btn btn--outline back" href="index.html#work"><svg aria-hidden="true"><use href="#i-arrow"/></svg>Back to work</a>
+      <p class="eyebrow">Operations platform for a dog-training business</p>
+      <h1>The Dog Institute</h1>
+      <p class="case-hero__lead">I built the customer and staff platform that replaced Pike13 at The Dog Institute of Williamsburg, a Brooklyn dog-training business. The team runs classes, check-in, client records and payment review in it, and it sends the institute's customer emails. It carried over nine years of customer history, made Square the payment system, and cut card fees from 14.6% of sales in September 2026 to about 3%.</p>
+      <div class="case-actions">
+        <a class="btn btn--solid" href="https://store.thedoginstitute.com/" target="_blank" rel="noopener">Customer site</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="case-lead" id="s-product-surface">
+    <div class="wrap">
+      <h2>Product Surface</h2>
+      <div class="screenshot-grid">
+          <figure class="screenshot-frame product-screenshot">
+              <img src="assets/projects/dog-institute-shop.webp" style="view-transition-name: shot-dog-institute" alt="The Dog Institute customer site listing training packages with prices, visit counts and a buy button" width="1440" height="1000" decoding="async" fetchpriority="high">
+              <figcaption>The public package page lists each package's price, visits and expiry. Checkout runs through Square. Captured from store.thedoginstitute.com on November 25, 2026.</figcaption>
+          </figure>
+          <figure class="screenshot-frame product-screenshot">
+              <img src="assets/projects/dog-institute-schedule.webp" alt="The Dog Institute class schedule showing Play and Train sessions by day with open spots" width="1440" height="1000" loading="lazy" decoding="async">
+              <figcaption>The public class schedule shows open spots for each session before a customer signs in. Captured the same day.</figcaption>
+          </figure>
+          <figure class="screenshot-frame product-screenshot">
+              <img src="assets/projects/dog-institute-staff-roster.webp" alt="Staff Classes screen with a month calendar of Play and Train sessions and today's roster of test dogs, each with a leash number, drop-off notes and a Record attendance link" width="1040" height="960" loading="lazy" decoding="async">
+              <figcaption>The staff Classes screen. Today's roster numbers each dog for its leash and shows the customer's drop-off notes. Test data, from a local run of the real portal against a throwaway database of made-up QA records.</figcaption>
+          </figure>
+          <figure class="screenshot-frame product-screenshot">
+              <img src="assets/projects/dog-institute-staff-visits.webp" alt="Staff Visits remaining list of test clients with package names, visits left and expiry dates, and filters for packages expiring soon or down to one visit" width="1120" height="1014" loading="lazy" decoding="async">
+              <figcaption>Visits remaining lists every active package with its balance and expiry. Test data from the same local run.</figcaption>
+          </figure>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap case-layout">
+    <article class="case-main">
+      <section id="s-problem">
+        <h2>Problem</h2>
+        <p>The Dog Institute ran its customers, packages, bookings and card payments on Pike13 and its bundled card processor. The processor kept getting more expensive. Its statements show the effective rate rising from 7.19% of card sales in August 2025 to 16.08% in October 2026.</p>
+        <p>Leaving Pike13 was not a simple export. Customers had prepaid packages and visit balances, and the business had nine years of history in the system. All of it had to carry over intact.</p>
+      </section>
+
+      <section id="s-what-i-built">
+        <h2>What I Built</h2>
+        <p>I worked with the founder and the five-person team to map how they look up customers, sell packages, take bookings and run each class day. Then I built three connected parts on PostgreSQL and Netlify Functions, with analog backups alongside the digital flows.</p>
+        <p>Customers use the public site to buy packages, book classes, keep their dogs' records and see their visit history. Staff use a portal built around their day at the front desk and in class. Behind both, a set of emails and scheduled jobs keeps customers, staff, Square and the ledger in step without anyone running a report.</p>
+      </section>
+
+      <section id="s-staff-portal">
+        <h2>Staff Portal</h2>
+        <p>Pike13 was where the front desk worked all day, so its replacement had to cover the same jobs. The portal has six screens (Classes, Review, New dogs, New transactions, Visits remaining and Unpaid visits) and a full record for every client.</p>
+        <div class="decision-grid">
+            <div class="decision-card">
+                <h3>Class Day and Check-In</h3>
+                <p>A month calendar shows each Play &amp; Train and Group Class session with spots taken and open. Each roster numbers the dogs for their leashes and shows the guardian's phone, spay or neuter status, and the customer's own drop-off notes and pickup time. Staff confirm arrivals, add walk-in dogs and change capacity. A separate calendar tracks multi-day Board &amp; Train stays.</p>
+            </div>
+            <div class="decision-card">
+                <h3>Attendance That Updates the Balance</h3>
+                <p>Recording attendance takes the visit off the right package in the same step, and a repeat click cannot take a second visit. A dog that attends with no visits left gets a visit owed, not a negative balance. The Unpaid visits screen lists these, and staff can settle one or email a reminder after previewing the exact message.</p>
+            </div>
+            <div class="decision-card">
+                <h3>One Record per Client</h3>
+                <p>Each record holds email addresses and sign-in status, phones, dogs with vaccination and spay or neuter records, a class-history calendar, and every package with each visit used. Staff add or gift a package, deduct or restore a visit with a reason, change an expiry, merge a duplicate sign-up, and download the history as a CSV.</p>
+            </div>
+            <div class="decision-card">
+                <h3>Balances at a Glance</h3>
+                <p>Visits remaining lists every active package with visits left and expiry, filtered by service, with quick views for packages expiring within 14 days and those down to one visit.</p>
+            </div>
+            <div class="decision-card">
+                <h3>A Queue for Decisions</h3>
+                <p>The Review screen holds the calls only a person should make: account access claims, linking a Square customer to a client, vaccination certificates, Board &amp; Train requests, and attendance that still needs a visit. A task appears there only when the portal offers a clear next step.</p>
+            </div>
+            <div class="decision-card">
+                <h3>Front-Desk Sales</h3>
+                <p>Front-desk sales run on Square. A sale adds the package to a client's account only when the payment is complete, the Square customer is linked to one reviewed client, and every item maps to a known package. Anything else waits in New transactions, where staff can choose the client who paid.</p>
+            </div>
+        </div>
+        <figure class="screenshot-frame product-screenshot">
+            <img src="assets/projects/dog-institute-staff-client.webp" alt="Packages and payments section of a test client record, showing a Play and Train 10-Pack with 3 of 10 visits available, links to deduct a visit, edit the expiry and add a package, and a list of visits used, each with a Restore visit link" width="800" height="1050" loading="lazy" decoding="async">
+            <figcaption>Packages on a client record, with every visit used and a way to restore one taken in error. Test data from the same local run of the real portal.</figcaption>
+        </figure>
+      </section>
+
+      <section id="s-email-and-jobs">
+        <h2>Email and Daily Jobs</h2>
+        <p>The platform sends its own customer emails, in the institute's branding, in place of the ones Pike13 used to send. The code holds 23 templates. Each notice waits until the booking, payment or grant it describes is saved, then joins a queue, so a failed send can retry without the customer getting it twice.</p>
+        <p>Seven kinds are live. They cover booking and waitlist confirmations, a waitlist spot opening up, Play &amp; Train cancellations, a package ready after payment, a gifted package, and a welcome email. Notices for Group Class, Board &amp; Train, low balances and expiring packages are built on the same queue. Customers choose which of six kinds of notice they get, and staff see those choices on the client record. A Group Class cancellation always goes out.</p>
+        <p>Staff get email too. The front-desk inbox hears about each new dog profile and each new package, with a link to the client record. Scheduled jobs check Square for new payments twice a day, re-check refunds and disputes daily, refresh unlinked Square customers daily, and look for packages about to expire. Every hour, any email still waiting gets another try. A daily digest emails me any system alerts.</p>
+        <figure class="screenshot-frame product-screenshot">
+            <img src="assets/projects/dog-institute-emails.webp" alt="Three customer emails in The Dog Institute branding, addressed to a test guardian: a Play and Train booking confirmation, a package-ready notice after payment, and an unpaid-visit reminder" width="1440" height="800" loading="lazy" decoding="async">
+            <figcaption>Three of the real templates, filled with made-up test data and rendered for this page.</figcaption>
+        </figure>
+      </section>
+
+      <section id="s-payments-and-fees">
+        <h2>Payments and Fees</h2>
+        <p>Square is the payment authority. Customers buy packages online through Square checkout, and staff sell at the front desk on Square. The platform keeps the package-and-visit ledger. It ties each Square payment, refund and order to the customer's purchases, remaining visits, deductions and history, so staff get an auditable view of every balance.</p>
+        <p>In September 2026 card processing cost 14.6% of sales on the old processor. It runs about 3% on Square. At that month's volume, that is about $6,900 a month less. Square's measured rate on the institute's card payments from January to November 2026 was 2.98%.</p>
+        <p>Before trusting those figures, I checked the history they rest on. 99 months of processor statements, from August 2018 to October 2026, match Pike13's sales records to within 0.07%.</p>
+        <figure class="diagram-frame">
+            <img src="assets/diagrams/dog-institute-ledger.svg" alt="Payment flow from the customer portal and front desk through Square into one package ledger, which also holds imported Pike13 balances and is updated by bookings and check-ins" width="1100" height="560" loading="lazy" decoding="async">
+            <figcaption>Every sale, booking and check-in writes to the same ledger, so staff and customers see the same balance. Payments that do not match go to staff review.</figcaption>
+        </figure>
+      </section>
+
+      <section id="s-migration">
+        <h2>Migration</h2>
+        <p>Pike13 held nine years of history, from 2017 to 2026. The migration consolidated more than 239,000 source records into 2,180 customer records and carried over their history, packages, balances and visit deductions. When the records could not say for certain who a claim belonged to, the platform sent it to a staff review queue instead of guessing.</p>
+        <p>Pike13 was retired on November 22, 2026. Its imported history stays in the platform as a read-only record.</p>
+        <figure class="diagram-frame">
+            <img src="assets/diagrams/dog-institute-migration.svg" alt="Migration flow from nine years of Pike13 history through identity matching into 2,180 customer records, with ambiguous claims routed to a staff review queue" width="1100" height="560" loading="lazy" decoding="async">
+            <figcaption>Only clear matches link automatically. Staff settle the rest.</figcaption>
+        </figure>
+      </section>
+
+      <section id="s-design-decisions">
+        <h2>Design Decisions</h2>
+        <div class="decision-grid">
+            <div class="decision-card">
+                <h3>Square Takes the Card</h3>
+                <p>Every card payment, online or in person, goes through Square. Card data stays with Square and never enters the platform.</p>
+            </div>
+            <div class="decision-card">
+                <h3>One Ledger for Every Channel</h3>
+                <p>Online purchases, front-desk sales, bookings and staff check-ins all write to the same ledger, so staff and the customer always see the same balance.</p>
+            </div>
+            <div class="decision-card">
+                <h3>Linking Only on a Clear Match</h3>
+                <p>A returning customer's sign-in links to their Pike13 history only when exactly one record matches their verified email. Anything less certain goes to staff, who record who decided and why. Account recovery requires proof that the customer owns the email address.</p>
+            </div>
+            <div class="decision-card">
+                <h3>Reviewed Releases Only</h3>
+                <p>Each database migration is approved by checksum before it applies, so only the reviewed version runs. There were 98 by November 24, 2026. That day the unit suite had 695 tests and none failed.</p>
+            </div>
+        </div>
+      </section>
+
+      <section id="s-current-work">
+        <h2>Current Work</h2>
+        <p>The migration is done. Now I maintain the platform, add features, and make the flows that mix in-person and digital steps more efficient.</p>
+        <p>I am also building a training mobile app for the institute, which is in progress. It walks a new puppy's owner through the institute's house-training routine one step at a time, from potty checks to crate and tether time, and logs each potty trip and training set.</p>
+      </section>
+    </article>
+
+    <aside class="case-sidebar">
+      <section class="evidence-panel">
+          <h2>Role</h2>
+          <ul class="case-tag-list">
+              <li>Technical Product Lead (Contract)</li>
+              <li>August 2026 to present</li>
+          </ul>
+      </section>
+      <section class="evidence-panel">
+          <h2>Stack</h2>
+          <ul class="case-tag-list">
+              <li>PostgreSQL</li>
+              <li>Netlify Functions</li>
+              <li>Square</li>
+              <li>Cloudflare R2</li>
+              <li>Pike13 migration</li>
+              <li>Package-and-visit ledger</li>
+              <li>Staff portal</li>
+              <li>Transactional email queue</li>
+              <li>Scheduled jobs</li>
+              <li>Checksum-approved migrations</li>
+          </ul>
+      </section>
+    </aside>
+  </div>
+
+</main>
+
+<nav class="next-up" id="next" aria-label="Continue">
+  <div class="wrap">
+    <a href="project-justrescues.html">
+      <span class="next-up__label mono">Next project</span>
+      <span class="next-up__title"><strong>Just Rescues Case Study</strong><svg aria-hidden="true"><use href="#i-arrow"/></svg></span>
+    </a>
+  </div>
+</nav>
+
+<footer class="closing" id="contact" aria-labelledby="contact-h">
+  <div class="wrap closing__grid">
+    <div class="closing__main">
+      <h2 id="contact-h">Resume on request.</h2>
+      <div class="closing__side">
+        <p>I tailor it to each role. Tell me which position you are hiring for and I will send the version that fits.</p>
+        <div class="closing__actions">
+          <a class="btn btn--light" href="mailto:alexchg0106@gmail.com?subject=Resume%20request">Email me</a>
+          <ul class="socials socials--light" aria-label="Profiles">
+            <li><a href="https://www.linkedin.com/in/alex-cheung-878632290" target="_blank" rel="noopener" aria-label="LinkedIn"><svg aria-hidden="true"><use href="#i-linkedin"/></svg></a></li>
+            <li><a href="https://github.com/RubiksTwist" target="_blank" rel="noopener" aria-label="GitHub"><svg aria-hidden="true"><use href="#i-github"/></svg></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="closing__foot">
+      <div class="closing__cols">
+        <nav class="closing__links" aria-labelledby="f-work">
+          <p class="mono" id="f-work">Work</p>
+          <a href="project-dog-institute.html" aria-current="page">The Dog Institute</a>
+          <a href="project-justrescues.html">Just Rescues</a>
+          <a href="project-optic.html">OPTIC / OPTICLab</a>
+          <a href="project-healthcode.html">HealthCode</a>
+          <a href="project-threatdle.html">Threatdle</a>
+          <a href="project-reddit-scroll-limiter.html">Reddit Scroll Limiter</a>
+          <a href="project-ehs-intel.html">EHS Intel</a>
+          <a href="project-market-intel.html">SPY GEX + AI Morning Call</a>
+          <a href="project-ai-security-lab.html">AI Security Testing Lab</a>
+        </nav>
+        <nav class="closing__links" aria-labelledby="f-more">
+          <p class="mono" id="f-more">Alex Cheung</p>
+          <a href="about.html">About</a>
+          <a href="https://github.com/RubiksTwist" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.linkedin.com/in/alex-cheung-878632290" target="_blank" rel="noopener">LinkedIn</a>
+        </nav>
+      </div>
+      <p class="closing__legal mono"><span>&copy; 2026 Alex Cheung</span><span>Hosted on Azure Static Web Apps</span></p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

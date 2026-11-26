@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Urbanist:wght@400..600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=4">
+<link rel="stylesheet" href="styles.css?v=5">
 <script type="speculationrules">{"prefetch":[{"where":{"href_matches":"/*.html"},"eagerness":"moderate"}]}</script>
 <script src="app.js?v=2" defer></script>
 </head>
@@ -87,6 +87,7 @@
       <section id="s-solution">
         <h2>Solution</h2>
         <p>Reddit Scroll Limiter injects a content script into modern Reddit, old Reddit, new Reddit, and sh.reddit.com. It watches feed posts in the page, tracks viewed-post and optional time limits, and shows a break UI when the session reaches the configured boundary. The popup exposes the controls a user needs day to day: post limit, break length, reset window, snooze amount, warning threshold, feed allowlist/blocklist rules, and temporary disable options.</p>
+        <p>Each post counts once. The script identifies a post by the ID in its comments permalink, or by a stable element ID where there is no link, and counts it when at least half of it is on screen (IntersectionObserver). A MutationObserver picks up new posts as Reddit loads more of the feed. Session state follows the route, so the home feed, Popular, each subreddit and search are tracked separately, and opening a post's comments never counts toward the limit.</p>
       </section>
 
       <section id="s-architecture">
@@ -129,7 +130,7 @@
 
       <section id="s-release-and-validation">
         <h2>Release And Validation</h2>
-        <p>The repository includes build and validation scripts for the Chrome Web Store package, static syntax checks, UI smoke tests, runtime smoke tests, release readiness checks, and live Reddit testing notes. Version 1.0.0 is published on the Chrome Web Store as a privacy-disclosed extension that does not collect or use user data.</p>
+        <p>The repository includes build and validation scripts for the Chrome Web Store package, static syntax checks, UI smoke tests, runtime smoke tests, release readiness checks, and live Reddit testing notes. The static checks were recorded as passing on June 8, 2026. Version 1.0.1 is published on the Chrome Web Store, last updated June 8, 2026, with a privacy disclosure that it does not collect or use user data.</p>
       </section>
     </article>
 
@@ -145,6 +146,8 @@
               <li>chrome.storage</li>
               <li>Content scripts</li>
               <li>Service worker</li>
+              <li>IntersectionObserver</li>
+              <li>MutationObserver</li>
               <li>Chrome Web Store</li>
           </ul>
       </section>
@@ -192,6 +195,7 @@
       <div class="closing__cols">
         <nav class="closing__links" aria-labelledby="f-work">
           <p class="mono" id="f-work">Work</p>
+          <a href="project-dog-institute.html">The Dog Institute</a>
           <a href="project-justrescues.html">Just Rescues</a>
           <a href="project-optic.html">OPTIC / OPTICLab</a>
           <a href="project-healthcode.html">HealthCode</a>

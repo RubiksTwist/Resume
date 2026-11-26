@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Urbanist:wght@400..600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=4">
+<link rel="stylesheet" href="styles.css?v=5">
 <script type="speculationrules">{"prefetch":[{"where":{"href_matches":"/*.html"},"eagerness":"moderate"}]}</script>
 <script src="app.js?v=2" defer></script>
 </head>
@@ -66,9 +66,17 @@
     <div class="wrap">
       <h2>Product Surface</h2>
       <div class="screenshot-grid">
-          <figure class="screenshot-frame">
-              <img src="assets/projects/threatdle.webp" style="view-transition-name: shot-threatdle" alt="Threatdle browser game" width="1440" height="1000" decoding="async" fetchpriority="high">
-              <figcaption>Live Threatdle gameplay surface captured from the public site.</figcaption>
+          <figure class="screenshot-frame product-screenshot">
+              <img src="assets/projects/threatdle-midgame.webp" style="view-transition-name: shot-threatdle" alt="Threatdle phase 1 in progress, with the hidden actor's clue cards at the top, two wrong guesses below them whose attribute tiles are colored by how close each came, and the remaining answer choices" width="1440" height="1000" decoding="async" fetchpriority="high">
+              <figcaption>An archived puzzle from November 20, 2026, after two wrong guesses. Each miss is compared with the hidden actor on country, first-seen year, targets, motivation, and malware and technique counts.</figcaption>
+          </figure>
+          <figure class="screenshot-frame product-screenshot">
+              <img src="assets/projects/threatdle-report.webp" alt="Threatdle final report titled Threat Profile Revealed, with a count of incorrect deductions and the actor, malware and key technique each linked to its MITRE ATT&amp;CK ID" width="1440" height="1000" loading="lazy" decoding="async">
+              <figcaption>The final report for the same archived day links each answer to its MITRE ATT&amp;CK entry.</figcaption>
+          </figure>
+          <figure class="screenshot-frame product-screenshot">
+              <img src="assets/projects/threatdle-phone.webp" alt="Threatdle at phone width, with the comparison tiles for two wrong guesses stacked in a single column" width="780" height="1688" loading="lazy" decoding="async">
+              <figcaption>The same game on a 390px-wide phone screen.</figcaption>
           </figure>
           <figure class="diagram-frame">
               <img src="assets/diagrams/threatdle-architecture.svg" alt="Threatdle architecture diagram" width="1100" height="560" loading="lazy" decoding="async">
@@ -88,6 +96,7 @@
       <section id="s-solution">
         <h2>Solution</h2>
         <p>The documented workflow ingests MITRE ATT&amp;CK STIX, MISP Galaxy threat-actor data, and curated attack-flow files. A snapshot-keyed SQLite workflow records source materialization, then deterministic puzzle generation creates daily game content with repeat-window controls.</p>
+        <p>Each daily puzzle runs in three phases. The player names the threat actor, then a piece of malware it uses, then a technique it relies on. Every wrong guess is scored against the hidden answer, so each miss narrows the field instead of just ending a turn. The final report links the answers to their MITRE ATT&amp;CK entries, and an archive holds earlier days.</p>
       </section>
 
       <section id="s-request-flow">
@@ -96,6 +105,7 @@
             <img src="assets/diagrams/threatdle-flow.svg" alt="Threatdle request flow diagram" width="1100" height="560" loading="lazy" decoding="async">
             <figcaption>The browser receives clue payloads while validation and answer material stay behind API endpoints.</figcaption>
         </figure>
+        <p>Five Netlify Functions serve the game. They return today's puzzle and the list of playable days, one day's clues, the answer choices for each phase, the result of a guess, and the end-of-day summary.</p>
       </section>
 
       <section id="s-design-decisions">
@@ -123,11 +133,13 @@
       <section id="s-live-behavior">
         <h2>Live Behavior</h2>
         <p>The public site and <code>/api/game/today</code> endpoint expose the current puzzle state. The API returns fields including snapshot identity, timezone, server day key, current day key, latest day, and available game days.</p>
+        <p>The server picks the day in New York time and offers only days up to that date. Changing a device's clock does not unlock tomorrow's puzzle.</p>
       </section>
 
       <section id="s-gameplay-boundary">
         <h2>Gameplay Boundary</h2>
         <p>The public site exposes a focused daily game loop: load the active day, review clue material, make a guess, and let the API validate the answer while keeping solution material out of the static client.</p>
+        <p>The answers live in a private runtime bundle. The deploy downloads a prebuilt copy, optionally checked against a SHA-256 hash, or builds one from source, and ships it with the functions, outside the public folder the browser can read. A portfolio review recorded 24 targeted local tests passing.</p>
       </section>
     </article>
 
@@ -176,6 +188,7 @@
       <div class="closing__cols">
         <nav class="closing__links" aria-labelledby="f-work">
           <p class="mono" id="f-work">Work</p>
+          <a href="project-dog-institute.html">The Dog Institute</a>
           <a href="project-justrescues.html">Just Rescues</a>
           <a href="project-optic.html">OPTIC / OPTICLab</a>
           <a href="project-healthcode.html">HealthCode</a>

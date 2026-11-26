@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Urbanist:wght@400..600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=4">
+<link rel="stylesheet" href="styles.css?v=5">
 <script type="speculationrules">{"prefetch":[{"where":{"href_matches":"/*.html"},"eagerness":"moderate"}]}</script>
 <script src="app.js?v=2" defer></script>
 </head>
@@ -33,7 +33,7 @@
 <a class="skip-link" href="#main">Skip to content</a>
 
 <nav class="rail rail--long" aria-label="Sections on this page">
-  <ol class="rail__list" style="--n:10; --skip:1">
+  <ol class="rail__list" style="--n:11; --skip:1">
     <li><a class="rail__out" href="index.html#work"><svg class="rail__arrow" aria-hidden="true"><use href="#i-arrow"/></svg><span class="rail__label">Work</span></a></li>
     <li><a href="#top"><span class="rail__label">Intro</span></a></li>
     <li><a href="#s-problem"><span class="rail__label">Problem</span></a></li>
@@ -41,6 +41,7 @@
     <li><a href="#s-data-flow"><span class="rail__label">Data Flow</span></a></li>
     <li><a href="#s-design-decisions"><span class="rail__label">Design Decisions</span></a></li>
     <li><a href="#s-current-public-release"><span class="rail__label">Current Public Release</span></a></li>
+    <li><a href="#s-published-analysis"><span class="rail__label">Published Analysis</span></a></li>
     <li><a href="#s-measuring-extraction-quality"><span class="rail__label">Measuring Extraction Quality</span></a></li>
     <li><a href="#s-analyst-tools-over-mcp"><span class="rail__label">Analyst Tools Over MCP</span></a></li>
     <li><a href="#next"><span class="rail__label">Next</span></a></li>
@@ -66,9 +67,17 @@
     <div class="wrap">
       <h2>Product Surface</h2>
       <div class="screenshot-grid">
-          <figure class="screenshot-frame">
+          <figure class="screenshot-frame product-screenshot">
               <img src="assets/projects/optic.webp" style="view-transition-name: shot-optic" alt="OPTICLab public release page with corpus metrics" width="1440" height="1000" decoding="async" fetchpriority="high">
               <figcaption>OPTICLab public release surface with corpus metrics and downloadable snapshot context.</figcaption>
+          </figure>
+          <figure class="screenshot-frame product-screenshot">
+              <img src="assets/projects/optic-metrics.webp" alt="OPTICLab metrics section titled What you can trust and work with, showing 99.1% of findings with source quotes, 79.3% directly stated, 66.3% of reports with named threat actors, 71.4% with sector targeting, 15,617 searchable IOCs and 2,607 connected relationships" width="1440" height="1000" loading="lazy" decoding="async">
+              <figcaption>The release's metrics section. Each figure says what it lets an analyst trust and how many findings still need review.</figcaption>
+          </figure>
+          <figure class="screenshot-frame product-screenshot">
+              <img src="assets/projects/optic-unc3886-report.webp" alt="OPTICLab UNC3886 threat model page with tags for Juniper, Fortinet and VMware, an executive summary in four cards, and counts of 13 source files, 122 direct relationships, 6 direct CVEs, 19 tools and 4 of 6 targeted products" width="1440" height="1000" loading="lazy" decoding="async">
+              <figcaption>The UNC3886 threat model, one of five reports published on the release.</figcaption>
           </figure>
           <figure class="diagram-frame">
               <img src="assets/diagrams/optic-architecture.svg" alt="OPTIC architecture diagram" width="1100" height="560" loading="lazy" decoding="async">
@@ -123,17 +132,28 @@
       <section id="s-current-public-release">
         <h2>Current Public Release</h2>
         <p>The release on opticlab.net covers 1,078 articles from 4 data sources, 981 of them with current extractions. Those articles yield 40,476 findings. 40,122 of them (99.1%) keep a source quote, and 32,081 come from language the report states directly. The release also holds 15,617 searchable IOCs and 2,607 connected relationships.</p>
+        <p>The release is a snapshot dated March 28, 2026. The working corpus has kept growing since then. By November 24, 2026 it held 1,956 articles from six vendors: Google/Mandiant, Unit 42, Microsoft, Cisco Talos, Sophos, and CrowdStrike.</p>
+      </section>
+
+      <section id="s-published-analysis">
+        <h2>Published Analysis</h2>
+        <p>Most readers will never query a database, so the release also publishes long-form reports written from the corpus. Five are live. Two are threat models for UNC3886 and UNC6201, groups the source reporting links to China. The others cover the Canvas extortion case, Pakistan-linked operations from 2019 to 2025, and Iran-linked operations from 2017 to 2025. Each report links its source articles. The threat models mark which findings the sources state directly, which are modeled, and which are left out.</p>
       </section>
 
       <section id="s-measuring-extraction-quality">
         <h2>Measuring Extraction Quality</h2>
         <p>An audit against the source articles measured precision by data type. It ranged from 98% for ATT&amp;CK IDs copied from report tables down to 37% for techniques the model inferred, so model-extracted data is now gated on what each article actually supports.</p>
         <p>A reviewed 36-article answer key compares extraction models before the corpus is re-extracted. The best configuration scored 91.7 article-level F1, averaged over two runs. A cheaper model scored 88.4 at roughly one-ninth the cost. Identical runs vary by 2 to 4 points, so smaller gaps are treated as noise.</p>
+        <p>The fairer test is the 24 articles that played no part in tuning. There the two configurations scored about 89 and 87.5. The older extraction now stored in the database scored 72.5 on the 12 tuning articles. The new configurations score higher on those same 12, but they were tuned on them, so that comparison overstates the gain.</p>
       </section>
 
       <section id="s-analyst-tools-over-mcp">
         <h2>Analyst Tools Over MCP</h2>
-        <p>A read-only MCP server exposes five tools over stdio: <code>actor_brief</code>, <code>who_uses</code>, <code>whats_new</code>, <code>claim_evidence</code>, and <code>report_counts</code>. Every answer cites vendor, date, and URL, and the tools keep quoted relationships separate from weaker same-report mentions. Cross-vendor identity clusters let one APT29 brief condense 41 reports (about 215,000 tokens) into about 1,150 tokens. The server runs locally against the corpus and is not part of the public release. The repository passes 703 automated tests.</p>
+        <p>A read-only MCP server exposes five tools over stdio: <code>actor_brief</code>, <code>who_uses</code>, <code>whats_new</code>, <code>claim_evidence</code>, and <code>report_counts</code>. Every answer cites vendor, date, and URL, and the tools keep quoted relationships separate from weaker same-report mentions. Cross-vendor identity clusters merge each vendor's name for the same group. When measured, one APT29 brief condensed 41 reports (about 215,000 tokens) into about 1,150 tokens. The server runs locally against the corpus and is not part of the public release. The repository passes 703 automated tests.</p>
+        <figure class="screenshot-frame product-screenshot">
+            <img src="assets/projects/optic-actor-brief.webp" alt="OPTIC actor_brief answer for APT29 listing the group's names at each vendor, report coverage by vendor, attribution with a source quote and link from each of four vendors, tools and malware, targeted sectors and countries, identity notes, and the latest reports" width="1280" height="949" loading="lazy" decoding="async">
+            <figcaption>An actor_brief answer the local MCP server returned on 2026-11-25, rendered for this page. It drew on 47 reports from 4 vendors and quotes each vendor's attribution.</figcaption>
+        </figure>
       </section>
     </article>
 
@@ -183,6 +203,7 @@
       <div class="closing__cols">
         <nav class="closing__links" aria-labelledby="f-work">
           <p class="mono" id="f-work">Work</p>
+          <a href="project-dog-institute.html">The Dog Institute</a>
           <a href="project-justrescues.html">Just Rescues</a>
           <a href="project-optic.html" aria-current="page">OPTIC / OPTICLab</a>
           <a href="project-healthcode.html">HealthCode</a>

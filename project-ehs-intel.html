@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>EHS Intel Platform Case Study - Alex Cheung</title>
-<meta name="description" content="An environmental, health, and safety intelligence platform grounding company risk briefs in agency datasets, retrieval tools, and streaming AI.">
+<meta name="description" content="A research tool that turns federal OSHA, EPA and other agency records into sourced facility briefs, served to AI clients as read-only MCP tools.">
 <meta name="author" content="Alex Cheung">
 <meta name="theme-color" content="#dfdedb">
 <link rel="canonical" href="https://www.alexcheung.info/project-ehs-intel.html">
 <meta property="og:type" content="article">
 <meta property="og:title" content="EHS Intel Platform Case Study - Alex Cheung">
-<meta property="og:description" content="A compliance intelligence platform grounded in agency data, retrieval tools, and streaming AI.">
+<meta property="og:description" content="Federal OSHA and EPA records turned into sourced facility briefs, served as read-only MCP tools.">
 <meta property="og:url" content="https://www.alexcheung.info/project-ehs-intel.html">
 <meta property="og:image" content="https://www.alexcheung.info/assets/projects/ehs-intel-social.png">
 <meta property="og:image:alt" content="EHS Intel platform architecture preview">
@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Urbanist:wght@400..600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=4">
+<link rel="stylesheet" href="styles.css?v=5">
 <script type="speculationrules">{"prefetch":[{"where":{"href_matches":"/*.html"},"eagerness":"moderate"}]}</script>
 <script src="app.js?v=2" defer></script>
 </head>
@@ -33,15 +33,17 @@
 <a class="skip-link" href="#main">Skip to content</a>
 
 <nav class="rail rail--long" aria-label="Sections on this page">
-  <ol class="rail__list" style="--n:9; --skip:1">
+  <ol class="rail__list" style="--n:11; --skip:1">
     <li><a class="rail__out" href="index.html#work"><svg class="rail__arrow" aria-hidden="true"><use href="#i-arrow"/></svg><span class="rail__label">Work</span></a></li>
     <li><a href="#top"><span class="rail__label">Intro</span></a></li>
     <li><a href="#s-problem"><span class="rail__label">Problem</span></a></li>
     <li><a href="#s-solution"><span class="rail__label">Solution</span></a></li>
     <li><a href="#s-retrieval-flow"><span class="rail__label">Retrieval Flow</span></a></li>
+    <li><a href="#s-what-a-brief-shows"><span class="rail__label">What A Brief Shows</span></a></li>
     <li><a href="#s-design-decisions"><span class="rail__label">Design Decisions</span></a></li>
     <li><a href="#s-operations-and-reliability"><span class="rail__label">Operations And Reliability</span></a></li>
     <li><a href="#s-running-as-an-mcp-server"><span class="rail__label">Running As An MCP Server</span></a></li>
+    <li><a href="#s-measured-against-web-search"><span class="rail__label">Measured Against Web Search</span></a></li>
     <li><a href="#next"><span class="rail__label">Next</span></a></li>
   </ol>
 </nav>
@@ -53,7 +55,7 @@
       <a class="btn btn--outline back" href="index.html#work"><svg aria-hidden="true"><use href="#i-arrow"/></svg>Back to work</a>
       <p class="eyebrow">Compliance intelligence stack</p>
       <h1>EHS Intel Platform</h1>
-      <p class="case-hero__lead">DB-first environmental, health, and safety intelligence that connects public agency data to retrieval tools and a streaming AI interface.</p>
+      <p class="case-hero__lead">A research tool that pulls a plant's federal safety and environmental record into one sourced brief, and says plainly which parts it could not check.</p>
     </div>
   </header>
 
@@ -61,13 +63,13 @@
     <div class="wrap">
       <h2>Product Surface</h2>
       <div class="screenshot-grid">
-          <figure class="screenshot-frame">
-              <img src="assets/projects/ehs-intel.svg" style="view-transition-name: shot-ehs" alt="EHS Intel platform product preview" width="1200" height="760" decoding="async" fetchpriority="high">
-              <figcaption>Static project preview for the compliance intelligence interface.</figcaption>
+          <figure class="screenshot-frame product-screenshot">
+              <img src="assets/projects/ehs-intel-brief.webp" style="view-transition-name: shot-ehs" alt="EHS Intel brief for United States Steel's Fairless Hills, Pennsylvania site, showing the tool call, coverage by section, data dates, a risk flag and an OSHA inspection table" width="1440" height="1000" decoding="async" fetchpriority="high">
+              <figcaption>A brief the MCP server returned on 2026-11-25 for U.S. Steel's Fairless Hills, PA site, rendered for this page. The call, coverage and data dates come from the same response.</figcaption>
           </figure>
           <figure class="diagram-frame">
-              <img src="assets/diagrams/ehs-architecture.svg" alt="EHS Intel architecture diagram" width="1100" height="560" loading="lazy" decoding="async">
-              <figcaption>Agency datasets, PostgreSQL, MCP/FastAPI tools, and streaming Next.js AI interface.</figcaption>
+              <img src="assets/diagrams/ehs-intel-architecture.svg" alt="EHS Intel architecture diagram showing agency data, a nightly pipeline, PostgreSQL, the MCP server and an AI client, with the retired web interface noted" width="1100" height="560" loading="lazy" decoding="async">
+              <figcaption>Agency files load nightly into PostgreSQL. A read-only MCP server answers AI clients over a private network.</figcaption>
           </figure>
       </div>
     </div>
@@ -77,12 +79,12 @@
     <article class="case-main">
       <section id="s-problem">
         <h2>Problem</h2>
-        <p>EHS research often requires stitching together OSHA, EPA, ITA, TRI, MSHA, Superfund, and other public records before a company or facility risk picture becomes usable. A plain chatbot is not enough because compliance answers need source-backed retrieval and careful claim boundaries.</p>
+        <p>Before a deal, an insurance policy or a supplier contract, someone has to check a plant's safety and environmental record. That record is spread across OSHA, EPA, MSHA and other federal databases, each with its own IDs and name spellings. A chatbot with web search does not solve it. OSHA's own inspection pages block automated readers, so the chatbot falls back on press releases and guesses. Compliance answers need the record itself, plus an honest note where the record stops.</p>
       </section>
 
       <section id="s-solution">
         <h2>Solution</h2>
-        <p>The documented architecture is a PostgreSQL-centered intelligence platform with ingestion and sync scripts, normalized entity records, indexed query paths, source-fidelity fields, an MCP/FastAPI tool server, and a Next.js interface that streams model responses backed by resolve and brief endpoints.</p>
+        <p>EHS Intel loads federal bulk data into PostgreSQL every night. That covers OSHA inspections, citations and severe injury reports, OSHA injury logs (ITA), MSHA mine records, EPA ECHO compliance, the EPA facility registry, toxic release reports (TRI), chemical risk plans (RMP) and Superfund. A read-only MCP server answers from that database with four tools. One matches a company name to its sites. One writes the brief for a site. One ranks the sites in a state or industry by a measure such as serious citations, and one lists every site a company runs. Matching and brief writing stay separate, so the match can be checked before anyone draws a conclusion.</p>
       </section>
 
       <section id="s-retrieval-flow">
@@ -90,6 +92,15 @@
         <figure class="diagram-frame">
             <img src="assets/diagrams/ehs-flow.svg" alt="EHS Intel retrieval flow diagram" width="1100" height="560" loading="lazy" decoding="async">
             <figcaption>Company queries resolve entities first, retrieve supporting agency records, then synthesize guarded brief output.</figcaption>
+        </figure>
+      </section>
+
+      <section id="s-what-a-brief-shows">
+        <h2>What A Brief Shows</h2>
+        <p>Each section of a brief reports one of three states. It was checked, it was not checked (with a reason), or it failed. A failed or skipped section is never shown as a clean record. Each source also carries the date it was last loaded, so a reader knows how current the answer is. In the example below, TRI and MSHA were skipped because the site has no TRI filings and is not a mine.</p>
+        <figure class="screenshot-frame product-screenshot">
+            <img src="assets/projects/ehs-intel-brief-coverage.webp" alt="Lower part of the same EHS Intel brief, with the coverage list beside the EPA compliance, chemical risk plan and Superfund sections" width="1440" height="1000" loading="lazy" decoding="async">
+            <figcaption>The same brief further down. The Superfund section carries the brief's own warning that the link rests on a name match.</figcaption>
         </figure>
       </section>
 
@@ -109,20 +120,25 @@
                 <p>Raw-row style fields and provenance details preserve the path back to source agency records.</p>
             </div>
             <div class="decision-card">
-                <h3>Guarded Synthesis</h3>
-                <p>Prompt constraints are designed to avoid invented violations, unsupported red flags, or regulatory claims beyond retrieved records.</p>
+                <h3>Rules Travel With The Tools</h3>
+                <p>The server's instructions and tool descriptions tell any client model how to report gaps and red flags. Unabated citations get fixed wording that a model may not soften.</p>
             </div>
         </div>
       </section>
 
       <section id="s-operations-and-reliability">
         <h2>Operations And Reliability</h2>
-        <p>The documented local workflow starts PostgreSQL in Docker, runs ingestion and migration paths, launches the MCP/FastAPI HTTP server, and serves a Next.js/React/TypeScript frontend. The web route coordinates streaming tool calls against retrieval endpoints rather than relying on free-form model context alone.</p>
+        <p>A timer starts the ingestion pipeline at 03:00 Eastern on a home server. Downloads are capped at 3 MB/s so they share the network politely. Each table loads into a staging copy and swaps in within one short transaction, so a reader never sees a half-loaded table, and every run is written to a ledger. The first full run, on a copy of the database, pulled 5.1 GB of OSHA and EPA registry files and finished in 74 minutes. When briefs slowed to 7.6 to 12.4 seconds after go-live, a query trace showed the name search could not use its index. The fix brought warm briefs back to about 1.2 to 1.4 seconds.</p>
       </section>
 
       <section id="s-running-as-an-mcp-server">
         <h2>Running As An MCP Server</h2>
-        <p>The MCP server now runs on a private remote host, and Claude clients connect to it as a tool. By default it exposes two tools. One resolves a company name and state to OSHA establishments and EPA facilities, and the other generates the brief, which also accepts an OSHA activity number or EPA registry ID directly. Each brief section reports whether it was checked, not checked (with a reason), or failed, so a data gap is never presented as a clean record. The repository passes 137 tests.</p>
+        <p>An earlier version had its own Next.js chat interface that streamed tool calls. On 2026-11-24 it was archived, along with the FastAPI endpoints and the server's own model calls. A brief is read inside an AI client anyway, so the tools now plug into that client directly. The change also cut a brief from about 90 KB to between 9 and 17 KB, which leaves the client model room to read all of it. The server runs for personal use on a private tailnet with no public address, and Claude Code and Codex connect to it. On 2026-11-25 the merged code passed 556 server tests and 25 database tests.</p>
+      </section>
+
+      <section id="s-measured-against-web-search">
+        <h2>Measured Against Web Search</h2>
+        <p>To learn whether the tool was worth calling, it was tested on 17 realistic questions, such as an underwriter checking a meat plant or a job seeker checking a store chain. Each answer was compared with what a capable model found with web search alone. In the first round web search won 13 of the 17. The audit traced the losses to specific faults. In one, the brief read citation severity from a column that was empty in almost every row, so willful and repeat red flags never fired. After two rounds of fixes, a strict rescoring by an independent model run gave EHS Intel 9 wins to web search's 6, with one tie and one question neither answered well. Web search still wins on events after the data was loaded, such as new citations and lawsuits. The brief tool now invites the client model to search for those and label them as outside the federal record.</p>
       </section>
     </article>
 
@@ -134,11 +150,10 @@
               <li>Docker</li>
               <li>Python</li>
               <li>SQLAlchemy</li>
-              <li>FastAPI</li>
+              <li>Alembic</li>
               <li>MCP</li>
-              <li>Next.js</li>
-              <li>React</li>
-              <li>TypeScript</li>
+              <li>systemd</li>
+              <li>Tailscale</li>
           </ul>
       </section>
     </aside>
@@ -174,6 +189,7 @@
       <div class="closing__cols">
         <nav class="closing__links" aria-labelledby="f-work">
           <p class="mono" id="f-work">Work</p>
+          <a href="project-dog-institute.html">The Dog Institute</a>
           <a href="project-justrescues.html">Just Rescues</a>
           <a href="project-optic.html">OPTIC / OPTICLab</a>
           <a href="project-healthcode.html">HealthCode</a>
